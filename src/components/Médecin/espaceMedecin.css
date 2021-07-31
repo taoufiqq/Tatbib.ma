@@ -1,0 +1,121 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.logo1{
+    width: 50%;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    /* height: 17vh;
+    background-color: #2CA5B8; */
+}
+.buttons{
+    margin-top: 2%;
+    margin-right: 7%;
+    display: flex;
+    justify-content: space-between;
+  
+    
+}
+.btn_Espace_Professionnels{
+    color: white;
+    background-color: #91BC51;
+    height: 35px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2;
+
+}
+.btn_Espace_Patients{
+    color: white;
+    background-color: #1371BB;
+    height: 35px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 2%;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2;
+    
+}
+.btn_Espace_Patients:hover{
+    background-color: #1AA9E9;
+    color:white ;
+}
+.btn_Espace_Professionnels:hover{
+    background-color: #BFE987;
+    color:white ;
+
+}
+.EspacePatient{
+    background-color: #F6F6F6;
+    margin-top: 5em;
+    height: 60vh;
+    width: 48%;
+    margin-left: 31em;
+    border-radius: 15px;
+}
+.Medicine{
+    width: 48%;
+    margin-left: 14rem;
+    margin-top: -3em;
+}
+h5{
+    text-align: center;
+    color: #2CA5B8;
+    font-family: Segoe UI;
+    font-weight: bold;
+}
+.EspaceProfessionnelButton{
+    background-color: #2CA5B8;
+    color: white;
+    border-radius: 18px;
+    border: none;
+    height: 36px;
+    width: 70%;
+    margin-left: 15%;
+    font-family: Segoe UI;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    margin-top: 2%;
+}
+.EspaceProfessionnelButton1{
+    background-color: #2CA5B8;
+    color: white;
+    border-radius: 18px;
+    border: none;
+    height: 36px;
+    width: 40%;
+    margin-left: 7%;
+    font-family: Segoe UI;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+  
+}
+.EspaceProfessionnelButton1:hover{
+    background-color:   #058DA2;
+}
+.EspaceProfessionnelButton:hover{
+    background-color:   #058DA2;
+}
+.btn{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1%;
+
+
+}
