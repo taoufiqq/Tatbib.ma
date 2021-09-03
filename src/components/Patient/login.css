@@ -24,31 +24,24 @@
 .btn_Espace_Professionnels{
     color: white;
     background-color: #91BC51;
-    height: 35px;
-    width: 200px;
-    border: none;
-    border-radius: 5px;
+    border-radius: 3px;
+    padding: 10px 0;
+    width: 100%;
+    font-weight: 500;
     cursor: pointer;
-    font-weight: bold;
     text-align: center;
     text-decoration: none;
-    line-height: 2;
-
 }
 .btn_Espace_Patients{
     color: white;
     background-color: #1371BB;
-    height: 35px;
-    width: 150px;
-    border: none;
     border-radius: 5px;
+    padding: 10px 0;
+    width: 100%;
+    font-weight: 500;
     cursor: pointer;
-    font-weight: bold;
-    margin-left: 2%;
     text-align: center;
     text-decoration: none;
-    line-height: 2;
-    
 }
 .btn_Espace_Patients:hover{
     background-color: #1AA9E9;
