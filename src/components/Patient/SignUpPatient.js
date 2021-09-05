@@ -3,7 +3,7 @@ import { Link,useHistory } from 'react-router-dom';
 import logo from '../images/logo.png'
 import login from '../images/login.svg'
 import './login.css'
-export default function LoginPatient() {
+export default function SignUpPatient() {
     return (
 
         <section className="header-page">
@@ -29,25 +29,39 @@ export default function LoginPatient() {
                     </div>
                 </div>
            <div className="card EspacePatient">
-          <div className="row">
-          <div class="col-12 col-md-12 col-lg-6 ">
-           <form class="row" novalidate>
-           <label class="form-label">Se Connecter</label>
-             <div className="fromlogin">
-            
-                 <input  type="text" placeholder="Email" class="form-control" id="validationCustom01" required/>
-       
-                 <input type="text" placeholder="Password" class="form-control " id="validationCustom02"  required/>
-             
-    
-                 <input type="submit"  class="form-control mt-5 btnConnect" id="validationCustom02" value="Se Connecter"/>
-                 <Link to="/signUpPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth" id="validationCustom02" value="Creé un compte "/></Link>
+          <div className="row ">
+          <div>
+           <form class="row">
+           <label class="form-label">Sign Up</label>
+             <div className="fromloginSignUp">
+             <div className="row ">
+             <div class="col-md-6">
+                 <input  type="text" placeholder="Nom" class="form-control" id="nom" required/>
+             </div>
+            <div class="col-md-6">
+                 <input  type="text" placeholder="Prénom" class="form-control" id="prenom" required/>
+            </div>
+            </div>
+            <div className="row ">
+            <div class="col-md-6">
+                 <input  type="text" placeholder="Age" class="form-control" id="age"  required/>
+             </div>
+             <div class="col-md-6">
+                 <input  type="email" placeholder="Télephone" class="form-control" id="tel"  required/>
+            </div>
+            </div>
+            <div className="row ">
+             <div class="col-md-6">
+                 <input  type="text" placeholder="Email" class="form-control" id="email"  required/>
+            </div>
+             <div class="col-md-6">
+                 <input type="password" placeholder="Password" class="form-control " id="password"  required/>
+             </div>
+             </div>
+                 <input type="submit"  class="form-control mt-5 btnConnect" id="signup" value="Se Connecter"/>
          
              </div>
            </form>
-           </div>
-           <div class="col-12 col-md-12 col-lg-6 ">
-              <img src={login} className="imgLogin"/>
            </div>
            </div>
            </div>

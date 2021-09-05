@@ -5,21 +5,37 @@ import patient from '../images/patient.png'
 import './login.css'
 export default function EspacePatient() {
     return (
-    <div className="container-fluid">
-             <div className="header">
-                 <Link to="/"> <img src={logo} className="logo1" alt=""/></Link>
-              <div className="buttons">
-                  <Link to="/espaceMédecin" className="btn_Espace_Professionnels"><i class="fas fa-user-md"></i> Espace Professionnels</Link>
-                  <Link to="/espacePatient" className="btn_Espace_Patients"><i class="fas fa-user-injured"></i> Espace Patients</Link>
-              </div>
-           </div>
-           <div className="EspacePatient">
+        <div className="container-fluid px-0" style={{overflow: 'auto'}}>
+        <section className="header-page">
+            <div className="container">
+                  <div className="row justify-content-between py-3 align-items-center">
+                    <div className="col-12 col-sm-3 col-lg-4 d-flex justify-content-center justify-content-lg-start py-2 py-lg-0">
+                     <Link to="/"><img src={logo} width="100px"/></Link>
+                      
+                    </div>
+                    <div className="col-12 col-sm-9 col-lg-6 col-xl-4">
+                        <div className="row justify-content-center">
+                            <div className="col-6 col-md-4 col-lg-5 col-xl-6 d-flex justify-content-end">
+                                <Link className="btn_Espace_Professionnels" to="/espaceMédecin">
+                                    <i className="fas fa-user-injured"></i> Espace Professionnels
+                                </Link>
+                            </div>
+                            <div className="col-6 col-md-4 col-lg-5 d-flex justify-content-center">
+                                <Link className="btn_Espace_Patients" to="/espacePatient">
+                                    <i className="fas fa-user-injured"></i> Espace Patients
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           <div className="card EspacePatient">
              <img src={patient} className="patient"/>
              <h5>Espace Patients</h5>
              <Link to="/loginPatient" type="submit" className="EspacePatientButton">Accéder à l'espace Patients</Link>
            </div>
          
-
+           </div>
+           </section>
     </div>
     )
 }

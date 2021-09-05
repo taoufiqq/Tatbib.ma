@@ -21,27 +21,21 @@
   
     
 }
-.btn_Espace_Professionnels{
+.btn_Espace_Professionnels,.btn_Espace_Patients{
     color: white;
     background-color: #91BC51;
-    border-radius: 3px;
+    border-radius: 50px;
     padding: 10px 0;
     width: 100%;
     font-weight: 500;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
+    height: 100%;
+    line-height: 1;
 }
 .btn_Espace_Patients{
-    color: white;
     background-color: #1371BB;
-    border-radius: 5px;
-    padding: 10px 0;
-    width: 100%;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
 }
 .btn_Espace_Patients:hover{
     background-color: #1AA9E9;
@@ -52,17 +46,17 @@
     color:white ;
 
 }
-.EspacePatient{
+.EspaceMedicine{
     background-color: #F6F6F6;
-    margin-top: 5em;
-    height: 60vh;
-    width: 48%;
-    margin-left: 31em;
+    margin-top: 7em;
+    padding-top: 3%;
+    height: 57vh;
+    /* margin-left: 13em; */
     border-radius: 15px;
 }
 .Medicine{
-    width: 48%;
-    margin-left: 14rem;
+    width: 27%;
+    margin-left: 29rem;
     margin-top: -3em;
 }
 h5{
@@ -71,16 +65,13 @@ h5{
     font-family: Segoe UI;
     font-weight: bold;
 }
-.EspaceProfessionnelButton{
-    background-color: #2CA5B8;
-    color: white;
+.EspaceProfessionnel{
+    color: #2CA5B8;
     border-radius: 18px;
     border: none;
     height: 36px;
-    width: 70%;
-    margin-left: 15%;
+    text-align: center;
     font-family: Segoe UI;
-    cursor: pointer;
     outline: none;
     font-weight: bold;
     margin-top: 2%;
@@ -112,3 +103,11 @@ h5{
 
 
 }
+@media  screen and (max-width: 950px) {
+    .patient,#health,.Medicine {
+      display: none;
+    }
+    h5{
+        padding-top: 35%;
+    }
+  }

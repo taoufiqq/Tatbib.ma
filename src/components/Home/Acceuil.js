@@ -31,7 +31,7 @@ export default function Acceuil() {
                     <div class="col-12 col-sm-9 col-lg-6 col-xl-4">
                         <div class="row justify-content-center">
                             <div class="col-6 col-md-4 col-lg-5 col-xl-6 d-flex justify-content-end">
-                                <Link class="btn_Espace_Professionnels" to="/espacePatient">
+                                <Link class="btn_Espace_Professionnels" to="/espaceMédecin">
                                     <i class="fas fa-user-injured"></i> Espace Professionnels
                                 </Link>
                             </div>
@@ -78,7 +78,7 @@ export default function Acceuil() {
                         </form>
                     </div>
                     <div className="col-12 col-md-6 col-lg-6 ">
-                        <img className="health-img" src={health} className="rounded" />
+                        <img id="health" className="health-img" src={health} className="rounded" />
                     </div>
                 </div>
             </div>
@@ -130,13 +130,13 @@ export default function Acceuil() {
         
         <div className="container">
             <div className="row align-items-center">
-                <div className="col-12 col-md-6 col-lg-6">
+                <div className="col-12 col-md-7 col-lg-6">
                     <h1 className="py-2">Ensemble, protégeons-nous pour limiter la propagation du Coronavirus « COVID-19 »</h1>
                     <p className="fs-4">Téléchargez Wiqaytna et contribuez à contrer la propagation du virus.</p>
                     <button type="submit" className="btn btn-primary py-3 px-4 fs-5" style={{background: '#1AA9E9', border: 'none'}}>Plus D'information</button>
                 </div>
-                <div className="col-12 col-md-6 col-lg-6 ">
-                    <img  src={wiqaytna} alt="" width="100%"/>
+                <div className="col-12 col-md-5 col-lg-6">
+                    <img  src={wiqaytna} alt="" width="70%"/>
                 </div>
             </div> 
         </div>

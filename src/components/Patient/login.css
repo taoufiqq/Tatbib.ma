@@ -1,96 +1,100 @@
-*{
-    margin: 0%;
-    padding: 0%;
+* {
+  margin: 0%;
+  padding: 0%;
 }
-.logo1{
-    width: 50%;
-    margin-left: 5%;
-    margin-top: 1%;
+.header-page {
+  background-image: url("../images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right top;
+  height: 100vh;
 }
-.header{
-    display: flex;
-    justify-content: space-between;
-    /* height: 17vh;
+.logo1 {
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 1%;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  /* height: 17vh;
     background-color: #2CA5B8; */
 }
-.buttons{
-    margin-top: 2%;
-    margin-right: 7%;
-    display: flex;
-    justify-content: space-between;
-  
-    
+.buttons {
+  margin-top: 2%;
+  margin-right: 7%;
+  display: flex;
+  justify-content: space-between;
 }
-.btn_Espace_Professionnels{
-    color: white;
-    background-color: #91BC51;
-    border-radius: 3px;
-    padding: 10px 0;
-    width: 100%;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
+.btn_Espace_Professionnels {
+  color: white;
+  background-color: #91bc51;
+  border-radius: 3px;
+  padding: 10px 0;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
-.btn_Espace_Patients{
-    color: white;
-    background-color: #1371BB;
-    border-radius: 5px;
-    padding: 10px 0;
-    width: 100%;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
+.btn_Espace_Patients {
+  color: white;
+  background-color: #1371bb;
+  border-radius: 5px;
+  padding: 10px 0;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
-.btn_Espace_Patients:hover{
-    background-color: #1AA9E9;
-    color:white ;
+.btn_Espace_Patients:hover {
+  background-color: #1aa9e9;
+  color: white;
 }
-.btn_Espace_Professionnels:hover{
-    background-color: #BFE987;
-    color:white ;
-
+.btn_Espace_Professionnels:hover {
+  background-color: #bfe987;
+  color: white;
 }
-.EspacePatient{
-    background-color: #F6F6F6;
-    margin-top: 5em;
-    height: 60vh;
-    width: 48%;
-    margin-left: 32em;
-    border-radius: 15px;
+.EspacePatient {
+  background-color: #f6f6f6;
+  margin-top: 7em;
+  padding-top: 3%;
+  height: 57vh;
+  /* margin-left: 13em; */
+  border-radius: 15px;
 }
-.patient{
-    width: 50%;
-    margin-left: 15rem;
+.patient {
+  width: 30%;
+  margin-left: 29rem;
 }
-h5{
-    text-align: center;
-    color: #2CA5B8;
-    font-family: Segoe UI;
-    font-weight: bold;
+h5 {
+  text-align: center;
+  color: #2ca5b8;
+  font-family: Segoe UI;
+  font-weight: bold;
 }
-.EspacePatientButton{
-    background-color: #2CA5B8;
-    color: white;
-    border-radius: 18px;
-    border: none;
-    height: 36px;
-    width: 70%;
-    margin-left: 15%;
-    text-align: center;
-    text-decoration: none;
-    font-family: Segoe UI;
-    cursor: pointer;
-    outline: none;
-    font-weight: bold;
-    line-height: 2;
+.EspacePatientButton {
+  background-color: #2ca5b8;
+  color: white;
+  border-radius: 18px;
+  border: none;
+  height: 36px;
+  width: 30%;
+  margin-left: 35%;
+  text-align: center;
+  text-decoration: none;
+  font-family: Segoe UI;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  line-height: 2;
 }
-.EspacePatientButton:hover{
-    background-color:   #058DA2;
-    color: white;
+.EspacePatientButton:hover {
+  background-color: #058da2;
+  color: white;
 }
-.Login{
+/* .Login{
  
     margin-left: 60%;
     margin-top: -34%;
@@ -124,4 +128,63 @@ h5{
     height: 40px;
     color: #20C997;
     font-weight: 700;
+} */
+
+.form-label {
+  margin-left: 10%;
+  font-size: 25px;
+  font-weight: 700;
+  color: #2ca5b8;
+}
+.form-control {
+  border-radius: 22px;
+  margin-bottom: 4%;
+  margin-left: 17%;
+  color: #afafaf;
+  margin-top: 4%;
+  width: 70%;
+  text-align: center;
+}
+.btnConnect {
+  background: #20c997;
+  color: white;
+  font-weight: 600;
+  margin-left: 32%;
+  width: 40%;
+}
+.btnAuth {
+  color: #20c997;
+  font-weight: 600;
+  margin-left: 32%;
+  width: 40%;
+}
+.fromlogin {
+  margin-top: 6%;
+}
+.imgLogin {
+  width: 75%;
+  margin-left: 15%;
+}
+
+@media screen and (max-width: 990px) {
+  .patient,
+  .imgLogin {
+    display: none;
+  }
+  .EspacePatientButton {
+    width: 60%;
+    margin-left: 20%;
+  }
+  .form-control,
+  .form-label {
+    text-align: center;
+    margin-left: 5%;
+    width: 90%;
+    margin-top: 0%;
+  }
+  .btnConnect,
+  .btnAuth {
+    margin-left: 15%;
+    width: 70%;
+  }
 }

@@ -10,6 +10,7 @@ import Acceuil from '../Home/Acceuil'
 import EspacePatient from '../Patient/EspacePatient'
 import EspaceMedecin from '../Médecin/EspaceMedecin'
 import LoginPatient from '../Patient/LoginPatient'
+import SignUpPatient from '../Patient/SignUpPatient';
 
 
 
@@ -25,6 +26,7 @@ function Routes () {
             <Route path="/espacePatient" exact component={EspacePatient} />
             <Route path="/espaceMédecin" exact component={EspaceMedecin} />
             <Route path="/loginPatient" exact component={LoginPatient} />
+            <Route path="/signUpPatient" exact component={SignUpPatient} />
         </Switch>
         </BrowserRouter>
     );
