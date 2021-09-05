@@ -35,9 +35,9 @@ export default function LoginPatient() {
            <label class="form-label">Se Connecter</label>
              <div className="fromlogin">
             
-                 <input  type="text" placeholder="Email" class="form-control" id="validationCustom01" required/>
+                 <input  type="email" placeholder="Email" class="form-control" id="validationCustom01" required/>
        
-                 <input type="text" placeholder="Password" class="form-control " id="validationCustom02"  required/>
+                 <input type="password" placeholder="Password" class="form-control " id="validationCustom02"  required/>
              
     
                  <input type="submit"  class="form-control mt-5 btnConnect" id="validationCustom02" value="Se Connecter"/>

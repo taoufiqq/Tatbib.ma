@@ -141,7 +141,6 @@ h5 {
   margin-bottom: 4%;
   margin-left: 17%;
   color: #afafaf;
-  margin-top: 4%;
   width: 70%;
   text-align: center;
 }
@@ -149,14 +148,15 @@ h5 {
   background: #20c997;
   color: white;
   font-weight: 600;
-  margin-left: 32%;
-  width: 40%;
+  margin-left: 42%;
+  width: 20%;
+  margin-block: auto;
 }
 .btnAuth {
   color: #20c997;
   font-weight: 600;
-  margin-left: 32%;
-  width: 40%;
+  margin-left: 42%;
+  width: 20%;
 }
 .fromlogin {
   margin-top: 6%;

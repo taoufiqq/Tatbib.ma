@@ -58,7 +58,12 @@ export default function SignUpPatient() {
                  <input type="password" placeholder="Password" class="form-control " id="password"  required/>
              </div>
              </div>
+                 <input type="text"  class="form-control" id="login" placeholder="login"  />
+         
+             </div>
+             <div>
                  <input type="submit"  class="form-control mt-5 btnConnect" id="signup" value="Se Connecter"/>
+                 <Link to="/signUpPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth" id="validationCustom02" value="J'ai déja un compte "/></Link>
          
              </div>
            </form>
