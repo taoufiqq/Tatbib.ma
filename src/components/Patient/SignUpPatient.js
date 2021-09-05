@@ -1,10 +1,47 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link,useHistory } from 'react-router-dom';
+import axios from 'axios';
 import logo from '../images/logo.png'
 import login from '../images/login.svg'
 import './login.css'
 export default function SignUpPatient() {
-    return (
+
+
+    const history = useHistory();
+
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [age, setAge] = useState("");
+    const [telephone, setTelephone] = useState("");
+    const [email, setEmail] = useState("");
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
+
+
+
+//---------add admin------------- 
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+
+
+
+
+const Patient = {firstName,lastName,age,telephone,email,password,login};
+
+axios.post(`http://localhost:3030/patient/authentication`,Patient)
+      
+    .then(res => {
+        if(res.error){
+            return false
+        }else{
+    console.log(res.data);
+     history.push('/loginPatient')
+        }
+     
+    })
+}
+  return (
 
         <section className="header-page">
             <div className="container">
@@ -31,39 +68,53 @@ export default function SignUpPatient() {
            <div className="card EspacePatient">
           <div className="row ">
           <div>
-           <form class="row">
+           <form class="row"  method="#" action="#" onSubmit={handleSubmit}>
            <label class="form-label">Sign Up</label>
              <div className="fromloginSignUp">
              <div className="row ">
              <div class="col-md-6">
-                 <input  type="text" placeholder="Nom" class="form-control" id="nom" required/>
+                 <input  type="text" placeholder="FirstName" class="form-control" id="FirstName" required    
+                  value={firstName}
+                  onChange={e => setFirstName(e.target.value)}/>
              </div>
             <div class="col-md-6">
-                 <input  type="text" placeholder="Prénom" class="form-control" id="prenom" required/>
+                 <input  type="text" placeholder="LastName" class="form-control" id="LastName" required  
+                  value={lastName}
+                  onChange={e => setLastName(e.target.value)}/>
             </div>
             </div>
             <div className="row ">
             <div class="col-md-6">
-                 <input  type="text" placeholder="Age" class="form-control" id="age"  required/>
+                 <input  type="text" placeholder="Age" class="form-control" id="age"  required  
+                  value={age}
+                  onChange={e => setAge(e.target.value)}/>
              </div>
              <div class="col-md-6">
-                 <input  type="email" placeholder="Télephone" class="form-control" id="tel"  required/>
+                 <input  type="text"  placeholder="Télephone" class="form-control" id="tel"  required  
+                 value={telephone}
+                 onChange={e => setTelephone(e.target.value)}/>
             </div>
             </div>
             <div className="row ">
              <div class="col-md-6">
-                 <input  type="text" placeholder="Email" class="form-control" id="email"  required/>
+                 <input  type="text" placeholder="Email" class="form-control" id="email"  required 
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}/>
             </div>
              <div class="col-md-6">
-                 <input type="password" placeholder="Password" class="form-control " id="password"  required/>
+                 <input type="password" placeholder="Password" class="form-control " id="password"  required 
+                 value={password}
+                onChange={e => setPassword(e.target.value)}/>
              </div>
              </div>
-                 <input type="text"  class="form-control" id="login" placeholder="login"  />
+                 <input type="text"  class="form-control" id="login" placeholder="login"  
+                    value={login}
+                    onChange={e => setLogin(e.target.value)} /> 
          
              </div>
              <div>
                  <input type="submit"  class="form-control mt-5 btnConnect" id="signup" value="Se Connecter"/>
-                 <Link to="/loginPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth" id="validationCustom02" value="J'ai déja un compte "/></Link>
+                 <Link to="/loginPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="J'ai déja un compte "/></Link>
          
              </div>
            </form>

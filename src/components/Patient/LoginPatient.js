@@ -31,17 +31,17 @@ export default function LoginPatient() {
            <div className="card EspacePatient">
           <div className="row">
           <div class="col-12 col-md-12 col-lg-6 ">
-           <form class="row" novalidate>
+           <form class="row">
            <label class="form-label">Se Connecter</label>
              <div className="fromlogin">
             
-                 <input  type="email" placeholder="Email" class="form-control" id="validationCustom01" required/>
+                 <input  type="email" placeholder="Email" class="form-control"  required/>
        
-                 <input type="password" placeholder="Password" class="form-control " id="validationCustom02"  required/>
+                 <input type="password" placeholder="Password" class="form-control "   required/>
              
     
-                 <input type="submit"  class="form-control mt-5 btnConnect" id="validationCustom02" value="Se Connecter"/>
-                 <Link to="/signUpPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth" id="validationCustom02" value="Creé un compte "/></Link>
+                 <input type="submit"  class="form-control mt-5 btnConnect"  value="Se Connecter"/>
+                 <Link to="/signUpPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="Creé un compte "/></Link>
          
              </div>
            </form>

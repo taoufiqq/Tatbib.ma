@@ -158,6 +158,13 @@ h5 {
   margin-left: 30%;
   width: 40%;
 }
+/* .btnConnect:hover{
+width: 50%;
+}
+.btnAuth:hover{
+  background-color: #00B781;
+  color:  white;
+} */
 .fromlogin {
   margin-top: 6%;
 }
