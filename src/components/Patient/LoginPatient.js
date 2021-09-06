@@ -1,9 +1,56 @@
-import React from 'react'
-import { Link,useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import {Link,useHistory } from "react-router-dom";
+import axios from 'axios';
+import toastr from 'toastr';
+import "toastr/build/toastr.css";
 import logo from '../images/logo.png'
 import login from '../images/login.svg'
 import './login.css'
+
 export default function LoginPatient() {
+
+
+    const history = useHistory();
+
+    const [login, setLogin] = useState();
+    const [password, setPassword] = useState();
+
+
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+    const patient = {login,password};
+
+    axios.post(`http://localhost:3030/patient/login`,patient)
+		.then(res => {
+            console.log(res)
+        if(!res.data.message){ 
+             let status= res.data.status;
+
+             localStorage.setItem("status", status);
+        if(status === "InActive"){
+             toastr.error('Please Verifier You Accout First by Click on URL In Your Email Box')
+        }else{
+             let token= res.data.token;
+             let role= res.data.role;
+             localStorage.setItem("token", token);
+             localStorage.setItem("IdPatient", login);
+             localStorage.setItem("role", role);
+             history.push('/');
+             toastr.info(' authenticated SuccessFully')
+       }
+
+        }else{
+
+             // Calling toast method by passing string 
+             toastr.warning(res.error, 'Username Or password invalid !!!! Please try again !') 
+
+
+            }
+        })
+    }
     return (
 
         <section className="header-page">
@@ -31,13 +78,17 @@ export default function LoginPatient() {
            <div className="card EspacePatient">
           <div className="row">
           <div class="col-12 col-md-12 col-lg-6 ">
-           <form class="row">
+           <form class="row"  onSubmit={handleSubmit}>
            <label class="form-label">Se Connecter</label>
              <div className="fromlogin">
             
-                 <input  type="email" placeholder="Email" class="form-control"  required/>
+                 <input  type="text" placeholder="Login" class="form-control"  required  
+                 value={login} 
+                 onChange={e => setLogin(e.target.value)}/>
        
-                 <input type="password" placeholder="Password" class="form-control "   required/>
+                 <input type="password" placeholder="Password" class="form-control "   required 
+                 value={password} 
+                 onChange={e => setPassword(e.target.value)}/>
              
     
                  <input type="submit"  class="form-control mt-5 btnConnect"  value="Se Connecter"/>

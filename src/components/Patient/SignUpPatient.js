@@ -35,8 +35,8 @@ axios.post(`http://localhost:3030/patient/authentication`,Patient)
         if(res.error){
             return false
         }else{
-    console.log(res.data);
-     history.push('/loginPatient')
+      console.log(res.data);
+      history.push('/loginPatient')
         }
      
     })
@@ -68,53 +68,53 @@ axios.post(`http://localhost:3030/patient/authentication`,Patient)
            <div className="card EspacePatient">
           <div className="row ">
           <div>
-           <form class="row"  method="#" action="#" onSubmit={handleSubmit}>
-           <label class="form-label">Sign Up</label>
+           <form className="row"  method="#" action="#" onSubmit={handleSubmit}>
+           <label className="form-label">Sign Up</label>
              <div className="fromloginSignUp">
              <div className="row ">
-             <div class="col-md-6">
-                 <input  type="text" placeholder="FirstName" class="form-control" id="FirstName" required    
+             <div className="col-md-6">
+                 <input  type="text" placeholder="FirstName" className="form-control" id="FirstName" required    
                   value={firstName}
                   onChange={e => setFirstName(e.target.value)}/>
              </div>
-            <div class="col-md-6">
-                 <input  type="text" placeholder="LastName" class="form-control" id="LastName" required  
+            <div className="col-md-6">
+                 <input  type="text" placeholder="LastName" className="form-control" id="LastName" required  
                   value={lastName}
                   onChange={e => setLastName(e.target.value)}/>
             </div>
             </div>
             <div className="row ">
-            <div class="col-md-6">
-                 <input  type="text" placeholder="Age" class="form-control" id="age"  required  
+            <div className="col-md-6">
+                 <input  type="text" placeholder="Age" className="form-control" id="age"  required  
                   value={age}
                   onChange={e => setAge(e.target.value)}/>
              </div>
-             <div class="col-md-6">
-                 <input  type="text"  placeholder="Télephone" class="form-control" id="tel"  required  
+             <div className="col-md-6">
+                 <input  type="text"  placeholder="Télephone" className="form-control" id="tel"  required  
                  value={telephone}
                  onChange={e => setTelephone(e.target.value)}/>
             </div>
             </div>
             <div className="row ">
-             <div class="col-md-6">
-                 <input  type="text" placeholder="Email" class="form-control" id="email"  required 
+             <div className="col-md-6">
+                 <input  type="text" placeholder="Email" className="form-control" id="email"  required 
                   value={email}
                   onChange={e => setEmail(e.target.value)}/>
             </div>
-             <div class="col-md-6">
-                 <input type="password" placeholder="Password" class="form-control " id="password"  required 
+             <div className="col-md-6">
+                 <input type="password" placeholder="Password" className="form-control " id="password"  required 
                  value={password}
                 onChange={e => setPassword(e.target.value)}/>
              </div>
              </div>
-                 <input type="text"  class="form-control" id="login" placeholder="login"  
+                 <input type="text"  className="form-control" id="login" placeholder="login"  
                     value={login}
                     onChange={e => setLogin(e.target.value)} /> 
          
              </div>
              <div>
-                 <input type="submit"  class="form-control mt-5 btnConnect" id="signup" value="Se Connecter"/>
-                 <Link to="/loginPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="J'ai déja un compte "/></Link>
+                 <input type="submit"  className="form-control mt-5 btnConnect" id="signup" value="Confirmer"/>
+                 <Link to="/loginPatient" style={{textDecoration:"none"}}><input type="submit"  className="form-control mt-3 btnAuth"  value="J'ai déja un compte "/></Link>
          
              </div>
            </form>
