@@ -130,13 +130,13 @@ export default function Acceuil() {
         
         <div className="container">
             <div className="row align-items-center">
-                <div className="col-12 col-md-7 col-lg-6">
+                <div className="col-12 col-md-6 col-lg-8">
                     <h1 className="py-2">Ensemble, protégeons-nous pour limiter la propagation du Coronavirus « COVID-19 »</h1>
                     <p className="fs-4">Téléchargez Wiqaytna et contribuez à contrer la propagation du virus.</p>
-                    <button type="submit" className="btn btn-primary py-3 px-4 fs-5" style={{background: '#1AA9E9', border: 'none'}}>Plus D'information</button>
+                    <Link to= {{ pathname: "https://www.wiqaytna.ma/" }} target="_blank"   className="btn btn-primary py-3 px-4 fs-5" style={{background: '#1AA9E9', border: 'none', width:'215px',height:'50px',lineHeight:1}}>Plus D'information</Link>
                 </div>
-                <div className="col-12 col-md-5 col-lg-6">
-                    <img  src={wiqaytna} alt="" width="70%"/>
+                <div className="col-12 col-md-6 col-lg-4">
+                    <img  src={wiqaytna} alt="" width="100%"/>
                 </div>
             </div> 
         </div>

@@ -30,7 +30,7 @@ export default function LoginPatient() {
             
              let verifier= res.data.verified;
 
-             localStorage.setItem("Verifier", verifier);
+             localStorage.setItem("ValidateCompte", verifier);
         if(verifier === false){
              toastr.error('Please Verifier You Accout First by Click on URL In Your Email Box')
         }else{
@@ -39,7 +39,7 @@ export default function LoginPatient() {
              localStorage.setItem("token", token);
              localStorage.setItem("IdPatient", login);
              localStorage.setItem("role", role);
-             history.push('/');
+             history.push('/dashboardPatient');
              toastr.info(' authenticated SuccessFully')
        }
 

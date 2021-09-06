@@ -2,17 +2,23 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
-import PrivateRoute from '../Auth/PrivateRoute';
+import PrivateRoute from '../Auth/PrivateRouteMedecin';
 
+import PrivateRoutePatient from '../Auth/PrivateRoutePatient';
 
-// import Components Acceuil
+// ---------import Components Acceuil----------
 import Acceuil from '../Home/Acceuil'
+
+// ---------import Components Patient----------
 import EspacePatient from '../Patient/EspacePatient'
-import EspaceMedecin from '../Médecin/EspaceMedecin'
 import LoginPatient from '../Patient/LoginPatient'
 import SignUpPatient from '../Patient/SignUpPatient';
 import ValidateAccount from '../Patient/ValidateAccount';
-import Test from '../Patient/Test';
+import DashboardPatient from '../Patient/DashboardPatient';
+// ---------import Components Medecin----------
+import EspaceMedecin from '../Médecin/EspaceMedecin'
+
+
 
 
 
@@ -21,15 +27,25 @@ function Routes () {
         <BrowserRouter>
         <Switch>
 
-     {/* Routes Patient  */}
+     {/* Routes Acceuil  */}
 
             <Route path="/" exact component={Acceuil} />
+
+    {/* Routes Patient  */}
             <Route path="/espacePatient" exact component={EspacePatient} />
-            <Route path="/espaceMédecin" exact component={EspaceMedecin} />
             <Route path="/loginPatient" exact component={LoginPatient} />
             <Route path="/signUpPatient" exact component={SignUpPatient} />
-            <Route path="/patinet/activateCompte/:token" exact component={ValidateAccount} /> 
-            <Route path="/test/:token" exact component={Test} /> 
+            <Route path="/patient/activateCompte/:token" exact component={ValidateAccount} /> 
+            <PrivateRoutePatient path="/dashboardPatient" exact component={DashboardPatient} /> 
+
+    {/* Routes Medecin  */}      
+    <Route path="/espaceMédecin" exact component={EspaceMedecin} />
+
+
+
+
+
+
         </Switch>
         </BrowserRouter>
     );

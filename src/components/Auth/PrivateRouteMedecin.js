@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { isAuthenticated } from "./helps";
+import { isAuthenticated } from "./helpsMedecin";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
