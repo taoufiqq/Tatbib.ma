@@ -12,7 +12,7 @@ import EspaceMedecin from '../Médecin/EspaceMedecin'
 import LoginPatient from '../Patient/LoginPatient'
 import SignUpPatient from '../Patient/SignUpPatient';
 import ValidateAccount from '../Patient/ValidateAccount';
-
+import Test from '../Patient/Test';
 
 
 
@@ -21,7 +21,7 @@ function Routes () {
         <BrowserRouter>
         <Switch>
 
-     {/* Routes SuperAdmin  */}
+     {/* Routes Patient  */}
 
             <Route path="/" exact component={Acceuil} />
             <Route path="/espacePatient" exact component={EspacePatient} />
@@ -29,6 +29,7 @@ function Routes () {
             <Route path="/loginPatient" exact component={LoginPatient} />
             <Route path="/signUpPatient" exact component={SignUpPatient} />
             <Route path="/patinet/activateCompte/:token" exact component={ValidateAccount} /> 
+            <Route path="/test/:token" exact component={Test} /> 
         </Switch>
         </BrowserRouter>
     );

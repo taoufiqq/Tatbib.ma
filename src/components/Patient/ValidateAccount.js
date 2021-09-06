@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
+import React,  { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
@@ -9,7 +9,7 @@ const ValidateAccount = () => {
     const history = useHistory();
 
     const {token} = useParams();
-console.log(token);
+    console.log(token);
 
     useEffect(()=>{
 
@@ -27,7 +27,7 @@ console.log(token);
 
     return ( 
         <div>
-            <h1>welcome</h1>
+            <h1>{token}</h1>
         </div>
      );
 }

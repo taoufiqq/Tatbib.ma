@@ -3,8 +3,8 @@ import {Link,useHistory } from "react-router-dom";
 import axios from 'axios';
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
-import logo from '../images/logo.png'
-import login from '../images/login.svg'
+import logo from '../images/logo.png';
+import Imglogin from '../images/login.svg'
 import './login.css'
 
 export default function LoginPatient() {
@@ -27,10 +27,11 @@ export default function LoginPatient() {
 		.then(res => {
             console.log(res)
         if(!res.data.message){ 
-             let status= res.data.status;
+            
+             let verifier= res.data.verified;
 
-             localStorage.setItem("status", status);
-        if(status === "InActive"){
+             localStorage.setItem("Verifier", verifier);
+        if(verifier === false){
              toastr.error('Please Verifier You Accout First by Click on URL In Your Email Box')
         }else{
              let token= res.data.token;
@@ -98,7 +99,7 @@ export default function LoginPatient() {
            </form>
            </div>
            <div class="col-12 col-md-12 col-lg-6 ">
-              <img src={login} className="imgLogin"/>
+              <img src={Imglogin} className="imgLogin"/>
            </div>
            </div>
            </div>
