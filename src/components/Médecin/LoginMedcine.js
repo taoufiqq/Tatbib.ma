@@ -4,10 +4,9 @@ import axios from 'axios';
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import logo from '../images/logo.png';
-import Imglogin from '../images/login.svg'
-import './login.css'
+import Imglogin from '../images/login1.svg'
 
-export default function LoginPatient() {
+export default function LoginMedcine() {
 
 
     const history = useHistory();
@@ -21,9 +20,9 @@ export default function LoginPatient() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-    const patient = {login,password};
+    const medcine = {login,password};
 
-    axios.post(`http://localhost:3030/patient/login`,patient)
+    axios.post(`http://localhost:3030/medcine/login`,medcine)
 		.then(res => {
             console.log(res)
         if(!res.data.message){ 
@@ -37,9 +36,9 @@ export default function LoginPatient() {
              let token= res.data.token;
              let role= res.data.role;
              localStorage.setItem("token", token);
-             localStorage.setItem("LoginPatient", login);
+             localStorage.setItem("LoginMedcine", login);
              localStorage.setItem("role", role);
-             history.push('/dashboardPatient');
+             history.push('/dashboardMedcine');
              toastr.success(' authenticated SuccessFully')
        }
 
@@ -80,7 +79,7 @@ export default function LoginPatient() {
           <div className="row">
           <div class="col-12 col-md-12 col-lg-6 ">
            <form class="row"  onSubmit={handleSubmit}>
-           <label class="form-label">Se Connecter</label>
+           <label class="form-label">Se Connecter en tant que Médecin</label>
              <div className="fromlogin">
             
                  <input  type="text" placeholder="Login" class="form-control"  required  
@@ -93,13 +92,13 @@ export default function LoginPatient() {
              
     
                  <input type="submit"  class="form-control mt-5 btnConnect"  value="Se Connecter"/>
-                 <Link to="/signUpPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="Creé un compte "/></Link>
+                 <Link to="/signUpMedcine" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="Creé un compte "/></Link>
          
              </div>
            </form>
            </div>
            <div class="col-12 col-md-12 col-lg-6 ">
-              <img src={Imglogin} className="imgLogin"/>
+              <img src={Imglogin} style={{width:"70%",marginLeft:"60px"}} className="imgLogin"/>
            </div>
            </div>
            </div>

@@ -33,8 +33,8 @@ export default function EspacePatient() {
              <h5>Espace Professionnels</h5>
              <div  className="EspaceProfessionnel">Accéder à l'espace Professionnels</div>
              <div className="btn">
-             <button type="submit" className="EspaceProfessionnelButton1">Professionnels</button>
-             <button type="submit" className="EspaceProfessionnelButton1">Secrétaire</button>
+             <Link to="/loginMedcine" style={{textDecoration:"none",lineHeight:2,color:"white"}} type="submit" className="EspaceProfessionnelButton1">Professionnels</Link>
+             <Link to="/loginSecretary" style={{textDecoration:"none",lineHeight:2,color:"white"}} type="submit" className="EspaceProfessionnelButton1">Secrétaire</Link>
              </div>
            </div>
          
