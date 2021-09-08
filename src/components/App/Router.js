@@ -22,10 +22,11 @@ import SignUpMedcine from '../Médecin/SignUpMedcine';
 import LoginMedcine from '../Médecin/LoginMedcine';
 import ValidateAccountMedcine from '../Médecin/ValidateAccountMedcine';
 import DashboardMedcine from '../Médecin/DashboardMedcine';
+import SecretaryCompte from '../Médecin/SecretaryCompte';
+import ManagementCompteSecretary from '../Médecin/ManagementCompteSecretary';
 // ---------import Components Secretary----------
 import SignUpSecretary from '../Secretary/SignUpSecretary';
 import LoginSecretary from '../Secretary/LoginSecretary';
-import ValidateAccountSecretary from '../Secretary/ValidateAccountSecretary';
 import DashboardSecretary from '../Secretary/DashboardSecretary';
 
 
@@ -53,11 +54,12 @@ function Routes () {
             <Route path="/signUpMedcine" exact component={SignUpMedcine} />
             <Route path="/medcine/activateCompte/:token" exact component={ValidateAccountMedcine} /> 
             <PrivateRoute path="/dashboardMedcine" exact component={DashboardMedcine} />
+            <PrivateRoute path="/secretaryCompte" exact component={SecretaryCompte} />
+            <PrivateRoute path="/managementCompteSecretary" exact component={ManagementCompteSecretary} />
 
     {/* Routes Secretary  */}      
             <Route path="/loginSecretary" exact component={LoginSecretary} />
             <Route path="/signUpSecretary" exact component={SignUpSecretary} />
-            <Route path="/secretary/activateCompte/:token" exact component={ValidateAccountSecretary} /> 
             <PrivateRouteSecretary path="/dashboardSecretary" exact component={DashboardSecretary} />
 
 

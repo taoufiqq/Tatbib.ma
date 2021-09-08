@@ -14,6 +14,7 @@ const DashboardPatient = () => {
 
 
 
+  const login =localStorage.getItem('LoginPatient')
   const history = useHistory();
   const logOut =()=>{
 
@@ -33,7 +34,8 @@ const DashboardPatient = () => {
     <div className="smartphone-menu-trigger" />
     <header className="avatar">
       <img src={logo}  />
-      <h2></h2>
+      <h6>Welcome</h6>
+      <h5 style={{color:'white'}}>{login}</h5>
     </header>
     <ul>
       <li tabIndex={0} className="icon-customers"><span>Rendez-vous</span></li>

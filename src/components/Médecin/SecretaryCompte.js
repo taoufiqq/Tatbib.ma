@@ -7,18 +7,18 @@ import "toastr/build/toastr.css";
 import logo from '../images/logo.png'
 import './espaceMedecin.css'
 
-export default  function DashboardMedcine () {
+export default  function SecretaryCompte () {
   
   const history = useHistory();
-  const [medcine, setMedcine] = useState();
-  const login =localStorage.getItem('LoginMedcine')
+  const [secretary, setSecretary] = useState();
+  const login =localStorage.getItem('LoginSecretary')
 
   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/medcine/getAllMedcine`)
+    axios.get(`http://localhost:3030/medcine/getAllSecretary`)
       .then(function (response) {
           
-        setMedcine(response.data)
+        setSecretary(response.data)
       
       }).catch(function (err) {
         console.log(err);
@@ -50,8 +50,8 @@ export default  function DashboardMedcine () {
       <h5 style={{color:'white'}}>{login}</h5>
     </header>
     <ul>
-      <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>Profil</span></Link></li>
-      <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secrétaire</span></Link></li>
+    <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>Profil</span></Link></li>
+      <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secretary</span></Link></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
   </nav>
@@ -62,7 +62,7 @@ export default  function DashboardMedcine () {
     <div className="table-title">
       <div className="row">
         <div className="col-sm-5">
-          <h2>Profil <b>Management</b></h2>
+          <h2>Secretary <b>Management</b></h2>
         </div>
         {/* <div className="col-sm-7">
           <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
@@ -76,22 +76,18 @@ export default  function DashboardMedcine () {
           <th>FullName</th>						
           <th>Email</th>
           <th>Login</th>
-          <th>Speciality</th>
-          <th>City</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
-      { medcine && medcine.map(item =>(
+      { secretary && secretary.map(item =>(
       <tbody>
         <tr>
       
           <td>{item.fullName}</td>
           <td>{item.email}</td>  
-          <td>{item.login}</td>
-          <td>{item.speciality}</td>
-          <td>{item.city}</td>                   
-          <td><span className="status text-success">•</span>Active</td>
+          <td>{item.login}</td>                 
+          <td><span className="status text-success">•</span>{item.status}</td>
           <td>
             <Link className="edit" title="Edit" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
             <Link className="delete" title="Delete" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
@@ -102,6 +98,9 @@ export default  function DashboardMedcine () {
          ))}
     </table>
   </div>
+</div>
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
 </div>
   </main>
 </div>
