@@ -1,6 +1,7 @@
 *{
     margin: 0%;
     padding: 0%;
+    
 }
 .logo1{
     width: 50%;
@@ -116,6 +117,10 @@ h5{
   }
   .menu ul li.icon-Secrétaire {
     background-image: url("http://www.entypo.com/images/v-card.svg");
+    
+  }
+  .menu ul li.icon-folder {
+    background-image: url("http://www.entypo.com/images/folder.svg");
   }
 .table-responsive {
     margin: 30px 0;
@@ -233,3 +238,15 @@ table.table .avatar {
 .text-danger {
     color: #ff5b5b;
 }
+.ConfirmForm{
+    background: white;
+    border-radius: 7px;
+    margin-left:26%;
+    text-align:center;
+}
+@media screen and (max-width: 510px) {
+    .ConfirmForm{
+        margin-left:0;
+    }
+
+  }

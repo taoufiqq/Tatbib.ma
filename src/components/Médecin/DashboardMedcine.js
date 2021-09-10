@@ -40,7 +40,7 @@ export default  function DashboardMedcine () {
 
 
     return ( 
-        <div className="Container">
+        <div className="Container" style={{overflow: 'hidden'}}>
  
   <nav className="menu" tabIndex={0}>
     <div className="smartphone-menu-trigger" />
@@ -52,6 +52,7 @@ export default  function DashboardMedcine () {
     <ul>
       <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>Profil</span></Link></li>
       <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secrétaire</span></Link></li>
+      <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
   </nav>
@@ -78,7 +79,7 @@ export default  function DashboardMedcine () {
           <th>Login</th>
           <th>Speciality</th>
           <th>City</th>
-          <th>Status</th>
+          <th>Availablity</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -91,7 +92,7 @@ export default  function DashboardMedcine () {
           <td>{item.login}</td>
           <td>{item.speciality}</td>
           <td>{item.city}</td>                   
-          <td><span className="status text-success">•</span>Active</td>
+          <td><span className="status text-success">•</span>{item.availablity}</td>
           <td>
             <Link className="edit" title="Edit" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
             <Link className="delete" title="Delete" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>

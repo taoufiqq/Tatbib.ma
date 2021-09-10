@@ -11,7 +11,7 @@ export default  function DashboardSecretary () {
 
 
 
-
+  const login =localStorage.getItem('LoginSecretary')
 
   const history = useHistory();
   const logOut =()=>{
@@ -19,7 +19,7 @@ export default  function DashboardSecretary () {
     localStorage.removeItem('token')
     localStorage.removeItem('role')
     localStorage.removeItem('LoginSecretary')
-    localStorage.removeItem('ValidateCompte')
+    localStorage.removeItem('status')
        history.push('/loginSecretary');
     }
 
@@ -28,19 +28,36 @@ export default  function DashboardSecretary () {
     return ( 
         <div className="Container">
  
-  <nav className="menu" tabIndex={0}>
+ 
+ <nav className="menu" tabIndex={0}>
     <div className="smartphone-menu-trigger" />
     <header className="avatar">
-      <img src={logo}  />
-      <h2></h2>
+      <img alt="" src={logo}  />
+      <h6>Welcome</h6>
+      <h5 style={{color:'white'}}>{login}</h5>
     </header>
     <ul>
-      <li tabIndex={0} className="icon-profil"><span>Profil</span></li>
-      <li tabIndex={0} className="icon-Secrétaire"><span>Secrétaire</span></li>
+      <li tabIndex={0} className="icon-customers"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>Appointment</span></Link></li>
+      <li tabIndex={0} className="icon-folder"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Patient Record</span></Link></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
   </nav>
   <main>
+  <div className="table-responsive">
+  <div className="table-wrapper">
+    <div className="table-title">
+      <div className="row">
+        <div className="col-sm-5">
+          <h2>Appointment <b>Management</b></h2>
+        </div>
+        {/* <div className="col-sm-7">
+          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
+          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Export to Excel</span></a>						
+        </div> */}
+      </div>
+    </div>
+    </div>
+    </div>
   </main>
 </div>
      );

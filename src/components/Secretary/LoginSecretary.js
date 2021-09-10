@@ -26,13 +26,13 @@ export default function LoginSecretary() {
 		.then(res => {
             console.log(res)
         if(!res.data.message){ 
-            
-             let verifier= res.data.verified;
-
-             localStorage.setItem("ValidateCompte", verifier);
-        if(verifier === false){
-             toastr.error('Please Verifier You Accout First by Click on URL In Your Email Box')
-        }else{
+            let status= res.data.status;
+            localStorage.setItem("status", status);
+            if(status === "InActive"){
+              toastr.error("You can't use this Account now, Please wait for it to be activated!!!")
+            }else if (status === "Block"){
+            toastr.error('This Account is Blocked!!!')
+          }else{
              let token= res.data.token;
              let role= res.data.role;
              localStorage.setItem("token", token);

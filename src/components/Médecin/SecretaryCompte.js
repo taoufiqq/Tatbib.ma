@@ -13,6 +13,7 @@ export default  function SecretaryCompte () {
   const [secretary, setSecretary] = useState();
   const login =localStorage.getItem('LoginSecretary')
 
+
   useEffect(()=>{
 
     axios.get(`http://localhost:3030/medcine/getAllSecretary`)
@@ -26,7 +27,11 @@ export default  function SecretaryCompte () {
     
     })
 
-
+    const getIdSecretary = (id)=>{
+      localStorage.setItem('idSecretary',id);
+      history.push('/managementCompteSecretary');
+    
+    }
 
 //-----------------------log out-----------------
   const logOut =()=>{
@@ -62,7 +67,7 @@ export default  function SecretaryCompte () {
     <div className="table-title">
       <div className="row">
         <div className="col-sm-5">
-          <h2>Secretary <b>Management</b></h2>
+          <h2>Secretary <b>Management </b></h2>
         </div>
         {/* <div className="col-sm-7">
           <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
@@ -87,9 +92,9 @@ export default  function SecretaryCompte () {
           <td>{item.fullName}</td>
           <td>{item.email}</td>  
           <td>{item.login}</td>                 
-          <td><span className="status text-success">•</span>{item.status}</td>
+          <td><span className="status text-danger"></span>{item.status}</td>
           <td>
-            <Link className="edit" title="Edit" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
+            <Link onClick={()=>getIdSecretary(item._id)}className="edit" title="Edit" data-toggle="tooltip"><i className="material-icons" to=''>&#xE254;</i></Link>
             <Link className="delete" title="Delete" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
           </td>
         </tr>
@@ -98,9 +103,6 @@ export default  function SecretaryCompte () {
          ))}
     </table>
   </div>
-</div>
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-
 </div>
   </main>
 </div>

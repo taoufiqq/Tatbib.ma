@@ -1,68 +1,87 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory,Link } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
-import logo from '../images/logo.png'
 import './espaceMedecin.css'
 
 export default  function ManagementCompteSecretary () {
   
   const history = useHistory();
-  const [secretary, setSecretary] = useState();
+
+  const [status, setStatus] = useState("");
+  const [updatedStatus, setUpdatedStatus] = useState("");
+  const id_Secretary =localStorage.getItem('idSecretary')
 
 
 
+
+  useEffect(()=>{
+
+    axios.get(`http://localhost:3030/medcine/getSecretaryById/${id_Secretary}`)
+    .then(function (response) {
+     
+      setStatus(response.data.status)
+   
+    }).catch(function (err) {
+      console.log(err);
+  });
+  
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const data = {status:updatedStatus};
+
+  axios.put(`http://localhost:3030/medcine/activateCompteSecretary/${id_Secretary}`,data)
+  .then(res => {
+    if(res.error){
+      return false
+    }else{
+      console.log(res.data);
+      history.push('/secretaryCompte');
+      toastr.success('Operation accomplished successfully')
+    }
+   
+  })
+  
+  }
 
     return ( 
-        <div className="Containerr">
+        <div className="Containerr" style={{overflow: 'hidden'}}>
 
   <main>
  
-  <div className="table-responsive">
+  <div className="table">
   <div className="table-wrapper">
     <div className="table-title">
       <div className="row">
         <div className="col-sm-5">
-          <h2>Secretary <b>Management</b></h2>
+          <h2>Secretary <b>Management Compte</b></h2>
         </div>
-        {/* <div className="col-sm-7">
-          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
-          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Export to Excel</span></a>						
-        </div> */}
       </div>
     </div>
 
   </div>
 </div>
- <div className="col-12 col-md-6 col-lg-6 px-5 py-4" style={{background: "white", borderRadius: '7px',marginLeft:'26%',textAlign:'center'}}>
-<h2 className="h2">Trouvez votre médecin et prenez rendez-vous en consultation cabinet</h2>
-<form action="/search/vols" method="POST" className="py-5">
+ <div className="col-12 col-md-6 col-lg-6 px-5 py-4 ConfirmForm">
+<h2 className="h2">Activate Compte Secretary</h2>
+<form  onSubmit={handleSubmit}>
     <div className="col-12">
         <div className="input-icons mb-4">
-            <i className="far fa-calendar-alt icon" />
-            <input className="inpt p-3" type="text" name="name" placeholder="Médecin ..." />
-        </div>
-        <div className="input-icons mb-4">
-            <select className="select p-3">
-                <option selected value="Choisir Une Spécialité">Choisir Une Spécialité</option>
-                <option value="lime">Lime</option>
-                <option value="coconut">Coconut</option>
-                <option value="=mango">Mango</option>
-            </select>
-        </div>
-        <div className="input-icons mb-4">
-            <select className="select p-3">
-                <option selected value="Choisir Une Ville">Choisir Une Ville</option>
-                <option value="lime">Lime</option>
-                <option value="coconut">Coconut</option>
-                <option value="mango">Mango</option>
+           <select className="select p-3"
+               value={updatedStatus}
+               onChange={(e) => setUpdatedStatus(e.target.value)}>
+                <option value="InActive">InActive</option>
+                <option value="Active">Active</option>
+                <option value="Block">Block</option>
             </select>
         </div>
     </div>
     <div class="d-grid">
-        <button type="submit" class="button1 py-3">Rechercher</button>
+        <button type="submit" class="button1 py-3">Confirmer</button>
     </div>
 </form>
 </div> 

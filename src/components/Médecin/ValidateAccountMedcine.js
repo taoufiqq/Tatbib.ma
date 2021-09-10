@@ -13,10 +13,10 @@ const ValidateAccountMedcine = () => {
 
     useEffect(()=>{
 
-        axios.put(`http://localhost:3030/secretary/activateCompte/${token}`)
+        axios.put(`http://localhost:3030/medcine/activateCompte/${token}`)
 		.then(res => {
 
-          history.push('/loginSecretary');
+          history.push('/loginMedcine');
           toastr.success('Your Account Activated successfully!')
 
         }).catch(function (err) {

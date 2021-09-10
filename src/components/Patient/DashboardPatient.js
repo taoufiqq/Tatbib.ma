@@ -38,7 +38,7 @@ const DashboardPatient = () => {
       <h5 style={{color:'white'}}>{login}</h5>
     </header>
     <ul>
-      <li tabIndex={0} className="icon-customers"><span>Rendez-vous</span></li>
+      <li tabIndex={0} className="icon-customers"><span>Appointment</span></li>
       <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>

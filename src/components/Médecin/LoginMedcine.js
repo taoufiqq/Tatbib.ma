@@ -38,7 +38,6 @@ export default function LoginMedcine() {
              localStorage.setItem("token", token);
              localStorage.setItem("LoginMedcine", login);
              localStorage.setItem("role", role);
-           
              history.push('/dashboardMedcine');
              toastr.success(' authenticated SuccessFully')
        }
