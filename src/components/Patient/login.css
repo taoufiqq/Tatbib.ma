@@ -139,9 +139,9 @@ h5 {
 .form-control {
   border-radius: 22px;
   margin-bottom: 4%;
-  margin-left: 17%;
-  color: #afafaf;
-  width: 70%;
+  margin-left: 5%;
+  color: black;
+  width: 90%;
   text-align: center;
 }
 .btnConnect {

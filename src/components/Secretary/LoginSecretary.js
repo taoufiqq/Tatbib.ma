@@ -33,11 +33,11 @@ export default function LoginSecretary() {
             }else if (status === "Block"){
             toastr.error('This Account is Blocked!!!')
           }else{
-             let token= res.data.token;
-             let role= res.data.role;
-             localStorage.setItem("token", token);
+             let tokenSecretary= res.data.tokenSecretary;
+             let roleSecretary= res.data.roleSecretary;
+             localStorage.setItem("tokenSecretary", tokenSecretary);
              localStorage.setItem("LoginSecretary", login);
-             localStorage.setItem("role", role);
+             localStorage.setItem("roleSecretary", roleSecretary);
              history.push('/dashboardSecretary');
              toastr.success(' authenticated SuccessFully')
        }
@@ -91,8 +91,7 @@ export default function LoginSecretary() {
                  onChange={e => setPassword(e.target.value)}/>
              
     
-                 <input type="submit"  class="form-control mt-5 btnConnect"  value="Se Connecter"/>
-                 <Link to="/signUpSecretary" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="Creé un compte "/></Link>
+                 <input type="submit"  class="form-control mt-5 btnConnect"  value=" log in"/>
          
              </div>
            </form>

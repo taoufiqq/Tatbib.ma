@@ -110,8 +110,8 @@ axios.post(`http://localhost:3030/medcine/authentication`,Medecin)
          
              </div>
              <div>
-                 <input type="submit"  className="form-control mt-5 btnConnect" id="signup" value="Confirmer"/>
-                 <Link to="/loginMedcine" style={{textDecoration:"none"}}><input type="submit"  className="form-control mt-3 btnAuth"  value="J'ai déja un compte "/></Link>
+                 <input type="submit"  className="form-control mt-5 btnConnect" id="signup" value="confirm"/>
+                 <Link to="/loginMedcine" style={{textDecoration:"none"}}><input type="submit"  className="form-control mt-3 btnAuth"  value="I already have an account"/></Link>
          
              </div>
            </form>

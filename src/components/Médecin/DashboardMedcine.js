@@ -10,31 +10,54 @@ import './espaceMedecin.css'
 export default  function DashboardMedcine () {
   
   const history = useHistory();
-  const [medcine, setMedcine] = useState();
-  const login =localStorage.getItem('LoginMedcine')
+  const [fullName, setFullName] = useState();
+  const [email, setEmail] = useState();
+  const [speciality, setSpeciality] = useState();
+  const [city, setCity] = useState();
+  const [availablity, setAvailablity] = useState();
+  const [login, setLogin] = useState();
+
+
+
+
+  const login_Medcine =localStorage.getItem('LoginMedcine');
+  const id =localStorage.getItem('id_medcine')
+  var Medecin = JSON.parse(localStorage.getItem('medcine'));
+  // console.log(Medecin);
 
   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/medcine/getAllMedcine`)
+    axios.get(`http://localhost:3030/medcine/getMedcineById/${id}`)
       .then(function (response) {
           
-        setMedcine(response.data)
+        setFullName(response.data.fullName)
+        setEmail(response.data.email)
+        setSpeciality(response.data.speciality)
+        setCity(response.data.city)
+        setAvailablity(response.data.availablity)
+        setLogin(response.data.login)
+        console.log(response.data);
       
       }).catch(function (err) {
         console.log(err);
     });
     
-    })
+    },[id])
 
 
+
+  const getIdMedecin = (id)=>{
+    localStorage.setItem('id_medcine',id);
+    history.push('/managementAvailablityMedcine');
+  
+  }
+  // onClick={()=>getIdMedecin(item._id)}
 
 //-----------------------log out-----------------
   const logOut =()=>{
-    localStorage.removeItem('token')
-    localStorage.removeItem('role')
-    localStorage.removeItem('LoginMedcine')
-    localStorage.removeItem('ValidateCompte')
+    localStorage.clear()
        history.push('/loginMedcine');
+       toastr.success(' LogOut SuccessFully')
     }
 
 
@@ -47,11 +70,11 @@ export default  function DashboardMedcine () {
     <header className="avatar">
       <img alt="" src={logo}  />
       <h6>Welcome</h6>
-      <h5 style={{color:'white'}}>{login}</h5>
+      <h5 style={{color:'white'}}>{login_Medcine}</h5>
     </header>
     <ul>
-      <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>Profil</span></Link></li>
-      <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secrétaire</span></Link></li>
+      <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
+      <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secretary</span></Link></li>
       <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
@@ -63,7 +86,7 @@ export default  function DashboardMedcine () {
     <div className="table-title">
       <div className="row">
         <div className="col-sm-5">
-          <h2>Profil <b>Management</b></h2>
+          <h2>Account <b>Management</b></h2>
         </div>
         {/* <div className="col-sm-7">
           <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
@@ -83,24 +106,23 @@ export default  function DashboardMedcine () {
           <th>Action</th>
         </tr>
       </thead>
-      { medcine && medcine.map(item =>(
+      {/* { medcine.map(item =>( */}
       <tbody>
         <tr>
-      
-          <td>{item.fullName}</td>
-          <td>{item.email}</td>  
-          <td>{item.login}</td>
-          <td>{item.speciality}</td>
-          <td>{item.city}</td>                   
-          <td><span className="status text-success">•</span>{item.availablity}</td>
+          <td>{fullName}</td>
+          <td>{email}</td>  
+          <td>{login}</td>
+          <td>{speciality}</td>
+          <td>{city}</td>                   
+          <td><span className="status text-success"></span>{availablity}</td>
           <td>
-            <Link className="edit" title="Edit" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
+            <Link onClick={()=>getIdMedecin(Medecin._id)} className="edit" title="Edit" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
             <Link className="delete" title="Delete" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
           </td>
         </tr>
 
       </tbody>
-         ))}
+           {/* ))} */}
     </table>
   </div>
 </div>

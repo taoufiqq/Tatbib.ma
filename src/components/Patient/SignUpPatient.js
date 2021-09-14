@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import { Link,useHistory } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
-import login from '../images/login.svg'
 import './login.css'
 export default function SignUpPatient() {
 
@@ -47,7 +46,7 @@ axios.post(`http://localhost:3030/patient/authentication`,Patient)
             <div className="container">
             <div className="row justify-content-between py-3 align-items-center">
                     <div className="col-12 col-sm-3 col-lg-4 d-flex justify-content-center justify-content-lg-start py-2 py-lg-0">
-                     <Link to="/"><img src={logo} width="100px"/></Link>
+                     <Link to="/"><img alt="" src={logo} width="100px"/></Link>
                       
                     </div>
                     <div className="col-12 col-sm-9 col-lg-6 col-xl-4">
@@ -113,8 +112,8 @@ axios.post(`http://localhost:3030/patient/authentication`,Patient)
          
              </div>
              <div>
-                 <input type="submit"  className="form-control mt-5 btnConnect" id="signup" value="Confirmer"/>
-                 <Link to="/loginPatient" style={{textDecoration:"none"}}><input type="submit"  className="form-control mt-3 btnAuth"  value="J'ai déja un compte "/></Link>
+                 <input type="submit"  className="form-control mt-5 btnConnect" id="signup" value="confirm"/>
+                 <Link to="/loginPatient" style={{textDecoration:"none"}}><input type="submit"  className="form-control mt-3 btnAuth"  value="I already have an account"/></Link>
          
              </div>
            </form>

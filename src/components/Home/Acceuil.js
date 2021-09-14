@@ -1,5 +1,6 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { Link,useHistory } from 'react-router-dom';
+import axios from 'axios';
 import logo from '../images/logo.png'
 import health from '../images/Health.svg'
 import icon1 from '../images/map-doctor.png'
@@ -19,6 +20,25 @@ import facebook from '../images/facebook.png'
 import './StyleHome.css'
 
 export default function Acceuil() {
+
+    const [medcine, setMedcine] = useState();
+
+    useEffect(()=>{
+  
+      axios.get(`http://localhost:3030/medcine/getAllMedcine`)
+        .then(function (response) {
+            
+          setMedcine(response.data)
+          console.log(response.data);
+        }).catch(function (err) {
+          console.log(err);
+      });
+      
+      },[])
+
+
+
+
     return (
 
     <div className="container-fluid px-0" style={{overflow: 'auto'}}>
@@ -50,28 +70,48 @@ export default function Acceuil() {
                     <div className="col-12 col-md-6 col-lg-6 px-5 py-4" style={{background: "white", borderRadius: '7px'}}>
                         <h2 className="h2">Trouvez votre médecin et prenez rendez-vous en consultation cabinet</h2>
                         <form action="/search/vols" method="POST" className="py-5">
-                            <div className="col-12">
-                                <div className="input-icons mb-4">
-                                    <i className="far fa-calendar-alt icon" />
-                                    <input className="inpt p-3" type="text" name="name" placeholder="Médecin ..." />
-                                </div>
-                                <div className="input-icons mb-4">
-                                    <select className="select p-3">
-                                        <option selected value="Choisir Une Spécialité">Choisir Une Spécialité</option>
-                                        <option value="lime">Lime</option>
-                                        <option value="coconut">Coconut</option>
-                                        <option value="=mango">Mango</option>
-                                    </select>
-                                </div>
-                                <div className="input-icons mb-4">
-                                    <select className="select p-3">
-                                        <option selected value="Choisir Une Ville">Choisir Une Ville</option>
-                                        <option value="lime">Lime</option>
-                                        <option value="coconut">Coconut</option>
-                                        <option value="mango">Mango</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div className="col-12">
+                           
+                           <div className="input-icons mb-4">
+                          
+                                   <select className="select p-3">
+                                   <option selected value="Choisir Un Medcine">Choisir le nom de Medcine</option>
+                                   { medcine && medcine.map(item =>(
+                                           <option key={item.id} value={item.fullName}>
+                                          { item.fullName }
+                                        </option>
+                                         ))}
+                                   </select>
+                   
+                               </div>
+                               <div className="input-icons mb-4">
+                        
+                                   <select className="select p-3">
+                                       <option selected value="Choisir Une Spécialité">Choisir Une Spécialité</option>
+                                       { medcine && medcine.map(item =>(
+                                               <option key={item.id} value={item.speciality}>
+                                               { item.speciality }
+                                             </option>
+                                              ))}
+                                     
+                                   </select>
+                                  
+                               </div>
+                               <div className="input-icons mb-4">
+                            
+                                   <select className="select p-3">
+                                       <option selected value="Choisir Une Ville">Choisir Une Ville</option>
+                                       { medcine && medcine.map(item =>(
+                                               <option key={item.id} value={item.city}>
+                                               { item.city }
+                                             </option>
+                                              ))}
+                                  
+                                   </select>
+                               
+                               </div>
+                        
+                           </div>
                             <div class="d-grid">
                                 <button type="submit" class="button1 py-3">Rechercher</button>
                             </div>

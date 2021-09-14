@@ -1,6 +1,6 @@
 export const isAuthenticated = () => {
-    const token =  localStorage.getItem('token');
-    const role =  localStorage.getItem('role');
+    const token =  localStorage.getItem('tokenPatient');
+    const role =  localStorage.getItem('rolePatient');
     if(token && role === "Patient"){
         return token
     }

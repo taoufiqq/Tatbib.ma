@@ -28,17 +28,17 @@ export default function LoginPatient() {
             console.log(res)
         if(!res.data.message){ 
             
-             let verifier= res.data.verified;
-
-             localStorage.setItem("ValidateCompte", verifier);
+             let verifier= res.data.verified;             
+             localStorage.setItem("ValidateComptePatient", verifier);
         if(verifier === false){
              toastr.error('Please Verifier You Accout First by Click on URL In Your Email Box')
         }else{
              let token= res.data.token;
              let role= res.data.role;
-             localStorage.setItem("token", token);
+             localStorage.setItem("tokenPatient", token);
              localStorage.setItem("LoginPatient", login);
-             localStorage.setItem("role", role);
+             localStorage.setItem("rolePatient", role);
+             localStorage.setItem("id_patient",res.data.id);
              history.push('/dashboardPatient');
              toastr.success(' authenticated SuccessFully')
        }
@@ -58,7 +58,7 @@ export default function LoginPatient() {
             <div className="container">
             <div className="row justify-content-between py-3 align-items-center">
                     <div className="col-12 col-sm-3 col-lg-4 d-flex justify-content-center justify-content-lg-start py-2 py-lg-0">
-                     <Link to="/"><img src={logo} width="100px"/></Link>
+                     <Link to="/"><img alt="" src={logo} width="100px"/></Link>
                       
                     </div>
                     <div className="col-12 col-sm-9 col-lg-6 col-xl-4">
@@ -92,14 +92,14 @@ export default function LoginPatient() {
                  onChange={e => setPassword(e.target.value)}/>
              
     
-                 <input type="submit"  class="form-control mt-5 btnConnect"  value="Se Connecter"/>
-                 <Link to="/signUpPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="Creé un compte "/></Link>
+                 <input type="submit"  class="form-control mt-5 btnConnect"  value=" log in"/>
+                 <Link to="/signUpPatient" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="Create an account"/></Link>
          
              </div>
            </form>
            </div>
            <div class="col-12 col-md-12 col-lg-6 ">
-              <img src={Imglogin} className="imgLogin"/>
+              <img alt="" src={Imglogin} className="imgLogin"/>
            </div>
            </div>
            </div>

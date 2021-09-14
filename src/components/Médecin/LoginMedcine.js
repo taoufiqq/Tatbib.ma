@@ -24,12 +24,15 @@ export default function LoginMedcine() {
 
     axios.post(`http://localhost:3030/medcine/login`,medcine)
 		.then(res => {
-            console.log(res)
+            // console.log(res.data)
         if(!res.data.message){ 
             
              let verifier= res.data.verified;
-
+             let medcine = res.data.medcine;
              localStorage.setItem("ValidateCompte", verifier);
+             localStorage.setItem('medcine', JSON.stringify(medcine));
+            
+            //  console.log(res.data)
         if(verifier === false){
              toastr.error('Please Verifier You Accout First by Click on URL In Your Email Box')
         }else{
@@ -38,6 +41,7 @@ export default function LoginMedcine() {
              localStorage.setItem("token", token);
              localStorage.setItem("LoginMedcine", login);
              localStorage.setItem("role", role);
+             localStorage.setItem("id_medcine",res.data.id);
              history.push('/dashboardMedcine');
              toastr.success(' authenticated SuccessFully')
        }
@@ -57,7 +61,7 @@ export default function LoginMedcine() {
             <div className="container">
             <div className="row justify-content-between py-3 align-items-center">
                     <div className="col-12 col-sm-3 col-lg-4 d-flex justify-content-center justify-content-lg-start py-2 py-lg-0">
-                     <Link to="/"><img src={logo} width="100px"/></Link>
+                     <Link to="/"><img alt="" src={logo} width="100px"/></Link>
                       
                     </div>
                     <div className="col-12 col-sm-9 col-lg-6 col-xl-4">
@@ -91,14 +95,14 @@ export default function LoginMedcine() {
                  onChange={e => setPassword(e.target.value)}/>
              
     
-                 <input type="submit"  class="form-control mt-5 btnConnect"  value="Se Connecter"/>
-                 <Link to="/signUpMedcine" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="Creé un compte "/></Link>
+                 <input type="submit"  class="form-control mt-5 btnConnect"  value="log in"/>
+                 <Link to="/signUpMedcine" style={{textDecoration:"none"}}><input type="submit"  class="form-control mt-3 btnAuth"  value="Create an account"/></Link>
          
              </div>
            </form>
            </div>
            <div class="col-12 col-md-12 col-lg-6 ">
-              <img src={Imglogin} style={{width:"70%",marginLeft:"60px"}} className="imgLogin"/>
+              <img alt="" src={Imglogin} style={{width:"70%",marginLeft:"60px"}} className="imgLogin"/>
            </div>
            </div>
            </div>

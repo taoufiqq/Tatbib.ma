@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { useParams, useHistory,Link } from "react-router-dom";
+import {useHistory,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import './login.css'
@@ -18,11 +18,12 @@ const DashboardPatient = () => {
   const history = useHistory();
   const logOut =()=>{
 
-    localStorage.removeItem('token')
-    localStorage.removeItem('role')
+    localStorage.removeItem('tokenPatient')
+    localStorage.removeItem('rolePatient')
     localStorage.removeItem('LoginPatient')
-    localStorage.removeItem('ValidateCompte')
+    localStorage.removeItem('ValidateComptePatient')
        history.push('/loginPatient');
+       toastr.success(' LogOut SuccessFully')
     }
 
 
@@ -33,13 +34,14 @@ const DashboardPatient = () => {
   <nav className="menu" tabIndex={0}>
     <div className="smartphone-menu-trigger" />
     <header className="avatar">
-      <img src={logo}  />
+      <img alt="" src={logo}  />
       <h6>Welcome</h6>
       <h5 style={{color:'white'}}>{login}</h5>
     </header>
     <ul>
       <li tabIndex={0} className="icon-customers"><span>Appointment</span></li>
       <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
+      <li tabIndex={0} className="icon-profil"><Link to='/myAccount' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
   </nav>

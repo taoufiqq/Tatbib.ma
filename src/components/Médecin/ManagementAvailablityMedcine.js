@@ -6,24 +6,20 @@ import "toastr/build/toastr.css";
 
 import './espaceMedecin.css'
 
-export default  function ManagementCompteSecretary () {
+export default  function ManagementAvailablityMedcine () {
   
   const history = useHistory();
 
-  const [status, setStatus] = useState("");
-  const [updatedStatus, setUpdatedStatus] = useState("");
-  const id_Secretary =localStorage.getItem('idSecretary')
-
-
-
+  const [availablity, setAvailablity] = useState("");
+  const [updatedAvailablity, setUpdatedAvailablity] = useState("");
+  const id =localStorage.getItem('id_medcine')
 
   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/medcine/getSecretaryById/${id_Secretary}`)
+    axios.get(`http://localhost:3030/medcine/getMedcineById/${id}`)
     .then(function (response) {
      
-      setStatus(response.data.status)
-   
+        setAvailablity(response.data.availablity)
     }).catch(function (err) {
       console.log(err);
   });
@@ -33,15 +29,14 @@ export default  function ManagementCompteSecretary () {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = {status:updatedStatus};
+    const data = {availablity:updatedAvailablity};
 
-  axios.put(`http://localhost:3030/medcine/activateCompteSecretary/${id_Secretary}`,data)
+  axios.put(`http://localhost:3030/medcine/updateAvailablityMedcine/${id}`,data)
   .then(res => {
     if(res.error){
       return false
     }else{
-      console.log(res.data);
-      history.push('/secretaryCompte');
+      history.push('/dashboardMedcine');
       toastr.success('Operation accomplished successfully')
     }
    
@@ -59,25 +54,23 @@ export default  function ManagementCompteSecretary () {
     <div className="table-title">
       <div className="row">
         <div className="col-sm-5">
-          <h2>Secretary <b>Management Compte</b></h2>
+          <h2>Medcine <b>Management Availablity</b></h2>
         </div>
       </div>
     </div>
-
   </div>
 </div>
  <div className="col-12 col-md-6 col-lg-6 px-5 py-4 ConfirmForm">
-<h2 className="h2">Activate Compte Secretary</h2>
+<h2 className="h2">Update Availablity</h2>
 <form  onSubmit={handleSubmit}>
     <div className="col-12">
         <div className="input-icons mb-4">
            <select className="select p-3"
-               value={updatedStatus}
-               onChange={(e) => setUpdatedStatus(e.target.value)}>
-                 <option selected>Choose a status</option>
-                <option value="InActive">InActive</option>
-                <option value="Active">Active</option>
-                <option value="Block">Block</option>
+               value={updatedAvailablity}
+               onChange={(e) => setUpdatedAvailablity(e.target.value)}>
+                <option selected>Choose your Availablity</option>
+                <option value="Available">Available</option>
+                <option value="NotAvailable">NotAvailable</option>
             </select>
         </div>
     </div>

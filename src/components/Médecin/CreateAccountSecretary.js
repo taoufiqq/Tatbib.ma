@@ -2,18 +2,20 @@ import React, {useState} from 'react'
 import { Link,useHistory } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
+import toastr from 'toastr';
+import "toastr/build/toastr.css";
 
-export default function SignUpSecretary() {
+export default function CreateAccountSecretary() {
 
-
+    // var Medecin = JSON.parse(localStorage.getItem('medcine'));
     const history = useHistory();
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
-
-
+    // const id=localStorage.getItem('id_medcine');  
+    const LoginMedcine=localStorage.getItem('LoginMedcine'); 
 
 //---------add admin------------- 
 
@@ -23,16 +25,17 @@ const handleSubmit = (e) => {
 
 
 
-const Secretary = {fullName,email,password,login};
+const Secretary = {fullName,email,password,login,loginMedcine:LoginMedcine};
 
-axios.post(`http://localhost:3030/secretary/authentication`,Secretary)
+axios.post(`http://localhost:3030/medcine/createAccountSecretary`,Secretary)
       
     .then(res => {
         if(res.error){
             return false
         }else{
       console.log(res.data);
-      history.push('/loginSecretary')
+      history.push('/secretaryCompte')
+      toastr.success(' authenticated SuccessFully')
         }
      
     })
@@ -43,29 +46,16 @@ axios.post(`http://localhost:3030/secretary/authentication`,Secretary)
             <div className="container">
             <div className="row justify-content-between py-3 align-items-center">
                     <div className="col-12 col-sm-3 col-lg-4 d-flex justify-content-center justify-content-lg-start py-2 py-lg-0">
-                     <Link to="/"><img src={logo} width="100px"/></Link>
+                     <Link to="/"><img alt="" src={logo} width="100px"/></Link>
                       
                     </div>
-                    <div className="col-12 col-sm-9 col-lg-6 col-xl-4">
-                        <div className="row justify-content-center">
-                            <div className="col-6 col-md-4 col-lg-5 col-xl-6 d-flex justify-content-end">
-                                <Link className="btn_Espace_Professionnels" to="/espaceMédecin">
-                                    <i className="fas fa-user-injured"></i> Espace Professionnels
-                                </Link>
-                            </div>
-                            <div className="col-6 col-md-4 col-lg-5 d-flex justify-content-center">
-                                <Link className="btn_Espace_Patients" to="/espacePatient">
-                                    <i className="fas fa-user-injured"></i> Espace Patients
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
+                  
                 </div>
            <div className="card EspacePatient">
           <div className="row ">
           <div>
            <form className="row"  method="#" action="#" onSubmit={handleSubmit}>
-           <label className="form-label">Sign Up</label>
+           <label className="form-label">Create Compte Secretary</label>
              <div className="fromloginSignUp">
              <div className="row ">
              <div className="col-md-6">

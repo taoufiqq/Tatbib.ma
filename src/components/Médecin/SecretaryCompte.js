@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory,Link } from "react-router-dom";
+import {useHistory,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
@@ -10,22 +10,23 @@ import './espaceMedecin.css'
 export default  function SecretaryCompte () {
   
   const history = useHistory();
-  const [secretary, setSecretary] = useState();
-  const login =localStorage.getItem('LoginSecretary')
+  // const [secretary, setSecretary] = useState();
+  const login =localStorage.getItem('LoginMedcine')
+
+    const [listSecretary, setListSecretary] = useState();
+        
+    const loginMedcine=localStorage.getItem('LoginMedcine'); 
+
+    axios.get(`http://localhost:3030/medcine/getSecretaryByMedcineName/${loginMedcine}`)
+    .then(function (response) {
+        
+      setListSecretary(response.data)
+    }).catch(function (err) {
+      console.log(err);
+  });
 
 
-  useEffect(()=>{
 
-    axios.get(`http://localhost:3030/medcine/getAllSecretary`)
-      .then(function (response) {
-          
-        setSecretary(response.data)
-      
-      }).catch(function (err) {
-        console.log(err);
-    });
-    
-    })
 
     const getIdSecretary = (id)=>{
       localStorage.setItem('idSecretary',id);
@@ -35,11 +36,9 @@ export default  function SecretaryCompte () {
 
 //-----------------------log out-----------------
   const logOut =()=>{
-    localStorage.removeItem('token')
-    localStorage.removeItem('role')
-    localStorage.removeItem('LoginMedcine')
-    localStorage.removeItem('ValidateCompte')
+    localStorage.clear()
        history.push('/loginMedcine');
+       toastr.success(' LogOut SuccessFully')
     }
 
 
@@ -55,8 +54,9 @@ export default  function SecretaryCompte () {
       <h5 style={{color:'white'}}>{login}</h5>
     </header>
     <ul>
-    <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>Profil</span></Link></li>
+    <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
       <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secretary</span></Link></li>
+      <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
   </nav>
@@ -69,10 +69,10 @@ export default  function SecretaryCompte () {
         <div className="col-sm-5">
           <h2>Secretary <b>Management </b></h2>
         </div>
-        {/* <div className="col-sm-7">
-          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
-          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Export to Excel</span></a>						
-        </div> */}
+        <div className="col-sm-7">
+          <Link to="/createAccountSecretary" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New Secretary</span></Link>
+          {/* <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Export to Excel</span></a>						 */}
+        </div>
       </div>
     </div>
     <table className="table table-striped table-hover">
@@ -85,7 +85,7 @@ export default  function SecretaryCompte () {
           <th>Action</th>
         </tr>
       </thead>
-      { secretary && secretary.map(item =>(
+      { listSecretary && listSecretary.map(item =>(
       <tbody>
         <tr>
       

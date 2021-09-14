@@ -1,9 +1,9 @@
 export const isAuthenticated = () => {
-    const token =  localStorage.getItem('token');
-    const role =  localStorage.getItem('role');
+    const tokenSecretary =  localStorage.getItem('tokenSecretary');
+    const roleSecretary =  localStorage.getItem('roleSecretary');
 
-    if(token && role === "Secretary"){
-        return token
+    if(tokenSecretary && roleSecretary === "Secretary"){
+        return tokenSecretary
     }
 
     return false

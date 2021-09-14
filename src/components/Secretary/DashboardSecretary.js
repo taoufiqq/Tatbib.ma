@@ -15,12 +15,9 @@ export default  function DashboardSecretary () {
 
   const history = useHistory();
   const logOut =()=>{
-
-    localStorage.removeItem('token')
-    localStorage.removeItem('role')
-    localStorage.removeItem('LoginSecretary')
-    localStorage.removeItem('status')
+    localStorage.clear()
        history.push('/loginSecretary');
+       toastr.success(' LogOut SuccessFully')
     }
 
 
@@ -37,8 +34,8 @@ export default  function DashboardSecretary () {
       <h5 style={{color:'white'}}>{login}</h5>
     </header>
     <ul>
-      <li tabIndex={0} className="icon-customers"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>Appointment</span></Link></li>
-      <li tabIndex={0} className="icon-folder"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Patient Record</span></Link></li>
+      <li tabIndex={0} className="icon-customers"><Link style={{textDecoration:"none",color:"white"}}><span>Appointment</span></Link></li>
+      <li tabIndex={0} className="icon-folder"><Link style={{textDecoration:"none",color:"white"}}><span>Patient Record</span></Link></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
   </nav>
