@@ -64,7 +64,14 @@ export default function Acceuil() {
                     </div>
                 </div>
             </div>
-
+            <nav class="social">
+        <ul>
+            <li><Link to="https://twitter.com/ibrahim_jabbari">Twitter <i class="fa fa-twitter twitter"></i></Link></li>
+            <li><Link>Instagram <i class="fa fa-instagram"></i></Link></li>
+            <li><Link>Google+ <i class="fa fa-google-plus"></i></Link></li>
+            <li><Link>Facebook <i class="fa fa-facebook"></i></Link></li>
+        </ul>
+    </nav>
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-12 col-md-6 col-lg-6 px-5 py-4" style={{background: "white", borderRadius: '7px'}}>
@@ -181,7 +188,7 @@ export default function Acceuil() {
             </div> 
         </div>
      
-        <div style={{background: 'rgb(242, 255, 246)'}}>
+        {/* <div style={{background: 'rgb(242, 255, 246)'}}>
             <div className="container py-5" >
                 <div className="row align-items-start">
                     <div className="col-12 col-sm-6 col-md-4 my-3 my-sm-0">
@@ -231,7 +238,62 @@ export default function Acceuil() {
                 </div>
             </div>
             
-        </div> 
+        </div>  */}
+          <div class="footer">
+            <div class="container">     
+                <div class="row">                       
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <div class="single_footer">
+                            <h4>Les spécialités</h4>
+                            <ul>
+                                  <li><Link className="list-item">Cardiologue</Link></li>
+                                  <li><Link className="list-item">Dermatologue</Link></li>
+                                  <li><Link className="list-item">Gastro-entérologie</Link></li>
+                                  <li><Link className="list-item">Médecin dentiste</Link></li>
+                                  <li><Link className="list-item">Médecin généraliste</Link></li>
+                            </ul>
+                        </div>
+                    </div> 
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="single_footer single_footer_address">
+                            <h4>Les recherches populaires</h4>
+                            <ul>
+                                  <li><Link className="list-item">médecin généraliste à casablanca</Link></li>
+                                  <li><Link className="list-item">Médecin dentiste à casablanca</Link></li>
+                                  <li><Link className="list-item">Médecin dentiste à rabat</Link></li>
+                                  <li><Link className="list-item">Médecin dentiste à agadir</Link></li>
+                                  <li><Link className="list-item">Médecin dentiste à Marrakech</Link></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="single_footer single_footer_address">
+                            <h4>Subscribe today</h4>
+                            <div class="signup_form">                           
+                                <form action="#" class="subscribe">
+                                    <input type="text" class="subscribe__input" placeholder="Enter Email Address"/>
+                                    <button type="button" class="subscribe__btn"><i class="fa fa-paper-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="social_profile">
+                            <ul>
+                                <li><Link><i class="fa fa-twitter twitter"></i></Link></li>
+                                <li><Link><i class="fa fa-instagram"></i></Link></li>
+                                <li><Link><i class="fa fa-google-plus"></i></Link></li>
+                                <li><Link><i class="fa fa-facebook"></i></Link></li>
+
+                            </ul>
+                        </div>                          
+                    </div>      
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <p class="copyright"> © 2021 TATBIB.ma . Tous les droits réservés <Link className=""> Conditions générales d'utilisation</Link>.</p>
+                    </div>             
+                </div>             
+            </div>
+        </div>
     </div>
     
   )
