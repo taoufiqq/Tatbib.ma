@@ -8,6 +8,8 @@ import PrivateRoutePatient from '../Auth/PrivateRoutePatient';
 
 // ---------import Components Acceuil----------
 import Acceuil from '../Home/Acceuil'
+import ResultSearchMedcine from '../Home/ResultSearchMedcine'
+import RendezVous from '../Home/RendezVous'
 
 // ---------import Components Patient----------
 import EspacePatient from '../Patient/EspacePatient'
@@ -42,6 +44,8 @@ function Routes () {
      {/* Routes Acceuil  */}
 
             <Route path="/" exact component={Acceuil} />
+            <Route path="/resultSearchMedcine" exact component={ResultSearchMedcine} />
+            <Route path="/rendezVous/:idMedcine" exact component={RendezVous} />
 
     {/* Routes Patient  */}
             <Route path="/espacePatient" exact component={EspacePatient} />

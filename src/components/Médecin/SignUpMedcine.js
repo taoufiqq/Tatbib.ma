@@ -45,7 +45,7 @@ axios.post(`http://localhost:3030/medcine/authentication`,Medecin)
             <div className="container">
             <div className="row justify-content-between py-3 align-items-center">
                     <div className="col-12 col-sm-3 col-lg-4 d-flex justify-content-center justify-content-lg-start py-2 py-lg-0">
-                     <Link to="/"><img src={logo} width="100px"/></Link>
+                     <Link to="/"><img alt="" src={logo} width="100px"/></Link>
                       
                     </div>
                     <div className="col-12 col-sm-9 col-lg-6 col-xl-4">

@@ -5,22 +5,44 @@ import Search from '../images/Search.svg'
 import axios from 'axios';
 
 export default function SearchMedcine() {
+    const history = useHistory();
+    // const token =localStorage.getItem("tokenPatient");
+    // const [city, setCity] = useState("");
+    const [speciality, setSpeciality] = useState("");
+    // const [fullName, setFullName] = useState("");
 
-  const [medcine, setMedcine] = useState();
+    const [medcine, setMedcine] = useState();
 
-  useEffect(()=>{
+    useEffect(()=>{
+  
+      axios.get(`http://localhost:3030/medcine/getAllMedcine`)
+        .then(function (response) {
+            
+          setMedcine(response.data)
+          setSpeciality(response.data.speciality)
+        //   console.log(response.data);
+        }).catch(function (err) {
+          console.log(err);
+      });
+      
+      },[])
 
-    axios.get(`http://localhost:3030/medcine/getAllMedcine`)
-      .then(function (response) {
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        // console.log(speciality);
+
+    axios.get(`http://localhost:3030/medcine/searchMedcine/${speciality}`)
           
-        setMedcine(response.data)
-        console.log(response.data);
-      }).catch(function (err) {
-        console.log(err);
-    });
-    
-    },[])
-
+        .then(res => {
+            if(res.error){
+                return false
+            } else{
+            localStorage.setItem('medcine', JSON.stringify(res.data));
+            history.push('/resultSearchMedcine')
+        }
+        })
+    }
 
     return (
 
@@ -39,7 +61,7 @@ export default function SearchMedcine() {
                     <div className="col-12 col-md-6 col-lg-6 px-5 py-4" style={{background: "white", borderRadius: '7px'}}>
                         <h2 className="h2">Trouvez votre médecin et prenez rendez-vous en consultation cabinet</h2>
                      
-                        <form action="/search/vols" method="POST" className="py-5">
+                        <form onSubmit={handleSubmit} className="py-5">
                         
                             <div className="col-12">
                            
@@ -57,7 +79,10 @@ export default function SearchMedcine() {
                                 </div>
                                 <div className="input-icons mb-4">
                          
-                                    <select className="select p-3">
+                                    <select className="select p-3"
+                                     value={speciality}
+                                     onChange={(e) => setSpeciality(e.target.value)}
+                                    >
                                         <option selected value="Choisir Une Spécialité">Choisir Une Spécialité</option>
                                         { medcine && medcine.map(item =>(
                                                 <option key={item.id} value={item.speciality}>

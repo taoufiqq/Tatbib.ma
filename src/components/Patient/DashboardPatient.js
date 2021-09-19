@@ -18,10 +18,7 @@ const DashboardPatient = () => {
   const history = useHistory();
   const logOut =()=>{
 
-    localStorage.removeItem('tokenPatient')
-    localStorage.removeItem('rolePatient')
-    localStorage.removeItem('LoginPatient')
-    localStorage.removeItem('ValidateComptePatient')
+    localStorage.clear();
        history.push('/loginPatient');
        toastr.success(' LogOut SuccessFully')
     }
