@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory,Link } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
-import logo from '../images/logo.png'
+import logo from '../images/doctor.png'
 import './espaceMedecin.css'
 
 export default  function DashboardMedcine () {
@@ -51,7 +51,7 @@ export default  function DashboardMedcine () {
     history.push('/managementAvailablityMedcine');
   
   }
-  // onClick={()=>getIdMedecin(item._id)}
+
 
 //-----------------------log out-----------------
   const logOut =()=>{
@@ -114,10 +114,10 @@ export default  function DashboardMedcine () {
           <td>{login}</td>
           <td>{speciality}</td>
           <td>{city}</td>                   
-          <td><span className="status text-success"></span>{availablity}</td>
+          <td style={{color: availablity !== "NotAvailable"?'color': 'red'}}><span className="status text-success"></span>{availablity}</td>
           <td>
-            <Link onClick={()=>getIdMedecin(Medecin._id)} className="edit" title="Edit" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
-            <Link className="delete" title="Delete" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
+            <Link onClick={()=>getIdMedecin(Medecin._id)} className="edit" title="Edit Account" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
+            <Link className="delete" title="Delete Account" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
           </td>
         </tr>
 

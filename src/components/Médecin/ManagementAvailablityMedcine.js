@@ -75,7 +75,7 @@ export default  function ManagementAvailablityMedcine () {
         </div>
     </div>
     <div className="d-grid">
-        <button type="submit" class="button1 py-3">confirm</button>
+        <button type="submit" class="button1 py-3">Confirm</button>
     </div>
 </form>
 </div> 

@@ -78,7 +78,7 @@ export default function LoginPatient() {
                 </div>
            <div className="card EspacePatient">
           <div className="row">
-          <div class="col-12 col-md-12 col-lg-6 ">
+          <div class="col-12 col-md-12 col-lg-6 "  style={{marginTop:'2%'}}>
            <form class="row"  onSubmit={handleSubmit}>
            <label class="form-label">Se Connecter</label>
              <div className="fromlogin">

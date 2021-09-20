@@ -4,7 +4,7 @@ import {useHistory,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
-import logo from '../images/logo.png'
+import logo from '../images/doctor.png'
 import './espaceMedecin.css'
 
 export default  function SecretaryCompte () {
@@ -33,6 +33,26 @@ export default  function SecretaryCompte () {
       history.push('/managementCompteSecretary');
     
     }
+
+
+  // delete My Account  
+  const deleteAccountSecretary = (id)=>{
+    var msgConfirmation = window.confirm("Are You Sure Yo want to delete this Account ?");
+    if (msgConfirmation) {   
+    axios.delete(`http://localhost:3030/medcine/deleteSecretary/${id}`)
+    .then(function (response) {
+        window.location.reload();
+      console.log('item was deleted Succesfully ... ');
+      toastr.success(' Account was deleted SuccessFully')
+    
+    })
+    
+  
+  }
+}
+
+
+
 
 //-----------------------log out-----------------
   const logOut =()=>{
@@ -92,10 +112,10 @@ export default  function SecretaryCompte () {
           <td>{item.fullName}</td>
           <td>{item.email}</td>  
           <td>{item.login}</td>                 
-          <td><span className="status text-danger"></span>{item.status}</td>
+          <td  style={{color: item.status !== "InActive"?'color': 'red'}}><span className="status text-danger"></span>{item.status}</td>
           <td>
-            <Link onClick={()=>getIdSecretary(item._id)}className="edit" title="Edit" data-toggle="tooltip"><i className="material-icons" to=''>&#xE254;</i></Link>
-            <Link className="delete" title="Delete" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
+            <Link onClick={()=>getIdSecretary(item._id)}className="edit" title="Active Account Secretary" data-toggle="tooltip"><i class="material-icons done_outline">&#xe92f;</i></Link>
+            <Link  onClick={()=>deleteAccountSecretary(item._id)} className="delete" title="Delete Account Secretary" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
           </td>
         </tr>
 

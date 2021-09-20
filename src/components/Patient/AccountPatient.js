@@ -4,7 +4,7 @@ import { useHistory,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
-import logo from '../images/logo.png'
+import logo from '../images/user.jpg'
 
 export default  function AccountPatient () {
   
@@ -80,7 +80,7 @@ export default  function AccountPatient () {
   <nav className="menu" tabIndex={0}>
     <div className="smartphone-menu-trigger" />
     <header className="avatar">
-      <img alt="" src={logo}  />
+    <img alt="" src={logo} style={{borderRadius:'50%'}} />
       <h6>Welcome</h6>
       <h5 style={{color:'white'}}>{loginPatient}</h5>
     </header>
@@ -92,7 +92,9 @@ export default  function AccountPatient () {
     </ul>
   </nav>
   <main>
- 
+  <div className="helper">
+          My Account<span> Management | Account</span>
+    </div>
   <div className="table-responsive">
   <div className="table-wrapper">
     <div className="table-title">
@@ -100,10 +102,6 @@ export default  function AccountPatient () {
         <div className="col-sm-5">
           <h2>Account <b>Management</b></h2>
         </div>
-        {/* <div className="col-sm-7">
-          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
-          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Export to Excel</span></a>						
-        </div> */}
       </div>
     </div>
     <table className="table table-striped table-hover">
@@ -129,8 +127,8 @@ export default  function AccountPatient () {
           <td>{telephone}</td>                          
           <td>{email}</td>
           <td>
-            <Link onClick={()=>getIdPatient(id)} className="edit" title="Edit" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
-            <Link onClick={()=>deleteAccount(id)} className="delete" title="Delete" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
+            <Link onClick={()=>getIdPatient(id)} className="edit" title="Edit Account" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
+            <Link onClick={()=>deleteAccount(id)} className="delete" title="Delete Account" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
           </td>
         </tr>
 

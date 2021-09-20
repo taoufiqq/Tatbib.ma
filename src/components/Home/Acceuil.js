@@ -2,12 +2,12 @@ import React,{useEffect,useState} from 'react'
 import { Link,useHistory } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
-import health from '../images/Health.svg'
+import health from '../images/healthh.svg'
 import icon1 from '../images/map-doctor.png'
 import icon2 from '../images/bell.png'
 import icon3 from '../images/phone-alt.png'
 import icon4 from '../images/clipboard-list.png'
-import Medicine from '../images/Medicine.svg'
+import Medicine from '../images/doctor.png'
 import wiqaytna from '../images/wiqaytna.png'
 
 import './StyleHome.css'
@@ -81,15 +81,15 @@ export default function Acceuil() {
             </div>
             <nav class="social">
         <ul>
-            <li><Link to="https://twitter.com/ibrahim_jabbari">Twitter <i class="fa fa-twitter twitter"></i></Link></li>
-            <li><Link>Instagram <i class="fa fa-instagram"></i></Link></li>
+            <li><Link>Twitter <i class="fa fa-twitter twitter"></i></Link></li>
+            <li><Link>Linkedin <i class="fa fa-linkedin"></i></Link></li>
             <li><Link>Google+ <i class="fa fa-google-plus"></i></Link></li>
             <li><Link>Facebook <i class="fa fa-facebook"></i></Link></li>
         </ul>
     </nav>
             <div className="container">
                 <div className="row align-items-center">
-                    <div className="col-12 col-md-6 col-lg-6 px-5 py-4" style={{background: "white", borderRadius: '7px'}}>
+                    <div className="col-12 col-md-6 col-lg-6 px-5 py-4 formSearch" style={{background: "white", borderRadius: '7px'}}>
                         <h2 className="h2" style={{textAlign:'center'}}>Find your doctor and make an appointment or teleConsiel</h2>
                         <form className="py-5" onSubmit={handleSubmit}>
                         <div className="col-12">
@@ -181,8 +181,8 @@ export default function Acceuil() {
             
             <div className="row justify-content-evenly">
             { medcine && medcine.map((item) =>(
-                <div className="col-12 col-sm-6 col-md-2 text-center m-2" style={{ backgroundColor: '#E5E5E5', borderRadius: '20px' }}>                 
-                    <img alt=""  src={Medicine}/>
+                <div className="col-12 col-sm-6 col-md-3 text-center m-2" style={{ backgroundColor: '#E5E5E5', borderRadius: '20px' }}>                 
+                    <img alt=""  src={Medicine} style={{width:'100%'}}/>
                     <h4>{item.fullName}</h4>
                     <h5>{item.speciality}</h5>
                    
@@ -243,7 +243,7 @@ export default function Acceuil() {
                         <div class="social_profile">
                             <ul>
                                 <li><Link><i class="fa fa-twitter twitter"></i></Link></li>
-                                <li><Link><i class="fa fa-instagram"></i></Link></li>
+                                <li><Link><i class="fa fa-linkedin"></i></Link></li>
                                 <li><Link><i class="fa fa-google-plus"></i></Link></li>
                                 <li><Link><i class="fa fa-facebook"></i></Link></li>
 

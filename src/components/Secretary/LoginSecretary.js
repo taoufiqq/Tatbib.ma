@@ -5,6 +5,7 @@ import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import logo from '../images/logo.png';
 import Imglogin from '../images/Login2.svg'
+import LoginMedcine from '../Médecin/LoginMedcine';
 
 export default function LoginSecretary() {
 
@@ -29,15 +30,19 @@ export default function LoginSecretary() {
             let status= res.data.status;
             localStorage.setItem("status", status);
             if(status === "InActive"){
+              
               toastr.error("You can't use this Account now, Please wait for it to be activated!!!")
             }else if (status === "Block"){
             toastr.error('This Account is Blocked!!!')
           }else{
              let tokenSecretary= res.data.tokenSecretary;
              let roleSecretary= res.data.roleSecretary;
+             let loginMedcine= res.data.loginMedcine;
+             console.log(loginMedcine);
              localStorage.setItem("tokenSecretary", tokenSecretary);
              localStorage.setItem("LoginSecretary", login);
              localStorage.setItem("roleSecretary", roleSecretary);
+             localStorage.setItem("login_medcine", loginMedcine);
              history.push('/dashboardSecretary');
              toastr.success(' authenticated SuccessFully')
        }
@@ -57,7 +62,7 @@ export default function LoginSecretary() {
             <div className="container">
             <div className="row justify-content-between py-3 align-items-center">
                     <div className="col-12 col-sm-3 col-lg-4 d-flex justify-content-center justify-content-lg-start py-2 py-lg-0">
-                     <Link to="/"><img src={logo} width="100px"/></Link>
+                     <Link to="/"><img alt="" src={logo} width="100px"/></Link>
                       
                     </div>
                     <div className="col-12 col-sm-9 col-lg-6 col-xl-4">
@@ -77,7 +82,7 @@ export default function LoginSecretary() {
                 </div>
            <div className="card EspacePatient">
           <div className="row">
-          <div class="col-12 col-md-12 col-lg-6 ">
+          <div class="col-12 col-md-12 col-lg-6 " style={{marginTop:'5%'}}>
            <form class="row"  onSubmit={handleSubmit}>
            <label class="form-label">Se Connecter en tant que Secrétaire</label>
              <div className="fromlogin">
@@ -97,7 +102,7 @@ export default function LoginSecretary() {
            </form>
            </div>
            <div class="col-12 col-md-12 col-lg-6 ">
-              <img src={Imglogin} style={{width:"70%",marginLeft:"60px"}} className="imgLogin"/>
+              <img alt="" src={Imglogin} style={{width:"70%",marginLeft:"60px"}} className="imgLogin"/>
            </div>
            </div>
            </div>

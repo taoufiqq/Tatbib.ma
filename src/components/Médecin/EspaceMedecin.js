@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link,useHistory } from 'react-router-dom';
 import logo from '../images/logo.png'
-import Medicine from '../images/Medicine.svg'
+import Medicine from '../images/doctor.png'
 import './espaceMedecin.css'
 export default function EspacePatient() {
     return (

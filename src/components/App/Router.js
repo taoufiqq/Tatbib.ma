@@ -33,6 +33,7 @@ import ManagementAvailablityMedcine from '../Médecin/ManagementAvailablityMedci
 // ---------import Components Secretary----------
 import LoginSecretary from '../Secretary/LoginSecretary';
 import DashboardSecretary from '../Secretary/DashboardSecretary';
+import ConfirmAppointment from '../Secretary/ConfirmAppointment'
 
 
 
@@ -45,7 +46,7 @@ function Routes () {
 
             <Route path="/" exact component={Acceuil} />
             <Route path="/resultSearchMedcine" exact component={ResultSearchMedcine} />
-            <Route path="/rendezVous/:idMedcine" exact component={RendezVous} />
+            <Route path="/rendezVous/:idMedcine/:login" exact component={RendezVous} />
 
     {/* Routes Patient  */}
             <Route path="/espacePatient" exact component={EspacePatient} />
@@ -69,8 +70,8 @@ function Routes () {
             <PrivateRoute path="/managementAvailablityMedcine" exact component={ManagementAvailablityMedcine} />
     {/* Routes Secretary  */}      
             <Route path="/loginSecretary" exact component={LoginSecretary} />
-           
             <PrivateRouteSecretary path="/dashboardSecretary" exact component={DashboardSecretary} />
+            <PrivateRouteSecretary path="/confirmAppointment" exact component={ConfirmAppointment} />
 
 
 

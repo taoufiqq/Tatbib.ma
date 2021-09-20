@@ -4,50 +4,48 @@ import {useHistory} from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
-import './espaceMedecin.css'
-
-export default  function ManagementCompteSecretary () {
+export default  function ConfirmAppointment () {
   
   const history = useHistory();
 
   const [status, setStatus] = useState("");
   const [updatedStatus, setUpdatedStatus] = useState("");
-  const id_Secretary =localStorage.getItem('idSecretary')
+//   const id_Secretary =localStorage.getItem('idSecretary')
 
 
 
 
-  useEffect(()=>{
+//   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/medcine/getSecretaryById/${id_Secretary}`)
-    .then(function (response) {
+//     axios.get(`http://localhost:3030/medcine/getSecretaryById/${id_Secretary}`)
+//     .then(function (response) {
      
-      setStatus(response.data.status)
+//       setStatus(response.data.status)
    
-    }).catch(function (err) {
-      console.log(err);
-  });
+//     }).catch(function (err) {
+//       console.log(err);
+//   });
   
-  })
+//   })
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
 
-    const data = {status:updatedStatus};
+//     const data = {status:updatedStatus};
 
-  axios.put(`http://localhost:3030/medcine/activateCompteSecretary/${id_Secretary}`,data)
-  .then(res => {
-    if(res.error){
-      return false
-    }else{
-      console.log(res.data);
-      history.push('/secretaryCompte');
-      toastr.success('Operation accomplished successfully')
-    }
+//   axios.put(`http://localhost:3030/medcine/activateCompteSecretary/${id_Secretary}`,data)
+//   .then(res => {
+//     if(res.error){
+//       return false
+//     }else{
+//       console.log(res.data);
+//       history.push('/secretaryCompte');
+//       toastr.success('Operation accomplished successfully')
+//     }
    
-  })
+//   })
   
-  }
+//   }
 
     return ( 
         <div className="Containerr" style={{overflow: 'hidden'}}>
@@ -68,12 +66,13 @@ export default  function ManagementCompteSecretary () {
 </div>
  <div className="col-12 col-md-6 col-lg-6 px-5 py-4 ConfirmForm">
 <h2 className="h2">Activate Account Secretary</h2>
-<form  onSubmit={handleSubmit}>
+<form  >
     <div className="col-12">
         <div className="input-icons mb-4">
            <select className="select p-3"
-               value={updatedStatus}
-               onChange={(e) => setUpdatedStatus(e.target.value)}>
+              //  value={updatedStatus}
+              //  onChange={(e) => setUpdatedStatus(e.target.value)}
+               >
                  <option selected>Choose a status</option>
                 <option value="InActive">InActive</option>
                 <option value="Active">Active</option>

@@ -80,8 +80,8 @@ h5 {
   border-radius: 18px;
   border: none;
   height: 36px;
-  width: 30%;
-  margin-left: 35%;
+  width: 28%;
+  margin-left: 36%;
   text-align: center;
   text-decoration: none;
   font-family: Segoe UI;
@@ -94,42 +94,6 @@ h5 {
   background-color: #058da2;
   color: white;
 }
-/* .Login{
- 
-    margin-left: 60%;
-    margin-top: -34%;
-}
-.Login_img{
-    width: 100%;
-}
-.inptLogin{
-    width: 140%;
-    border: none;
-    border-radius: 30px;
-    height: 40px;
-    background-color: #FFFFFF;
-    text-align: center;
-}
-.buttonLogin{
-    width: 85%;
-    margin-left: 21%;
-    border: none;
-    border-radius: 30px;
-    height: 40px;
-    background-color: #20C997;
-    color: white;
-    font-weight: 700;
-}
-.buttonSignIn{
-    width: 85%;
-    margin-left: 21%;
-    border: none;
-    border-radius: 30px;
-    height: 40px;
-    color: #20C997;
-    font-weight: 700;
-} */
-
 .form-label {
   margin-left: 10%;
   font-size: 25px;
@@ -212,7 +176,7 @@ main {
   margin:2%;
 }
 main .helper {
-  background: #BFE987;
+  background: #2ca5b8;
   color: white;
   /* position: absolute;
   top: 50%;
@@ -225,7 +189,7 @@ main .helper {
   font-weight: bold;
 }
 main .helper span {
-  color: rgba(0,0,0,0.2);
+  color:white;
   font-size: 0.4em;
   display: block;
 }

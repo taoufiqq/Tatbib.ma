@@ -35,7 +35,7 @@ axios.post(`http://localhost:3030/medcine/createAccountSecretary`,Secretary)
         }else{
       console.log(res.data);
       history.push('/secretaryCompte')
-      toastr.success(' authenticated SuccessFully')
+      toastr.success('Secretary added SuccessFully')
         }
      
     })

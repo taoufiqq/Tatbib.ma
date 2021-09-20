@@ -1,20 +1,28 @@
 import React,{useEffect,useState} from 'react'
-import { Link,useHistory,useParams } from 'react-router-dom';
+import { useHistory,useParams } from 'react-router-dom';
 import logo from '../images/logo.png'
 import axios from 'axios';
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
-import { DateTimePickerComponent} from '@syncfusion/ej2-react-calendars';
+import {DatePickerComponent,TimePickerComponent} from '@syncfusion/ej2-react-calendars';
+// import DayPicker from 'react-day-picker';
+// import 'react-day-picker/lib/style.css';
+// import { format } from 'date-fns'
 
 export default function RendezVous() {
 
   const  { idMedcine } = useParams();
+  const  { login } = useParams();
 
-  const [appointmentDate, setAppointmentDate] = useState("");
-
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
   const history = useHistory();
   const token =localStorage.getItem("tokenPatient");
   const idPatient =localStorage.getItem('id_patient')
+
+// let dateMDY = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+  // const date1 = format(date)
+  // console.log( format(date));
 
   if (!token) {
     history.push('/signUpPatient')
@@ -31,6 +39,7 @@ export default function RendezVous() {
   // }
 
 
+
 // ------------------------------- get information medcine's Appointment  ------------------------------
 useEffect(()=>{
     axios.get(`http://localhost:3030/medcine/getMedcineById/${idMedcine}`)
@@ -44,26 +53,29 @@ useEffect(()=>{
 
  const handleSubmit = (e) => {
   e.preventDefault();
-const Appointment = {appointmentDate,medcine:idMedcine,patient:idPatient};
+
+  //   // const date1 = format(date)
+  // // const time1 = format(time)
+  // console.log( format(date));
+const Appointment = {date,time,medcine:idMedcine,patient:idPatient,loginMedcine:login};
 
 axios.post(`http://localhost:3030/appointment/addAppointment`,Appointment)
     
   .then(res => {
-      if(res.error){
-          return false
-      }else{
-    // console.log(res.data);
-          if (appointmentDate) {
-            
-          }
-          history.push('/dashboardPatient')
-          toastr.success(' Appointment Reserved Successfully')
-      }
-   
-  })
-}
 
-    return (
+  if(res.error){
+         return false
+  }else{
+      // let id= res.data._id;
+      localStorage.setItem('id_appointment',res.data._id);
+      history.push('/dashboardPatient')
+      toastr.success(' Appointment Reserved Successfully')
+      console.log(res.data);
+    }
+
+})
+}
+return (
 
     <div className="container-fluid px-0" style={{overflow: 'auto'}}>
         <section className="header-page">
@@ -87,15 +99,22 @@ axios.post(`http://localhost:3030/appointment/addAppointment`,Appointment)
     <form  onSubmit={handleSubmit}>
     <div class="blog-slider__content">
     <div class="blog-slider__title"><h5 style={{color:'#2ca5b8'}}>Select a date and time  to take an <b>Appointment</b></h5></div>
-             <DateTimePickerComponent id="datetimepicker"
-              placeholder="Select a date and time" 
-              // value={dateValue}
-              min={minDate}
-              // isValidDate={disableWeekends}
-              required    
-              value={appointmentDate}
-              onChange={e => setAppointmentDate(e.target.value)}
-              />
+              {/* <DayPicker
+                     disabledDays={[new Date(), { daysOfWeek: [0, 6] }]}
+             /> */}
+              <DatePickerComponent
+                placeholder="Select a date"
+                min={minDate}
+                disabledDays={{daysOfWeek: [0, 6]}}
+                value={date}
+                onChange={e => setDate(e.target.value)}
+              ></DatePickerComponent> 
+              <TimePickerComponent
+                placeholder="Select a time"              
+           
+                value={time}
+                onChange={e => setTime(e.target.value)} 
+              ></TimePickerComponent>
                 <button type="submit"  class="blog-slider__button mt-5 s" style={{outline:"none"}}>Confirm</button>
    </div>
    </form>

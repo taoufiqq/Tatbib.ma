@@ -4,7 +4,7 @@ import axios from 'axios';
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import logo from '../images/logo.png';
-import Imglogin from '../images/login1.svg'
+import Imglogin from '../images/login3.svg'
 
 export default function LoginMedcine() {
 
@@ -81,7 +81,7 @@ export default function LoginMedcine() {
                 </div>
            <div className="card EspacePatient">
           <div className="row">
-          <div class="col-12 col-md-12 col-lg-6 ">
+          <div class="col-12 col-md-12 col-lg-6 " style={{marginTop:'4%'}}>
            <form class="row"  onSubmit={handleSubmit}>
            <label class="form-label">Se Connecter en tant que Médecin</label>
              <div className="fromlogin">

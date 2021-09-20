@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link,useHistory } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import logo from '../images/logo.png'
-import patient from '../images/patient.png'
+import patient from '../images/patient.svg'
 import './login.css'
 export default function EspacePatient() {
     return (
@@ -10,7 +10,7 @@ export default function EspacePatient() {
             <div className="container">
                   <div className="row justify-content-between py-3 align-items-center">
                     <div className="col-12 col-sm-3 col-lg-4 d-flex justify-content-center justify-content-lg-start py-2 py-lg-0">
-                     <Link to="/"><img src={logo} width="100px"/></Link>
+                     <Link to="/"><img alt="" src={logo} width="100px"/></Link>
                       
                     </div>
                     <div className="col-12 col-sm-9 col-lg-6 col-xl-4">
@@ -29,7 +29,7 @@ export default function EspacePatient() {
                     </div>
                 </div>
            <div className="card EspacePatient">
-             <img src={patient} className="patient"/>
+             <img alt="" src={patient} className="patient"/>
              <h5>Espace Patients</h5>
              <Link to="/loginPatient" type="submit" className="EspacePatientButton">Accéder à l'espace Patients</Link>
            </div>
