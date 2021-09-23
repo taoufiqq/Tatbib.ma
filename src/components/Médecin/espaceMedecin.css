@@ -187,7 +187,7 @@ table.table tr th:first-child {
     width: 220px;
 }
 table.table tr th:last-child {
-    width: 126px;
+    width: 189px;
 }
 table.table-striped tbody tr:nth-of-type(odd) {
     background-color: #fcfcfc;
@@ -213,6 +213,9 @@ table.table td a {
 }
 table.table td a:hover {
     color: #2196F3;
+}
+table.table td a.confirm {
+    color: #10c469;;
 }
 table.table td a.edit {
     color: #FFC107;;

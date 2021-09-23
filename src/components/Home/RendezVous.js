@@ -33,6 +33,10 @@ export default function RendezVous() {
   // const dateValue= new Date();  
   const minDate= new Date() 
 
+
+
+
+
   // disable weekends
   // const disableWeekends = current => {
   //   return current.day() !== 0 && current.day() !== 6;
@@ -56,7 +60,13 @@ useEffect(()=>{
 
   //   // const date1 = format(date)
   // // const time1 = format(time)
-  // console.log( format(date));
+
+  
+console.log(date.toLocaleDateString() );
+
+
+
+
 const Appointment = {date,time,medcine:idMedcine,patient:idPatient,loginMedcine:login};
 
 axios.post(`http://localhost:3030/appointment/addAppointment`,Appointment)
@@ -71,6 +81,7 @@ axios.post(`http://localhost:3030/appointment/addAppointment`,Appointment)
       history.push('/dashboardPatient')
       toastr.success(' Appointment Reserved Successfully')
       console.log(res.data);
+    
     }
 
 })

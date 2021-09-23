@@ -64,6 +64,16 @@
   /* margin-left: 13em; */
   border-radius: 15px;
 }
+.cardOrdonnance{
+
+  background-color: white;
+    margin-top: 1em;
+    padding-top: 2%;
+    height: 79vh;
+    margin-left: 24em;
+    border-radius: 15px;
+    width: 45%;
+}
 .patient {
   width: 30%;
   margin-left: 29rem;
@@ -99,6 +109,25 @@ h5 {
   font-size: 25px;
   font-weight: 700;
   color: #2ca5b8;
+}
+.OrdonnanceDate{
+  font-weight: 700; 
+  margin-left: 10%;
+  margin-top: 1%;
+}
+.OrdonnanceDoctor{
+  font-weight: 700; 
+  margin-left: 52%;
+}
+.dateOrdonnance{
+  font-weight: 700; 
+  margin-left: 10%;
+  margin-top: 3%;
+}
+.timeOrdonnance{
+  font-weight: 700; 
+  margin-left: 52%;
+  padding-bottom: 8%;
 }
 .form-control {
   border-radius: 22px;
@@ -137,6 +166,13 @@ width: 50%;
   margin-left: 15%;
 }
 
+@media screen and (max-width: 990px) {
+  .cardOrdonnance
+   {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 @media screen and (max-width: 990px) {
   .patient,
   .imgLogin {

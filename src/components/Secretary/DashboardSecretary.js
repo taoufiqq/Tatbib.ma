@@ -12,10 +12,10 @@ export default  function DashboardSecretary () {
 
 
   const login =localStorage.getItem('LoginSecretary')
-
   const id =localStorage.getItem('login_medcine')
 
   const [listAppointment, setListAppointment] = useState();
+
 
   useEffect(()=>{
 
@@ -30,13 +30,33 @@ export default  function DashboardSecretary () {
   
   },[id])
 
+
+    // delete My Account  
+    const deleteAppointment = (id)=>{
+      var msgConfirmation = window.confirm("Are You Sure Yo want to delete this Appointment ?");
+      if (msgConfirmation) {   
+      axios.delete(`http://localhost:3030/secretary/deleteAppointment/${id}`)
+      .then(function (response) {
+          window.location.reload();
+        console.log('item was deleted Succesfully ... ');
+        toastr.success(' Appointment was deleted SuccessFully')
+      
+      })
+      
+    
+    }
+  }
   const getIdAppointment = (id)=>{
     localStorage.setItem('idAppointment',id);
     history.push('/confirmAppointment');
   
   }
 
-
+  const alertAppointment = (id)=>{
+    localStorage.setItem('idAppointment',id);
+    history.push('/alertAppointment');
+  
+  }
 
 
 
@@ -106,10 +126,11 @@ export default  function DashboardSecretary () {
           <td style={{color: item.status !== "Unconfirmed"?'color': 'red'}}>{item.status}</td>
 
           <td>
-            
-            <Link onClick={()=>getIdAppointment(item._id)}  className="edit" title="Confirm Appointment" data-toggle="tooltip"><i class="material-icons done_outline">&#xe92f;</i></Link>
+        
+            <Link onClick={()=>alertAppointment(item._id)} className="edit" title="Alert Appointment" data-toggle="tooltip">  <i class="material-icons add_alert">&#xe003;</i></Link>
+            <Link onClick={()=>getIdAppointment(item._id)}  className="confirm" title="Confirm Appointment" data-toggle="tooltip"><i class="material-icons done_outline">&#xe92f;</i></Link>
             <Link  className="edit" title="Edit Appointment" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
-            <Link  className="delete" title="Delete Appointment" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
+            <Link onClick={()=>deleteAppointment(item._id)} className="delete" title="Delete Appointment" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
           </td>
         </tr>
 

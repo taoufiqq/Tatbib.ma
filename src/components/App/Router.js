@@ -30,10 +30,13 @@ import DashboardMedcine from '../Médecin/DashboardMedcine';
 import SecretaryCompte from '../Médecin/SecretaryCompte';
 import ManagementCompteSecretary from '../Médecin/ManagementCompteSecretary';
 import ManagementAvailablityMedcine from '../Médecin/ManagementAvailablityMedcine';
+import ListAppointments from '../Médecin/ListAppointments';
+import CreateOrdonnances from '../Médecin/CreateOrdonnances';
 // ---------import Components Secretary----------
 import LoginSecretary from '../Secretary/LoginSecretary';
 import DashboardSecretary from '../Secretary/DashboardSecretary';
 import ConfirmAppointment from '../Secretary/ConfirmAppointment'
+import AlertAppointment from '../Secretary/AlertAppointment';
 
 
 
@@ -68,10 +71,14 @@ function Routes () {
             <PrivateRoute path="/secretaryCompte" exact component={SecretaryCompte} />
             <PrivateRoute path="/managementCompteSecretary" exact component={ManagementCompteSecretary} />
             <PrivateRoute path="/managementAvailablityMedcine" exact component={ManagementAvailablityMedcine} />
+            <PrivateRoute path="/listAppointments" exact component={ListAppointments} />
+            <PrivateRoute path="/createOrdonnance" exact component={CreateOrdonnances} />
     {/* Routes Secretary  */}      
             <Route path="/loginSecretary" exact component={LoginSecretary} />
             <PrivateRouteSecretary path="/dashboardSecretary" exact component={DashboardSecretary} />
             <PrivateRouteSecretary path="/confirmAppointment" exact component={ConfirmAppointment} />
+            <PrivateRouteSecretary path="/alertAppointment" exact component={AlertAppointment} />
+            
 
 
 

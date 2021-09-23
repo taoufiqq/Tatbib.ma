@@ -3,18 +3,17 @@ import React, { useEffect,useState } from "react";
 import {useHistory,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
-import './login.css'
 import { format } from 'date-fns'
-import logo from '../images/user.jpg'
+import logo from '../images/doctor.png'
 
 
-const DashboardPatient = () => {
+const ListAppointments = () => {
 
-  const login =localStorage.getItem('LoginPatient')
+    const login =localStorage.getItem('LoginMedcine');
+    const id =localStorage.getItem('id_medcine')
   const history = useHistory();
 
 
-  const id =localStorage.getItem('id_patient')
   const [listAppointment, setListAppointment] = useState();
 
 
@@ -22,23 +21,23 @@ const DashboardPatient = () => {
 
   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/appointment/getAppointmenPatient/${id}`)
+    axios.get(`http://localhost:3030/appointment/getAppointmentMedcine/${id}`)
     .then(function (response) {
      
       setListAppointment(response.data)
-
-      // toLocaleDateString
     }).catch(function (err) {
       console.log(err);
   });
   
   },[id])
 
-
+  const getIdAppointment = (id)=>{
+    localStorage.setItem('idAppointment',id);
+    history.push('/createOrdonnance');
+  }
   const logOut =()=>{
-
-    localStorage.clear();
-       history.push('/loginPatient');
+    localStorage.clear()
+       history.push('/loginMedcine');
        toastr.success(' LogOut SuccessFully')
     }
 
@@ -55,15 +54,16 @@ const DashboardPatient = () => {
       <h5 style={{color:'white'}}>{login}</h5>
     </header>
     <ul>
-      <li tabIndex={0} className="icon-customers"><span>Appointment</span></li>
+      <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
+      <li tabIndex={0} className="icon-customers"><Link to='/listAppointments' style={{textDecoration:"none",color:"white"}}><span>ListAppointments</span></Link></li>
       <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
-      <li tabIndex={0} className="icon-profil"><Link to='/myAccount' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
+      <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secretary</span></Link></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
   </nav>
   <main>
     <div className="helper">
-          My Appointemnt<span> Management | Appointemnt</span>
+         Appointemnt<span> Appointemnts | List</span>
     </div>
     {/* <p className="listRDV">Appointemnt list</p> */}
     <div className="table-responsive">
@@ -71,7 +71,7 @@ const DashboardPatient = () => {
   <div className="table-title">
       <div className="row">
         <div className="col-sm-5">
-          <h2>Appointemnt <b>list</b></h2>
+          <h2>Appointemnts <b>list</b></h2>
         </div>
         {/* <div className="col-sm-7">
           <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
@@ -82,12 +82,14 @@ const DashboardPatient = () => {
     <table className="table table-striped table-hover">
       <thead>
         <tr>
-          <th>FullName</th>
-          <th>Speciality</th>			
-          <th> Date</th>	          
+          <th>LastName</th>	
+          <th>FirstName</th>
+          <th>email</th>	
+          <th>telephone</th>	
+          <th>Date</th>	          
           <th>Time</th>
           <th>status</th>
-          <th>Action</th>
+          <th>Ordonnance</th>
         </tr>
       </thead>
       { listAppointment && listAppointment.map(item =>(
@@ -96,14 +98,17 @@ const DashboardPatient = () => {
         <tr>
       
           
-          <td>{item.medcine.fullName}</td>
-          <td>{item.medcine.speciality}</td>
+          <td>{item.patient.firstName}</td>
+          <td>{item.patient.lastName}</td>
+          <td>{item.patient.email}</td>
+          <td>{item.patient.telephone}</td>
           <td>{item.date}</td>
           <td>{item.time}</td>
           <td style={{color: item.status !== "Unconfirmed"?'color': 'red'}}>{item.status}</td>
 
+
           <td>
-            <Link  className="delete" title="Delete Appointment" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
+            <Link onClick={()=>getIdAppointment(item._id)} className="confirm" title="Writing a Ordonnance" data-toggle="tooltip" style={{visibility:  item.status !== "Unconfirmed"?'visible':'hidden'}}><i class="material-icons border_color">&#xe22b;</i></Link>
           </td>
         </tr>
 
@@ -113,10 +118,9 @@ const DashboardPatient = () => {
   </div>
 </div>
 
-    <Link to="/searchMedcine" style={{textDecoration:"none"}}><input type="button"  className="form-control mt-5 btnConnect rendez-vous" id="Rdv" value="Prendre un rendez-vous "/></Link>
   </main>
 </div>
      );
 }
 
-export default DashboardPatient;
+export default ListAppointments;

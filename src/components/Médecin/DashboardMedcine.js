@@ -73,25 +73,24 @@ export default  function DashboardMedcine () {
       <h5 style={{color:'white'}}>{login_Medcine}</h5>
     </header>
     <ul>
-      <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
-      <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secretary</span></Link></li>
+    <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
+      <li tabIndex={0} className="icon-customers"><Link to='/listAppointments' style={{textDecoration:"none",color:"white"}}><span>ListAppointments</span></Link></li>
       <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
+      <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secretary</span></Link></li>    
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
   </nav>
   <main>
- 
+  <div className="helper">
+          My Account<span> Management | Account</span>
+    </div>
   <div className="table-responsive">
   <div className="table-wrapper">
-    <div className="table-title">
+  <div className="table-title">
       <div className="row">
         <div className="col-sm-5">
           <h2>Account <b>Management</b></h2>
         </div>
-        {/* <div className="col-sm-7">
-          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
-          <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Export to Excel</span></a>						
-        </div> */}
       </div>
     </div>
     <table className="table table-striped table-hover">
@@ -116,7 +115,7 @@ export default  function DashboardMedcine () {
           <td>{city}</td>                   
           <td style={{color: availablity !== "NotAvailable"?'color': 'red'}}><span className="status text-success"></span>{availablity}</td>
           <td>
-            <Link onClick={()=>getIdMedecin(Medecin._id)} className="edit" title="Edit Account" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
+            <Link onClick={()=>getIdMedecin(Medecin._id)} className="edit" title="Edit Account" data-toggle="tooltip" ><i className="material-icons">&#xE254;</i></Link>
             <Link className="delete" title="Delete Account" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
           </td>
         </tr>

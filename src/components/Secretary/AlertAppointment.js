@@ -3,27 +3,26 @@ import React, { useEffect, useState } from "react";
 import {useHistory} from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
-
-export default  function ConfirmAppointment () {
+import alert from '../images/alert.svg'
+export default  function AlertAppointment () {
   
   const history = useHistory();
 
-  const [status, setStatus] = useState("");
-  const [updatedStatus, setUpdatedStatus] = useState("");
+//   const [status, setStatus] = useState("");
+//   const [updatedStatus, setUpdatedStatus] = useState("");
   const [email, setEmail] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const id =localStorage.getItem('idAppointment')
+  const id_Appointment =localStorage.getItem('idAppointment')
 
 
 
 
-  useEffect(()=>{
+useEffect(()=>{
 
-    axios.get(`http://localhost:3030/appointment/getAppointmenById/${id}`)
+    axios.get(`http://localhost:3030/appointment/getAppointmenById/${id_Appointment}`)
     .then(function (response) {
      
-      setStatus(response.data.status)
       setEmail(response.data.patient.email)
       setDate(response.data.date)
       setTime(response.data.time)
@@ -34,22 +33,28 @@ export default  function ConfirmAppointment () {
   
   })
 
+
+
+
+  
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = {status:updatedStatus,email,date,time};
+    const data = {email,date,time};
 
-  axios.put(`http://localhost:3030/secretary/confirmAppointment/${id}`,data)
-  .then(res => {
-    if(res.error){
-      return false
-    }else{
-      console.log(res.data);
-      history.push('/dashboardSecretary');
-      toastr.success('Operation accomplished successfully')
-    }
-   
-  })
+    axios.put(`http://localhost:3030/secretary/alertAppointment/${id_Appointment}`,data)
+    .then(res => {
+      if(res.error){
+        return false
+      }else{
+        console.log(res.data.date);
+        history.push('/dashboardSecretary');
+        toastr.success('َAlert has been sent successfully')
+      }
+     
+    })
   
   }
 
@@ -71,22 +76,15 @@ export default  function ConfirmAppointment () {
   </div>
 </div>
  <div className="col-12 col-md-6 col-lg-6 px-5 py-4 ConfirmForm">
-<h2 className="h2">Confirm Appointment</h2>
+<h2 className="h2">Alert Appointment</h2>
 <form onSubmit={handleSubmit} >
     <div className="col-12">
         <div className="input-icons mb-4">
-           <select className="select p-3"
-               value={updatedStatus}
-               onChange={(e) => setUpdatedStatus(e.target.value)}
-               >
-                 <option selected>Choose a status</option>
-                <option value="Confirmed">Confirmed</option>
-                <option value="Unconfirmed">Unconfirmed</option>
-            </select>
+         <img alt="" src={alert} width="60%"/>
         </div>
     </div>
     <div className="d-grid">
-        <button type="submit" class="button1 py-3">Confirm</button>
+        <button type="submit" class="button1 py-3" style={{width:"30%",marginLeft:"35%",backgroundColor:"red"}}>Alert</button>
     </div>
 </form>
 </div> 

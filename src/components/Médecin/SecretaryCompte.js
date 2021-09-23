@@ -74,24 +74,27 @@ export default  function SecretaryCompte () {
       <h5 style={{color:'white'}}>{login}</h5>
     </header>
     <ul>
-    <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
-      <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secretary</span></Link></li>
+      <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
+      <li tabIndex={0} className="icon-customers"><Link to='/listAppointments' style={{textDecoration:"none",color:"white"}}><span>ListAppointments</span></Link></li>
       <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
+      <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secretary</span></Link></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>
   </nav>
   <main>
- 
+  <div className="helper">
+         Secretary Account<span> Secretary | Management</span>
+    </div>
   <div className="table-responsive">
   <div className="table-wrapper">
-    <div className="table-title">
+  <div className="table-title">
       <div className="row">
         <div className="col-sm-5">
-          <h2>Secretary <b>Management </b></h2>
+        <h2>Account <b>Management</b></h2>
         </div>
         <div className="col-sm-7">
-          <Link to="/createAccountSecretary" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New Secretary</span></Link>
-          {/* <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Export to Excel</span></a>						 */}
+        <Link to="/createAccountSecretary" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New Secretary</span></Link>
+
         </div>
       </div>
     </div>
@@ -114,7 +117,7 @@ export default  function SecretaryCompte () {
           <td>{item.login}</td>                 
           <td  style={{color: item.status !== "InActive"?'color': 'red'}}><span className="status text-danger"></span>{item.status}</td>
           <td>
-            <Link onClick={()=>getIdSecretary(item._id)}className="edit" title="Active Account Secretary" data-toggle="tooltip"><i class="material-icons done_outline">&#xe92f;</i></Link>
+            <Link onClick={()=>getIdSecretary(item._id)} className="edit" title="Active Account Secretary" data-toggle="tooltip"><i className="material-icons">&#xE254;</i></Link>
             <Link  onClick={()=>deleteAccountSecretary(item._id)} className="delete" title="Delete Account Secretary" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
           </td>
         </tr>
