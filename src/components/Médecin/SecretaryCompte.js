@@ -76,7 +76,7 @@ export default  function SecretaryCompte () {
     <ul>
       <li tabIndex={0} className="icon-profil"><Link to='/dashboardMedcine' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
       <li tabIndex={0} className="icon-customers"><Link to='/listAppointments' style={{textDecoration:"none",color:"white"}}><span>ListAppointments</span></Link></li>
-      <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
+      <li tabIndex={0} className="icon-users"><Link to='/listOrdonnances' style={{textDecoration:"none",color:"white"}}><span>Ordonnances</span></Link></li>
       <li tabIndex={0} className="icon-Secrétaire"><Link to='/secretaryCompte' style={{textDecoration:"none",color:"white"}}><span>Secretary</span></Link></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>

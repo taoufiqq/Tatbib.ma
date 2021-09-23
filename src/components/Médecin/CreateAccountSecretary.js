@@ -86,8 +86,7 @@ axios.post(`http://localhost:3030/medcine/createAccountSecretary`,Secretary)
          
              </div>
              <div>
-                 <input type="submit"  className="form-control mt-5 btnConnect" id="signup" value="Confirmer"/>
-                 <Link to="/loginSecretary" style={{textDecoration:"none"}}><input type="submit"  className="form-control mt-3 btnAuth"  value="J'ai déja un compte "/></Link>
+                 <input type="submit"  className="form-control mt-5 btnConnect" id="signup" value="Confirm"/>
          
              </div>
            </form>

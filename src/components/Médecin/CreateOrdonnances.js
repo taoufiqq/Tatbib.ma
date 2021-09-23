@@ -25,7 +25,8 @@ export default function CreateOrdonnances() {
   const idAppointment=localStorage.getItem('idAppointment'); 
   const idPatient =localStorage.getItem('id_patient')
   const idMedcine =localStorage.getItem('id_medcine')
-
+  console.log(idPatient);
+  console.log(idMedcine);
     useEffect(()=>{
 
       axios.get(`http://localhost:3030/appointment/getAppointmenById/${idAppointment}`)
@@ -59,15 +60,15 @@ axios.post(`http://localhost:3030/medcine/addOrdonnance`,Ordonnance)
             return false
         }else{
       console.log(res.data);
-      history.push('/dashboardMedcine')
-      toastr.success('Secretary added SuccessFully')
+      history.push('/listAppointments')
+      toastr.success('Ordonnance added SuccessFully')
         }
      
     })
 }
   return (
 
-  <section className="header-page">
+  <section className="header-page noPrint">
     <div className="container">
            <div className="row justify-content-between py-3 align-items-center">
                     <div className="col-12 col-sm-3 col-lg-4 d-flex justify-content-center justify-content-lg-start py-2 py-lg-0">
@@ -85,7 +86,7 @@ axios.post(`http://localhost:3030/medcine/addOrdonnance`,Ordonnance)
                  <label className="OrdonnanceDate"><span  style={{color:'red'}}>Dr </span>{fullNameDoctor}</label>
                  <label className="OrdonnanceDate" style={{color:'green'}}>{speciality}</label>
                    <div>
-                     <label className="OrdonnanceDoctor" ><span style={{color:'red'}}>Mr/MMe </span >{firstNamePatient} {lastNamePatient}</label>
+                     <label className="OrdonnanceDoctor" ><span style={{color:'red'}}>Mr/Mme </span >{firstNamePatient} {lastNamePatient}</label>
                    </div>
   
               <div className="fromloginSignUp">
@@ -101,7 +102,7 @@ axios.post(`http://localhost:3030/medcine/addOrdonnance`,Ordonnance)
                    ></textarea>
                </div>
                <div>
-                 <button type="submit"  className="form-control mt-5 btnConnect"  value="Confirm"></button>
+                 <input type="submit"  className="form-control mt-5 btnConnect"  value="Confirm"/>
                </div>
            </form>
           </div>

@@ -408,3 +408,9 @@ main .helper span {
 
 
 }
+
+/* @media print {
+  .noPrint{
+    display:none;
+  }
+} */

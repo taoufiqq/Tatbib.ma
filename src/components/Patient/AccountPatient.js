@@ -86,7 +86,7 @@ export default  function AccountPatient () {
     </header>
     <ul>
       <li tabIndex={0} className="icon-customers"><Link to='/dashboardPatient' style={{textDecoration:"none",color:"white"}}><span>Appointment</span></Link></li>
-      <li tabIndex={0} className="icon-users"><Link  style={{textDecoration:"none",color:"white"}}><span>Ordonnances</span></Link></li>
+      <li tabIndex={0} className="icon-users"><Link to='/listOrdonnancesPatient' style={{textDecoration:"none",color:"white"}}><span>Ordonnances</span></Link></li>
       <li tabIndex={0} className="icon-profil"><Link to='/myAccount' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>

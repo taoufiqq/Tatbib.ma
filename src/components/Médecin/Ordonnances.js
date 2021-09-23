@@ -3,43 +3,34 @@ import React, { useEffect,useState } from "react";
 import {useHistory,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
-import { format } from 'date-fns'
-import logo from '../images/doctor.png'
+import doctor from '../images/doctor.png'
+import logo from '../images/logo.png'
 
 
-const ListAppointments = () => {
+const Ordonnances = () => {
 
     const login =localStorage.getItem('LoginMedcine');
     const id =localStorage.getItem('id_medcine')
   const history = useHistory();
 
 
-  const [listAppointment, setListAppointment] = useState();
+  const [listOrdonnance, setListOrdonnance] = useState();
 
 
 
 
   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/appointment/getAppointmentMedcine/${id}`)
+    axios.get(`http://localhost:3030/medcine/getOrdonnanceByMedcine/${id}`)
     .then(function (response) {
      
-      setListAppointment(response.data)
+      setListOrdonnance(response.data)
     }).catch(function (err) {
       console.log(err);
   });
   
   },[id])
 
-  const getIdAppointment = (id)=>{
-    localStorage.setItem('idAppointment',id);
-    history.push('/createOrdonnance');
-  }
-  const getIdPatient = (id)=>{
-    localStorage.setItem('id_patient',id);
-    history.push('/createOrdonnance');
-  
-  }
   const logOut =()=>{
     localStorage.clear()
        history.push('/loginMedcine');
@@ -54,7 +45,7 @@ const ListAppointments = () => {
   <nav className="menu" tabIndex={0}>
     <div className="smartphone-menu-trigger" />
     <header className="avatar">
-    <img alt="" src={logo} style={{borderRadius:'50%'}} />
+    <img alt="" src={doctor} style={{borderRadius:'50%'}} />
       <h6>Welcome</h6>
       <h5 style={{color:'white'}}>{login}</h5>
     </header>
@@ -68,7 +59,7 @@ const ListAppointments = () => {
   </nav>
   <main>
     <div className="helper">
-         Appointemnt<span> Appointemnts | List</span>
+          Ordonnances<span> Ordonnances | List</span>
     </div>
     {/* <p className="listRDV">Appointemnt list</p> */}
     <div className="table-responsive">
@@ -76,7 +67,7 @@ const ListAppointments = () => {
   <div className="table-title">
       <div className="row">
         <div className="col-sm-5">
-          <h2>Appointemnts <b>list</b></h2>
+          <h2>Ordonnances <b>list</b></h2>
         </div>
         {/* <div className="col-sm-7">
           <a href="#" className="btn btn-secondary"><i className="material-icons"></i> <span>Add New User</span></a>
@@ -84,42 +75,33 @@ const ListAppointments = () => {
         </div> */}
       </div>
     </div>
-    <table className="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th>LastName</th>	
-          <th>FirstName</th>
-          <th>email</th>	
-          <th>telephone</th>	
-          <th>Date</th>	          
-          <th>Time</th>
-          <th>status</th>
-          <th>Ordonnance</th>
-        </tr>
-      </thead>
-      { listAppointment && listAppointment.map(item =>(
-   
-      <tbody>
-        <tr>
-      
-          
-          <td>{item.patient.firstName}</td>
-          <td>{item.patient.lastName}</td>
-          <td>{item.patient.email}</td>
-          <td>{item.patient.telephone}</td>
-          <td>{item.date}</td>
-          <td>{item.time}</td>
-          <td style={{color: item.status !== "Unconfirmed"?'color': 'red'}}>{item.status}</td>
+    { listOrdonnance && listOrdonnance.map(item =>(
+    <div class="blog-slider mt-5"  style={{height:'500px'}}>
 
+  <div class="blog-slider__wrp swiper-wrapper">
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src={logo} alt=""/>
+      </div>
+      <div class="blog-slider__content">
+  <div class="blog-slider__title"><h4><span style={{color:'red'}}>Dr: </span>{item.medcine.fullName}</h4></div>
+  <div class="blog-slider__code"><h4>{item.medcine.speciality}</h4></div>
+  <span class="blog-slider__code"><span style={{color:'red'}}>Mr/Mme: </span>{item.patient.firstName} {item.patient.lastName}</span>        
+  <div class="blog-slider__code"><span style={{color:'red'}}>date: </span> {item.date}</div>
+  <div class="blog-slider__code" ><span style={{color:'red'}}>time: </span>{item.time}</div>
+  <div class="blog-slider__code" ><span style={{color:'red'}}>medicamment: </span>
+         <textarea style={{height:'100px',width:'450px',border:'none'}}>{item.medicamment}</textarea>
 
-          <td>
-            <Link  onClick={() => { getIdAppointment(item._id); getIdPatient(item.patient._id);}} className="confirm" title="Writing a Ordonnance" data-toggle="tooltip" style={{visibility:  item.status !== "Unconfirmed"?'visible':'hidden'}}><i class="material-icons border_color">&#xe22b;</i></Link>
-          </td>
-        </tr>
+  </div>
+  </div>
+    </div>
+    
+  </div> 
+  
+  {/* <div class="blog-slider__pagination"></div> */}
 
-      </tbody>
-       ))} 
-    </table>
+ </div> 
+    ))}
   </div>
 </div>
 
@@ -128,4 +110,4 @@ const ListAppointments = () => {
      );
 }
 
-export default ListAppointments;
+export default Ordonnances;

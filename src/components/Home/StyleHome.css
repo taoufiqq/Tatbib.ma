@@ -373,7 +373,7 @@ border: 1px solid rgba(255,255,255,0.2);
     max-width: 800px;
     margin: auto;
     background: #fff;
-    box-shadow: 0px 14px 80px rgb(192 232 136);
+    box-shadow: 8px 12px 18px rgb(44 165 184);
     padding: 25px;
     border-radius: 25px;
     height: 365px;
@@ -386,6 +386,12 @@ border: 1px solid rgba(255,255,255,0.2);
       height: 400px;
     }
   }
+  @media screen and (max-width: 500px) {
+    .cardMedcine{
+      width: 65%;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     .blog-slider {
       min-height: 500px;

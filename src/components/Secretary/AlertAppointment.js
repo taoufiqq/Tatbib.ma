@@ -51,7 +51,7 @@ useEffect(()=>{
       }else{
         console.log(res.data.date);
         history.push('/dashboardSecretary');
-        toastr.success('َAlert has been sent successfully')
+        toastr.success('Alert has been sent successfully')
       }
      
     })
@@ -76,7 +76,7 @@ useEffect(()=>{
   </div>
 </div>
  <div className="col-12 col-md-6 col-lg-6 px-5 py-4 ConfirmForm">
-<h2 className="h2">Alert Appointment</h2>
+<h2 className="h2">Reminder Appointment</h2>
 <form onSubmit={handleSubmit} >
     <div className="col-12">
         <div className="input-icons mb-4">
@@ -84,7 +84,7 @@ useEffect(()=>{
         </div>
     </div>
     <div className="d-grid">
-        <button type="submit" class="button1 py-3" style={{width:"30%",marginLeft:"35%",backgroundColor:"red"}}>Alert</button>
+        <button type="submit" class="button1 py-3" style={{width:"30%",marginLeft:"35%",backgroundColor:"red"}}>Reminder</button>
     </div>
 </form>
 </div> 

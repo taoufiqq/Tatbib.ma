@@ -176,12 +176,12 @@ export default function Acceuil() {
             </div>
         </div>
         
-        <div className="container py-5">
+        <div className="container py-5 cardMedcine">
             <h4 className="fs-2 fw-bold text-center py-3" style={{color: '#2CA5B8'}}>Our practitioners</h4>
             
             <div className="row justify-content-evenly">
             { medcine && medcine.map((item) =>(
-                <div className="col-12 col-sm-6 col-md-3 text-center m-2" style={{ backgroundColor: '#E5E5E5', borderRadius: '20px' }}>                 
+                <div className="col-12 col-sm-6 col-md-3 text-center m-2 " style={{ backgroundColor: '#E5E5E5', borderRadius: '20px' }}>                 
                     <img alt=""  src={Medicine} style={{width:'100%'}}/>
                     <h4>{item.fullName}</h4>
                     <h5>{item.speciality}</h5>

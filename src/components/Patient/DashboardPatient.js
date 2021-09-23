@@ -56,7 +56,7 @@ const DashboardPatient = () => {
     </header>
     <ul>
       <li tabIndex={0} className="icon-customers"><span>Appointment</span></li>
-      <li tabIndex={0} className="icon-users"><span>Ordonnances</span></li>
+      <li tabIndex={0} className="icon-users"><Link to='/listOrdonnancesPatient' style={{textDecoration:"none",color:"white"}}><span>Ordonnances</span></Link></li>
       <li tabIndex={0} className="icon-profil"><Link to='/myAccount' style={{textDecoration:"none",color:"white"}}><span>MyAccount</span></Link></li>
       <li tabIndex={0} className="icon-settings"><span onClick={logOut}>Log out</span></li>
     </ul>

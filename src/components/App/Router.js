@@ -20,6 +20,7 @@ import DashboardPatient from '../Patient/DashboardPatient';
 import SearchMedcine from '../Patient/SearchMedcine';
 import AccountPatient from '../Patient/AccountPatient';
 import UpdateAccountPatient from '../Patient/UpdateAccountPatient';
+import ListOrdonnances from '../Patient/ListOrdonnances';
 // ---------import Components Medecin----------
 import EspaceMedecin from '../Médecin/EspaceMedecin'
 import SignUpMedcine from '../Médecin/SignUpMedcine';
@@ -32,6 +33,7 @@ import ManagementCompteSecretary from '../Médecin/ManagementCompteSecretary';
 import ManagementAvailablityMedcine from '../Médecin/ManagementAvailablityMedcine';
 import ListAppointments from '../Médecin/ListAppointments';
 import CreateOrdonnances from '../Médecin/CreateOrdonnances';
+import Ordonnances from '../Médecin/Ordonnances'
 // ---------import Components Secretary----------
 import LoginSecretary from '../Secretary/LoginSecretary';
 import DashboardSecretary from '../Secretary/DashboardSecretary';
@@ -59,7 +61,8 @@ function Routes () {
             <PrivateRoutePatient path="/dashboardPatient" exact component={DashboardPatient} /> 
             <PrivateRoutePatient path="/searchMedcine" exact component={SearchMedcine} /> 
             <PrivateRoutePatient path="/myAccount" exact component={AccountPatient} /> 
-            <PrivateRoutePatient path="/updateMyAccount" exact component={UpdateAccountPatient} /> 
+            <PrivateRoutePatient path="/updateMyAccount" exact component={UpdateAccountPatient} />
+            <PrivateRoutePatient path="/listOrdonnancesPatient" exact component={ListOrdonnances} />  
 
     {/* Routes Medecin  */}      
             <Route path="/espaceMédecin" exact component={EspaceMedecin} />
@@ -73,6 +76,7 @@ function Routes () {
             <PrivateRoute path="/managementAvailablityMedcine" exact component={ManagementAvailablityMedcine} />
             <PrivateRoute path="/listAppointments" exact component={ListAppointments} />
             <PrivateRoute path="/createOrdonnance" exact component={CreateOrdonnances} />
+            <PrivateRoute path="/listOrdonnances" exact component={Ordonnances} />
     {/* Routes Secretary  */}      
             <Route path="/loginSecretary" exact component={LoginSecretary} />
             <PrivateRouteSecretary path="/dashboardSecretary" exact component={DashboardSecretary} />
