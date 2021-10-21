@@ -35,20 +35,20 @@ const DashboardPatient = () => {
   },[id])
 
   // delete My Account  
-  const deleteAppointment = (id)=>{
-    var msgConfirmation = window.confirm("Are You Sure Yo want to delete this Account ?");
-    if (msgConfirmation) {   
-    axios.delete(`http://localhost:3030/patient/deleteAppointment/${id}`)
-    .then(function (response) {
-        window.location.reload();
-      console.log('item was deleted Succesfully ... ');
-      toastr.success('Appointment was deleted SuccessFully')
+  // const deleteAppointment = (id)=>{
+  //   var msgConfirmation = window.confirm("Are You Sure Yo want to delete this Account ?");
+  //   if (msgConfirmation) {   
+  //   axios.delete(`http://localhost:3030/patient/deleteAppointment/${id}`)
+  //   .then(function (response) {
+  //       window.location.reload();
+  //     console.log('item was deleted Succesfully ... ');
+  //     toastr.success('Appointment was deleted SuccessFully')
     
-    })
+  //   })
     
   
-  }
-}
+//   }
+// }
 
   const logOut =()=>{
 
@@ -101,7 +101,6 @@ const DashboardPatient = () => {
           <th>Speciality</th>			
           <th> Date and Time</th>	          
           <th>status</th>
-          <th>Action</th>
         </tr>
       </thead>
       { listAppointment && listAppointment.map(item =>(
@@ -116,7 +115,7 @@ const DashboardPatient = () => {
           <td style={{color: item.status !== "Unconfirmed"?'color': 'red'}}>{item.status}</td>
 
           <td>
-            <Link onClick={()=>deleteAppointment(id)}  className="delete" title="Delete Appointment" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link>
+            {/* <Link onClick={()=>deleteAppointment(id)}  className="delete" title="Delete Appointment" data-toggle="tooltip"><i className="material-icons">&#xE872;</i></Link> */}
           </td>
         </tr>
 
