@@ -181,7 +181,7 @@ export default function Acceuil() {
             
             <div className="row justify-content-evenly">
             { medcine && medcine.map((item) =>(
-                <div className="col-12 col-sm-6 col-md-3 text-center m-2 " style={{ backgroundColor: '#E5E5E5', borderRadius: '20px' }}>                 
+                <div className="col-12 col-sm-6 col-md-2 text-center m-2 " style={{ backgroundColor: '#E5E5E5', borderRadius: '20px' }}>                 
                     <img alt=""  src={Medicine} style={{width:'100%'}}/>
                     <h4>{item.fullName}</h4>
                     <h5>{item.speciality}</h5>
@@ -190,8 +190,55 @@ export default function Acceuil() {
             ))}
             </div>
         </div>
-        
-        <div className="container">
+      
+{/* ---------------------- start slide-----------------------  */}
+
+{/* <div id="slider">
+   <input type="radio" name="slider" id="slide1" checked/>
+   <input type="radio" name="slider" id="slide2"/>
+   <input type="radio" name="slider" id="slide3"/>
+   <input type="radio" name="slider" id="slide4"/>
+   <div id="slides">
+      <div id="overflow">
+         <div class="inner">
+         { medcine && medcine.map((item) =>(
+            <div class="slide slide_1">           
+               <div class="slide-content">
+               <img alt=""  src={Medicine} style={{width:'100%'}}/>
+                  <h2>{item.fullName}</h2>
+                  <p>{item.speciality}</p>
+               </div>
+           
+            </div>
+             ))}
+         </div>
+      </div>
+   </div>
+   <div id="controls">
+      <label for="slide1"></label>
+      <label for="slide2"></label>
+      <label for="slide3"></label>
+      <label for="slide4"></label>
+   </div>
+   <div id="bullets">
+      <label for="slide1"></label>
+      <label for="slide2"></label>
+      <label for="slide3"></label>
+      <label for="slide4"></label>
+   </div>
+</div> */}
+
+
+
+{/* ---------------------- end slide-----------------------  */}
+
+
+
+
+<div class="nav-elements">
+
+
+</div>        <div className="container">
             <div className="row align-items-center">
                 <div className="col-12 col-md-6 col-lg-8">
                     <h1 className="py-2">Together, let's protect ourselves to limit the spread of the Coronavirus « COVID-19 »</h1>

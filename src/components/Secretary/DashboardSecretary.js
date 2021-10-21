@@ -108,8 +108,7 @@ export default  function DashboardSecretary () {
           <th>FirstName</th>
           <th>email</th>	
           <th>telephone</th>	
-          <th>Date</th>	          
-          <th>Time</th>
+          <th>DateTime</th>	
           <th>status</th>
           <th>Action</th>
         </tr>
@@ -121,8 +120,7 @@ export default  function DashboardSecretary () {
           <td>{item.patient.lastName}</td>
           <td>{item.patient.email}</td>
           <td>{item.patient.telephone}</td>
-          <td>{item.date}</td>
-          <td>{item.time}</td>
+          <td>{item.dateTime}</td>
           <td style={{color: item.status !== "Unconfirmed"?'color': 'red'}}>{item.status}</td>
 
           <td>

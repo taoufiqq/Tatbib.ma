@@ -87,8 +87,8 @@ const Ordonnances = () => {
   <div class="blog-slider__title"><h4><span style={{color:'red'}}>Dr: </span>{item.medcine.fullName}</h4></div>
   <div class="blog-slider__code"><h4>{item.medcine.speciality}</h4></div>
   <span class="blog-slider__code"><span style={{color:'red'}}>Mr/Mme: </span>{item.patient.firstName} {item.patient.lastName}</span>        
-  <div class="blog-slider__code"><span style={{color:'red'}}>date: </span> {item.date}</div>
-  <div class="blog-slider__code" ><span style={{color:'red'}}>time: </span>{item.time}</div>
+  <div class="blog-slider__code"><span style={{color:'red'}}>date: </span> {item.dateTime}</div>
+
   <div class="blog-slider__code" ><span style={{color:'red'}}>medicamment: </span>
          <textarea style={{height:'100px',width:'450px',border:'none'}}>{item.medicamment}</textarea>
 
