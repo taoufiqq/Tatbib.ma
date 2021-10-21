@@ -21,7 +21,7 @@ const ListOrdonnances = () => {
 
   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/medcine/getOrdonnanceByPatient/${id}`)
+    axios.get(`https://tatbib-api.herokuapp.com/medcine/getOrdonnanceByPatient/${id}`)
     .then(function (response) {
      
       setListOrdonnance(response.data)

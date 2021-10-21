@@ -20,7 +20,7 @@ export default  function UpdateAccountPatient() {
  
   useEffect(()=>{
  
-   axios.get(`http://localhost:3030/patient/getPatientById/${id}`)
+   axios.get(`https://tatbib-api.herokuapp.com/patient/getPatientById/${id}`)
      .then(function (response) {
          
        setFirstName(response.data.firstName)
@@ -46,7 +46,7 @@ export default  function UpdateAccountPatient() {
 
     const data = {firstName,lastName,login,age,telephone,email};
 
-	axios.put(`http://localhost:3030/patient/updatePatient/${id}`,data)
+	axios.put(`https://tatbib-api.herokuapp.com/patient/updatePatient/${id}`,data)
     .then(res => {
     if(res.error){
       return false

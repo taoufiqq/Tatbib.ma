@@ -13,7 +13,7 @@ const ValidateAccountMedcine = () => {
 
     useEffect(()=>{
 
-        axios.put(`http://localhost:3030/medcine/activateCompte/${token}`)
+        axios.put(`https://tatbib-api.herokuapp.com/medcine/activateCompte/${token}`)
 		.then(res => {
 
           history.push('/loginMedcine');

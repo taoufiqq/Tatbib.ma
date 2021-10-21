@@ -21,7 +21,7 @@ const ListAppointments = () => {
 
   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/appointment/getAppointmentMedcine/${id}`)
+    axios.get(`https://tatbib-api.herokuapp.com/appointment/getAppointmentMedcine/${id}`)
     .then(function (response) {
      
       setListAppointment(response.data)

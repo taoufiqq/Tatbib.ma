@@ -27,7 +27,7 @@ const handleSubmit = (e) => {
 
 const Medecin = {fullName,email,password,login,city,speciality};
 
-axios.post(`http://localhost:3030/medcine/authentication`,Medecin)
+axios.post(`https://tatbib-api.herokuapp.com/medcine/authentication`,Medecin)
       
     .then(res => {
         if(res.error){

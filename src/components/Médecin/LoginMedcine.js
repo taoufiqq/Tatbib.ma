@@ -22,7 +22,7 @@ export default function LoginMedcine() {
 
     const medcine = {login,password};
 
-    axios.post(`http://localhost:3030/medcine/login`,medcine)
+    axios.post(`https://tatbib-api.herokuapp.com/medcine/login`,medcine)
 		.then(res => {
             // console.log(res.data)
         if(!res.data.message){ 

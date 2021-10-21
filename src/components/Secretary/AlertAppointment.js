@@ -20,7 +20,7 @@ export default  function AlertAppointment () {
 
 useEffect(()=>{
 
-    axios.get(`http://localhost:3030/appointment/getAppointmenById/${id_Appointment}`)
+    axios.get(`https://tatbib-api.herokuapp.com/appointment/getAppointmenById/${id_Appointment}`)
     .then(function (response) {
      
       setEmail(response.data.patient.email)
@@ -44,7 +44,7 @@ useEffect(()=>{
 
     const data = {email,date,time};
 
-    axios.put(`http://localhost:3030/secretary/alertAppointment/${id_Appointment}`,data)
+    axios.put(`https://tatbib-api.herokuapp.com/secretary/alertAppointment/${id_Appointment}`,data)
     .then(res => {
       if(res.error){
         return false

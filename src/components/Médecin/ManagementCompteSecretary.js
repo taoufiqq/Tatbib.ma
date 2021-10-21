@@ -19,7 +19,7 @@ export default  function ManagementCompteSecretary () {
 
   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/medcine/getSecretaryById/${id_Secretary}`)
+    axios.get(`https://tatbib-api.herokuapp.com/medcine/getSecretaryById/${id_Secretary}`)
     .then(function (response) {
      
       setStatus(response.data.status)
@@ -35,7 +35,7 @@ export default  function ManagementCompteSecretary () {
 
     const data = {status:updatedStatus};
 
-  axios.put(`http://localhost:3030/medcine/activateCompteSecretary/${id_Secretary}`,data)
+  axios.put(`https://tatbib-api.herokuapp.com/medcine/activateCompteSecretary/${id_Secretary}`,data)
   .then(res => {
     if(res.error){
       return false

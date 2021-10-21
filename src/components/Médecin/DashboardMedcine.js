@@ -27,7 +27,7 @@ export default  function DashboardMedcine () {
 
   useEffect(()=>{
 
-    axios.get(`http://localhost:3030/medcine/getMedcineById/${id}`)
+    axios.get(`https://tatbib-api.herokuapp.com/medcine/getMedcineById/${id}`)
       .then(function (response) {
           
         setFullName(response.data.fullName)

@@ -26,7 +26,7 @@ export default function RendezVous() {
 
 // ------------------------------- get information medcine's Appointment  ------------------------------
 useEffect(()=>{
-    axios.get(`http://localhost:3030/medcine/getMedcineById/${idMedcine}`)
+    axios.get(`https://tatbib-api.herokuapp.com/medcine/getMedcineById/${idMedcine}`)
     .then(function (response) {
            console.log(response.data);
     }).catch(function (err) {
@@ -44,7 +44,7 @@ useEffect(()=>{
 
 const Appointment = {dateTime,medcine:idMedcine,patient:idPatient,loginMedcine:login};
 
-axios.post(`http://localhost:3030/appointment/addAppointment`,Appointment)
+axios.post(`https://tatbib-api.herokuapp.com/appointment/addAppointment`,Appointment)
     
   .then(res => {
   console.log(res.data.error);

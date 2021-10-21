@@ -17,7 +17,7 @@ export default  function SecretaryCompte () {
         
     const loginMedcine=localStorage.getItem('LoginMedcine'); 
 
-    axios.get(`http://localhost:3030/medcine/getSecretaryByMedcineName/${loginMedcine}`)
+    axios.get(`https://tatbib-api.herokuapp.com/medcine/getSecretaryByMedcineName/${loginMedcine}`)
     .then(function (response) {
         
       setListSecretary(response.data)
@@ -39,7 +39,7 @@ export default  function SecretaryCompte () {
   const deleteAccountSecretary = (id)=>{
     var msgConfirmation = window.confirm("Are You Sure Yo want to delete this Account ?");
     if (msgConfirmation) {   
-    axios.delete(`http://localhost:3030/medcine/deleteSecretary/${id}`)
+    axios.delete(`https://tatbib-api.herokuapp.com/medcine/deleteSecretary/${id}`)
     .then(function (response) {
         window.location.reload();
       console.log('item was deleted Succesfully ... ');

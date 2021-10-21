@@ -27,7 +27,7 @@ const handleSubmit = (e) => {
 
 const Secretary = {fullName,email,password,login,loginMedcine:LoginMedcine};
 
-axios.post(`http://localhost:3030/medcine/createAccountSecretary`,Secretary)
+axios.post(`https://tatbib-api.herokuapp.com/medcine/createAccountSecretary`,Secretary)
       
     .then(res => {
         if(res.error){
