@@ -11,8 +11,7 @@ export default  function AlertAppointment () {
 //   const [status, setStatus] = useState("");
 //   const [updatedStatus, setUpdatedStatus] = useState("");
   const [email, setEmail] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [dateTime, setDateTime] = useState("");
   const id_Appointment =localStorage.getItem('idAppointment')
 
 
@@ -24,8 +23,7 @@ useEffect(()=>{
     .then(function (response) {
      
       setEmail(response.data.patient.email)
-      setDate(response.data.date)
-      setTime(response.data.time)
+      setDateTime(response.data.dateTime)
       console.log(response.data.patient.email);
     }).catch(function (err) {
       console.log(err);
@@ -42,7 +40,7 @@ useEffect(()=>{
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = {email,date,time};
+    const data = {email,dateTime};
 
     axios.put(`https://tatbib-api.herokuapp.com/secretary/alertAppointment/${id_Appointment}`,data)
     .then(res => {

@@ -11,8 +11,8 @@ export default  function ConfirmAppointment () {
   const [status, setStatus] = useState("");
   const [updatedStatus, setUpdatedStatus] = useState("");
   const [email, setEmail] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [dateTime, setDateTime] = useState("");
+
   const id =localStorage.getItem('idAppointment')
 
 
@@ -25,8 +25,7 @@ export default  function ConfirmAppointment () {
      
       setStatus(response.data.status)
       setEmail(response.data.patient.email)
-      setDate(response.data.date)
-      setTime(response.data.time)
+      setDateTime(response.data.dateTime)
       console.log(response.data.patient.email);
     }).catch(function (err) {
       console.log(err);
@@ -37,7 +36,7 @@ export default  function ConfirmAppointment () {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = {status:updatedStatus,email,date,time};
+    const data = {status:updatedStatus,email,dateTime};
 
   axios.put(`https://tatbib-api.herokuapp.com/secretary/confirmAppointment/${id}`,data)
   .then(res => {
