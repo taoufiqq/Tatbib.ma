@@ -88,7 +88,7 @@ return (
 
       <input type="datetime-local" id="meeting-time"
        name="meeting-time" value="2021-10-18T08:30"
-       min="2021-10-18T08:30" max="2021-10-22T16:00"
+       min={Date.now()}
        value={dateTime}
        onChange={e => setDateTime(e.target.value)}
        />
