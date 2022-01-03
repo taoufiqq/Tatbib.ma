@@ -87,10 +87,10 @@ const ListAppointments = () => {
     <table className="table table-striped table-hover">
       <thead>
         <tr>
-          <th>LastName</th>	
+          {/* <th>LastName</th>	
           <th>FirstName</th>
           <th>email</th>	
-          <th>telephone</th>	
+          <th>telephone</th>	 */}
           <th>DateTime</th>	          
           <th>status</th>
           <th>Ordonnance</th>
@@ -101,11 +101,11 @@ const ListAppointments = () => {
       <tbody>
         <tr>
       
-          
+{/*           
           <td>{item.patient.firstName}</td>
           <td>{item.patient.lastName}</td>
           <td>{item.patient.email}</td>
-          <td>{item.patient.telephone}</td>
+          <td>{item.patient.telephone}</td> */}
           <td>{item.dateTime}</td>
           <td style={{color: item.status !== "Unconfirmed"?'color': 'red'}}>{item.status}</td>
 

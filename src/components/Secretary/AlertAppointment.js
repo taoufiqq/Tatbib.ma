@@ -47,7 +47,6 @@ useEffect(()=>{
       if(res.error){
         return false
       }else{
-        console.log(res.data.date);
         history.push('/dashboardSecretary');
         toastr.success('Alert has been sent successfully')
       }
