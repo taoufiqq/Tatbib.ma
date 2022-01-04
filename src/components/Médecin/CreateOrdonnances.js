@@ -14,7 +14,7 @@ export default function CreateOrdonnances() {
     const [firstNamePatient, setFirstNamePatient] = useState("");
     const [lastNamePatient, setLastNamePatient] = useState("");
     const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
+    // const [time, setTime] = useState("");
     const [medicamment, setMedicamment] = useState("");
 
     // const [password, setPassword] = useState("");
@@ -36,8 +36,8 @@ export default function CreateOrdonnances() {
         setSpeciality(response.data.medcine.speciality)
         setFirstNamePatient(response.data.patient.firstName)
         setLastNamePatient(response.data.patient.lastName)
-        setDate(response.data.date)
-        setTime(response.data.time)
+        setDate(response.data.dateTime)
+        // setTime(response.data.time)
       }).catch(function (err) {
         console.log(err);
     });
@@ -51,7 +51,7 @@ const handleSubmit = (e) => {
 
 
 
-const Ordonnance = {date,time,medcine:idMedcine,patient:idPatient,medicamment};
+const Ordonnance = {medcine:idMedcine,patient:idPatient,medicamment};
 
 axios.post(`https://tatbib-api.herokuapp.com/medcine/addOrdonnance`,Ordonnance)
       
@@ -92,7 +92,7 @@ axios.post(`https://tatbib-api.herokuapp.com/medcine/addOrdonnance`,Ordonnance)
               <div className="fromloginSignUp">
                 <div className="row ">
                    <label className="dateOrdonnance">{date}</label>
-                   <label className="timeOrdonnance" >{time}</label>
+   
                 </div>
                </div>
                <div class="form-floating">
