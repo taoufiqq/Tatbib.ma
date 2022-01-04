@@ -10,13 +10,7 @@ import logo from '../images/logo.png'
 const ListOrdonnances = () => {
 
 
-  var content = document.getElementById("divcontents");
-var pri = document.getElementById("ifmcontentstoprint").contentWindow;
-pri.document.open();
-pri.document.write(content.innerHTML);
-pri.document.close();
-pri.focus();
-pri.print();
+
 
   const login =localStorage.getItem('LoginPatient')
     const id =localStorage.getItem('id_patient')
@@ -86,7 +80,7 @@ pri.print();
     { listOrdonnance && listOrdonnance.map(item =>(
     <div class="blog-slider mt-5 " style={{height:'500px'}}>
 
-  <div class="blog-slider__wrp swiper-wrapper " id="ifmcontentstoprint">
+  <div class="blog-slider__wrp swiper-wrapper ">
     <div class="blog-slider__item swiper-slide">
       <div class="blog-slider__img">
         <img src={logo} alt=""/>
