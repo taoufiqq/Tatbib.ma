@@ -408,9 +408,9 @@ main .helper span {
 
 
 }
-
+.noPrint{
+  display:none;
+}
 /* @media print {
-  .noPrint{
-    display:none;
-  }
+ 
 } */
