@@ -92,7 +92,7 @@ const ListOrdonnances = () => {
          <textarea style={{height:'100px',width:'450px',border:'none'}}>{item.medicamment}</textarea>
 
   </div>
-       <Link class="blog-slider__button noPrint">print</Link>
+       <Link class="blog-slider__button noPrint" onClick={() => window.print()}>print</Link>
   </div>
     </div>
     
