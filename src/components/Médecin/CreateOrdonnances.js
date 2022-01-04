@@ -51,7 +51,7 @@ const handleSubmit = (e) => {
 
 
 
-const Ordonnance = {medcine:idMedcine,patient:idPatient,medicamment};
+const Ordonnance = {medcine:idMedcine,patient:idPatient,medicamment,date};
 
 axios.post(`https://tatbib-api.herokuapp.com/medcine/addOrdonnance`,Ordonnance)
       
