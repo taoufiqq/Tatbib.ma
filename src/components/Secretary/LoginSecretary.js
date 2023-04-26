@@ -23,7 +23,7 @@ export default function LoginSecretary() {
 
     const Secretary = {login,password};
 
-    axios.post(`https://tatbib-api.herokuapp.com/secretary/login`,Secretary)
+    axios.post(`https://tatbib-api.onrender.com/secretary/login`,Secretary)
 		.then(res => {
             console.log(res)
         if(!res.data.message){ 

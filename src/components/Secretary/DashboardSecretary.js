@@ -19,7 +19,7 @@ export default  function DashboardSecretary () {
 
   useEffect(()=>{
 
-    axios.get(`https://tatbib-api.herokuapp.com/appointment/getAppointmentSecretary/${id}`)
+    axios.get(`https://tatbib-api.onrender.com/appointment/getAppointmentSecretary/${id}`)
     .then(function (response) {
      
       setListAppointment(response.data)
@@ -35,7 +35,7 @@ export default  function DashboardSecretary () {
     const deleteAppointment = (id)=>{
       var msgConfirmation = window.confirm("Are You Sure Yo want to delete this Appointment ?");
       if (msgConfirmation) {   
-      axios.delete(`https://tatbib-api.herokuapp.com/secretary/deleteAppointment/${id}`)
+      axios.delete(`https://tatbib-api.onrender.com/secretary/deleteAppointment/${id}`)
       .then(function (response) {
           window.location.reload();
         console.log('item was deleted Succesfully ... ');

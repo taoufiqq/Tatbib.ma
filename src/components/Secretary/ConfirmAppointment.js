@@ -20,7 +20,7 @@ export default  function ConfirmAppointment () {
 
   useEffect(()=>{
 
-    axios.get(`https://tatbib-api.herokuapp.com/appointment/getAppointmenById/${id}`)
+    axios.get(`https://tatbib-api.onrender.com/appointment/getAppointmenById/${id}`)
     .then(function (response) {
      
       setStatus(response.data.status)
@@ -38,7 +38,7 @@ export default  function ConfirmAppointment () {
 
     const data = {status:updatedStatus,email,dateTime};
 
-  axios.put(`https://tatbib-api.herokuapp.com/secretary/confirmAppointment/${id}`,data)
+  axios.put(`https://tatbib-api.onrender.com/secretary/confirmAppointment/${id}`,data)
   .then(res => {
     if(res.error){
       return false

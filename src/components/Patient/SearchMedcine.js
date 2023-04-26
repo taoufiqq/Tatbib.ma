@@ -15,7 +15,7 @@ export default function SearchMedcine() {
 
     useEffect(()=>{
   
-      axios.get(`https://tatbib-api.herokuapp.com/medcine/getAllMedcine`)
+      axios.get(`https://tatbib-api.onrender.com/medcine/getAllMedcine`)
         .then(function (response) {
             
           setMedcine(response.data)
@@ -32,7 +32,7 @@ export default function SearchMedcine() {
         e.preventDefault();
         // console.log(speciality);
 
-    axios.get(`https://tatbib-api.herokuapp.com/medcine/searchMedcine/${speciality}`)
+    axios.get(`https://tatbib-api.onrender.com/medcine/searchMedcine/${speciality}`)
           
         .then(res => {
             if(res.error){

@@ -23,7 +23,7 @@ export default function LoginPatient() {
 
     const patient = {login,password};
 
-    axios.post(`https://tatbib-api.herokuapp.com/patient/login`,patient)
+    axios.post(`https://tatbib-api.onrender.com/patient/login`,patient)
 		.then(res => {
             console.log(res)
         if(!res.data.message){ 

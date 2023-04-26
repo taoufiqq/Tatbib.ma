@@ -22,7 +22,7 @@ const DashboardPatient = () => {
 
   useEffect(()=>{
 
-    axios.get(`https://tatbib-api.herokuapp.com/appointment/getAppointmenPatient/${id}`)
+    axios.get(`https://tatbib-api.onrender.com/appointment/getAppointmenPatient/${id}`)
     .then(function (response) {
      
       setListAppointment(response.data)
@@ -38,7 +38,7 @@ const DashboardPatient = () => {
   // const deleteAppointment = (id)=>{
   //   var msgConfirmation = window.confirm("Are You Sure Yo want to delete this Account ?");
   //   if (msgConfirmation) {   
-  //   axios.delete(`https://tatbib-api.herokuapp.com/patient/deleteAppointment/${id}`)
+  //   axios.delete(`https://tatbib-api.onrender.com/patient/deleteAppointment/${id}`)
   //   .then(function (response) {
   //       window.location.reload();
   //     console.log('item was deleted Succesfully ... ');

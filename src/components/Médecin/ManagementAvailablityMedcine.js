@@ -16,7 +16,7 @@ export default  function ManagementAvailablityMedcine () {
 
   useEffect(()=>{
 
-    axios.get(`https://tatbib-api.herokuapp.com/medcine/getMedcineById/${id}`)
+    axios.get(`https://tatbib-api.onrender.com/medcine/getMedcineById/${id}`)
     .then(function (response) {
      
         setAvailablity(response.data.availablity)
@@ -31,7 +31,7 @@ export default  function ManagementAvailablityMedcine () {
 
     const data = {availablity:updatedAvailablity};
 
-  axios.put(`https://tatbib-api.herokuapp.com/medcine/updateAvailablityMedcine/${id}`,data)
+  axios.put(`https://tatbib-api.onrender.com/medcine/updateAvailablityMedcine/${id}`,data)
   .then(res => {
     if(res.error){
       return false

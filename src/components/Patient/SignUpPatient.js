@@ -28,7 +28,7 @@ const handleSubmit = (e) => {
 
 const Patient = {firstName,lastName,age,telephone,email,password,login};
 
-axios.post(`https://tatbib-api.herokuapp.com/patient/authentication`,Patient)
+axios.post(`https://tatbib-api.onrender.com/patient/authentication`,Patient)
       
     .then(res => {
         if(res.error){

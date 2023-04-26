@@ -22,7 +22,7 @@ export default  function AccountPatient () {
 
  useEffect(()=>{
 
-  axios.get(`https://tatbib-api.herokuapp.com/patient/getPatientById/${id}`)
+  axios.get(`https://tatbib-api.onrender.com/patient/getPatientById/${id}`)
     .then(function (response) {
         
       setFirstName(response.data.firstName)
@@ -50,7 +50,7 @@ export default  function AccountPatient () {
   const deleteAccount = (id)=>{
     var msgConfirmation = window.confirm("Are You Sure Yo want to delete this Account ?");
     if (msgConfirmation) {   
-    axios.delete(`https://tatbib-api.herokuapp.com/patient/deletePatient/${id}`)
+    axios.delete(`https://tatbib-api.onrender.com/patient/deletePatient/${id}`)
     .then(function (response) {
         window.location.reload();
       console.log('item was deleted Succesfully ... ');

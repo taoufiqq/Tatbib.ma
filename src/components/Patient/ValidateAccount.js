@@ -13,7 +13,7 @@ const ValidateAccount = () => {
 
     useEffect(()=>{
 
-        axios.put(`https://tatbib-api.herokuapp.com/patient/activateCompte/${token}`)
+        axios.put(`https://tatbib-api.onrender.com/patient/activateCompte/${token}`)
 		.then(res => {
 
           history.push('/loginPatient');

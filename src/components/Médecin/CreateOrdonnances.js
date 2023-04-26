@@ -29,7 +29,7 @@ export default function CreateOrdonnances() {
   console.log(idMedcine);
     useEffect(()=>{
 
-      axios.get(`https://tatbib-api.herokuapp.com/appointment/getAppointmenById/${idAppointment}`)
+      axios.get(`https://tatbib-api.onrender.com/appointment/getAppointmenById/${idAppointment}`)
       .then(function (response) {
        
         setFullNameDoctor(response.data.medcine.fullName)
@@ -53,7 +53,7 @@ const handleSubmit = (e) => {
 
 const Ordonnance = {medcine:idMedcine,patient:idPatient,medicamment};
 
-axios.post(`https://tatbib-api.herokuapp.com/medcine/addOrdonnance`,Ordonnance)
+axios.post(`https://tatbib-api.onrender.com/medcine/addOrdonnance`,Ordonnance)
       
     .then(res => {
         if(res.error){
