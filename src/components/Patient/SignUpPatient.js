@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import { Link,useHistory } from 'react-router-dom';
+import { Link,usenavigate  } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
 import './login.css'
 export default function SignUpPatient() {
 
 
-    const history = useHistory();
+    const navigate  = usenavigate ();
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -35,7 +35,7 @@ axios.post(`https://tatbib-api.onrender.com/patient/authentication`,Patient)
             return false
         }else{
       console.log(res.data);
-      history.push('/loginPatient')
+      navigate ('/loginPatient')
         }
      
     })

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useHistory,Link } from "react-router-dom";
+import { usenavigate ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
@@ -9,7 +9,7 @@ import './espaceMedecin.css'
 
 export default  function DashboardMedcine () {
   
-  const history = useHistory();
+  const navigate  = usenavigate ();
   const [fullName, setFullName] = useState();
   const [email, setEmail] = useState();
   const [speciality, setSpeciality] = useState();
@@ -48,7 +48,7 @@ export default  function DashboardMedcine () {
 
   const getIdMedecin = (id)=>{
     localStorage.setItem('id_medcine',id);
-    history.push('/managementAvailablityMedcine');
+    navigate ('/managementAvailablityMedcine');
   
   }
 
@@ -56,7 +56,7 @@ export default  function DashboardMedcine () {
 //-----------------------log out-----------------
   const logOut =()=>{
     localStorage.clear()
-       history.push('/loginMedcine');
+       navigate ('/loginMedcine');
        toastr.success(' LogOut SuccessFully')
     }
 

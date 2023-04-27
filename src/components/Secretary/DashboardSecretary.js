@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect,useState } from "react";
-import { useParams, useHistory,Link } from "react-router-dom";
+import { useParams, usenavigate ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import { format } from 'date-fns'
@@ -8,7 +8,7 @@ import logo from '../images/ss.jpg'
 
 
 export default  function DashboardSecretary () {
-  const history = useHistory();
+  const navigate  = usenavigate ();
 
 
   const login =localStorage.getItem('LoginSecretary')
@@ -48,13 +48,13 @@ export default  function DashboardSecretary () {
   }
   const getIdAppointment = (id)=>{
     localStorage.setItem('idAppointment',id);
-    history.push('/confirmAppointment');
+    navigate ('/confirmAppointment');
   
   }
 
   const alertAppointment = (id)=>{
     localStorage.setItem('idAppointment',id);
-    history.push('/alertAppointment');
+    navigate ('/alertAppointment');
   
   }
 
@@ -64,7 +64,7 @@ export default  function DashboardSecretary () {
 
   const logOut =()=>{
     localStorage.clear()
-       history.push('/loginSecretary');
+       navigate ('/loginSecretary');
        toastr.success(' LogOut SuccessFully')
     }
 

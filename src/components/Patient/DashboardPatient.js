@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect,useState } from "react";
-import {useHistory,Link } from "react-router-dom";
+import {usenavigate ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import './login.css'
@@ -11,7 +11,7 @@ import logo from '../images/user.jpg'
 const DashboardPatient = () => {
 
   const login =localStorage.getItem('LoginPatient')
-  const history = useHistory();
+  const navigate  = usenavigate ();
 
 
   const id =localStorage.getItem('id_patient')
@@ -53,7 +53,7 @@ const DashboardPatient = () => {
   const logOut =()=>{
 
     localStorage.clear();
-       history.push('/loginPatient');
+       navigate ('/loginPatient');
        toastr.success(' LogOut SuccessFully')
     }
 

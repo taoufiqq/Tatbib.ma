@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect,useState } from "react";
-import {useHistory,Link } from "react-router-dom";
+import {usenavigate ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import { format } from 'date-fns'
@@ -11,7 +11,7 @@ const ListAppointments = () => {
 
     const login =localStorage.getItem('LoginMedcine');
     const id =localStorage.getItem('id_medcine')
-  const history = useHistory();
+  const navigate  = usenavigate ();
 
 
   const [listAppointment, setListAppointment] = useState();
@@ -33,16 +33,16 @@ const ListAppointments = () => {
 
   const getIdAppointment = (id)=>{
     localStorage.setItem('idAppointment',id);
-    history.push('/createOrdonnance');
+    navigate ('/createOrdonnance');
   }
   const getIdPatient = (id)=>{
     localStorage.setItem('id_patient',id);
-    history.push('/createOrdonnance');
+    navigate ('/createOrdonnance');
   
   }
   const logOut =()=>{
     localStorage.clear()
-       history.push('/loginMedcine');
+       navigate ('/loginMedcine');
        toastr.success(' LogOut SuccessFully')
     }
 

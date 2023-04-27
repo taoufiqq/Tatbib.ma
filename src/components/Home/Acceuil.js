@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import { Link,useHistory } from 'react-router-dom';
+import { Link,usenavigate  } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
 import health from '../images/healthh.svg'
@@ -14,7 +14,7 @@ import './StyleHome.css'
 
 export default function Acceuil() {
 
-    const history = useHistory();
+    const navigate  = usenavigate ();
 
     // const token =localStorage.getItem("tokenPatient");
     // const [city, setCity] = useState("");
@@ -49,7 +49,7 @@ export default function Acceuil() {
                 return false
             } else{
             localStorage.setItem('medcine', JSON.stringify(res.data));
-            history.push('/resultSearchMedcine')
+            navigate ('/resultSearchMedcine')
         }
         })
     }

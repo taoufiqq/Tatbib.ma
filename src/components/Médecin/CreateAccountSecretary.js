@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link,useHistory } from 'react-router-dom';
+import { Link,usenavigate  } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
 import toastr from 'toastr';
@@ -8,7 +8,7 @@ import "toastr/build/toastr.css";
 export default function CreateAccountSecretary() {
 
     // var Medecin = JSON.parse(localStorage.getItem('medcine'));
-    const history = useHistory();
+    const navigate  = usenavigate ();
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
@@ -34,7 +34,7 @@ axios.post(`https://tatbib-api.onrender.com/medcine/createAccountSecretary`,Secr
             return false
         }else{
       console.log(res.data);
-      history.push('/secretaryCompte')
+      navigate ('/secretaryCompte')
       toastr.success('Secretary added SuccessFully')
         }
      

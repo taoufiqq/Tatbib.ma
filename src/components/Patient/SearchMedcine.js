@@ -1,11 +1,11 @@
 import React,{useEffect,useState} from 'react'
-import { Link,useHistory } from 'react-router-dom';
+import { Link,usenavigate  } from 'react-router-dom';
 import logo from '../images/logo.png'
 import Search from '../images/Search.svg'
 import axios from 'axios';
 
 export default function SearchMedcine() {
-    const history = useHistory();
+    const navigate  = usenavigate ();
     // const token =localStorage.getItem("tokenPatient");
     // const [city, setCity] = useState("");
     const [speciality, setSpeciality] = useState("");
@@ -39,7 +39,7 @@ export default function SearchMedcine() {
                 return false
             } else{
             localStorage.setItem('medcine', JSON.stringify(res.data));
-            history.push('/resultSearchMedcine')
+            navigate ('/resultSearchMedcine')
         }
         })
     }

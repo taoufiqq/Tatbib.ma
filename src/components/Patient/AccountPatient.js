@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useHistory,Link } from "react-router-dom";
+import { usenavigate ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
@@ -8,7 +8,7 @@ import logo from '../images/user.jpg'
 
 export default  function AccountPatient () {
   
-  const history = useHistory();
+  const navigate  = usenavigate ();
 //   const [medcine, setMedcine] = useState();
  const loginPatient =localStorage.getItem('LoginPatient')
  const id =localStorage.getItem('id_patient')
@@ -42,7 +42,7 @@ export default  function AccountPatient () {
 
   const getIdPatient = (id)=>{
     localStorage.setItem('id_patient',id);
-    history.push('/updateMyAccount');
+    navigate ('/updateMyAccount');
   
   }
 
@@ -68,7 +68,7 @@ export default  function AccountPatient () {
 //-----------------------log out-----------------
   const logOut =()=>{
     localStorage.clear()
-       history.push('/loginPatient');
+       navigate ('/loginPatient');
        toastr.success(' LogOut SuccessFully')
     }
 

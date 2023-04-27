@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {useHistory} from "react-router-dom";
+import {usenavigate } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
@@ -8,7 +8,7 @@ import './espaceMedecin.css'
 
 export default  function ManagementAvailablityMedcine () {
   
-  const history = useHistory();
+  const navigate  = usenavigate ();
 
   const [availablity, setAvailablity] = useState("");
   const [updatedAvailablity, setUpdatedAvailablity] = useState("");
@@ -36,7 +36,7 @@ export default  function ManagementAvailablityMedcine () {
     if(res.error){
       return false
     }else{
-      history.push('/dashboardMedcine');
+      navigate ('/dashboardMedcine');
       toastr.success('Operation accomplished successfully')
     }
    

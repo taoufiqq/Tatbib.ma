@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {useHistory} from "react-router-dom";
+import {usenavigate } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
 export default  function ConfirmAppointment () {
   
-  const history = useHistory();
+  const navigate  = usenavigate ();
 
   const [status, setStatus] = useState("");
   const [updatedStatus, setUpdatedStatus] = useState("");
@@ -44,7 +44,7 @@ export default  function ConfirmAppointment () {
       return false
     }else{
       console.log(res.data);
-      history.push('/dashboardSecretary');
+      navigate ('/dashboardSecretary');
       toastr.success('Operation accomplished successfully')
     }
    

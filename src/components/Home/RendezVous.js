@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import { useHistory,useParams } from 'react-router-dom';
+import { usenavigate ,useParams } from 'react-router-dom';
 import logo from '../images/logo.png'
 import axios from 'axios';
 import toastr from 'toastr';
@@ -15,12 +15,12 @@ export default function RendezVous() {
  
  
 
-  const history = useHistory();
+  const navigate  = usenavigate ();
   const token =localStorage.getItem("tokenPatient");
   const idPatient =localStorage.getItem('id_patient')
 
   if (!token) {
-    history.push('/signUpPatient')
+    navigate ('/signUpPatient')
     toastr.warning('You must have an Account, Create it now')
   }
 
@@ -50,10 +50,10 @@ axios.post(`https://tatbib-api.onrender.com/appointment/addAppointment`,Appointm
   console.log(res.data.error);
   if(res.data.error === true){
          toastr.error('this date has aleready reserved,Please choose another date')
-         history.push('/resultSearchMedcine')
+         navigate ('/resultSearchMedcine')
   }else{
       localStorage.setItem('id_appointment',res.data._id);
-      history.push('/dashboardPatient')
+      navigate ('/dashboardPatient')
       toastr.success(' Appointment Reserved Successfully')
       console.log(res.data);
   }

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {useHistory,Link } from "react-router-dom";
+import {usenavigate ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
@@ -9,7 +9,7 @@ import './espaceMedecin.css'
 
 export default  function SecretaryCompte () {
   
-  const history = useHistory();
+  const navigate  = usenavigate ();
   // const [secretary, setSecretary] = useState();
   const login =localStorage.getItem('LoginMedcine')
 
@@ -30,7 +30,7 @@ export default  function SecretaryCompte () {
 
     const getIdSecretary = (id)=>{
       localStorage.setItem('idSecretary',id);
-      history.push('/managementCompteSecretary');
+      navigate ('/managementCompteSecretary');
     
     }
 
@@ -57,7 +57,7 @@ export default  function SecretaryCompte () {
 //-----------------------log out-----------------
   const logOut =()=>{
     localStorage.clear()
-       history.push('/loginMedcine');
+       navigate ('/loginMedcine');
        toastr.success(' LogOut SuccessFully')
     }
 

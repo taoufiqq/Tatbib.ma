@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {useHistory} from "react-router-dom";
+import {usenavigate } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
 
 export default  function UpdateAccountPatient() {
   
-  const history = useHistory();
+  const navigate  = usenavigate ();
   const id =localStorage.getItem('id_patient')
 
   const [firstName, setFirstName] = useState();
@@ -52,7 +52,7 @@ export default  function UpdateAccountPatient() {
       return false
     }else{
       console.log(res.data);
-      history.push('/myAccount')
+      navigate ('/myAccount')
       toastr.success('Your Account Updated successfully')
     }
 		 

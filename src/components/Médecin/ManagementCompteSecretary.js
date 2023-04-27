@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {useHistory} from "react-router-dom";
+import {usenavigate } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
@@ -8,7 +8,7 @@ import './espaceMedecin.css'
 
 export default  function ManagementCompteSecretary () {
   
-  const history = useHistory();
+  const navigate  = usenavigate ();
 
   const [status, setStatus] = useState("");
   const [updatedStatus, setUpdatedStatus] = useState("");
@@ -41,7 +41,7 @@ export default  function ManagementCompteSecretary () {
       return false
     }else{
       console.log(res.data);
-      history.push('/secretaryCompte');
+      navigate ('/secretaryCompte');
       toastr.success('Operation accomplished successfully')
     }
    

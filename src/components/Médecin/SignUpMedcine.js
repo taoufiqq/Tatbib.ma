@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import { Link,useHistory } from 'react-router-dom';
+import { Link,usenavigate  } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
 import login from '../images/login.svg'
 export default function SignUpMedcine() {
 
 
-    const history = useHistory();
+    const navigate  = usenavigate ();
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
@@ -22,9 +22,6 @@ export default function SignUpMedcine() {
 const handleSubmit = (e) => {
     e.preventDefault();
 
-
-
-
 const Medecin = {fullName,email,password,login,city,speciality};
 
 axios.post(`https://tatbib-api.onrender.com/medcine/authentication`,Medecin)
@@ -34,7 +31,7 @@ axios.post(`https://tatbib-api.onrender.com/medcine/authentication`,Medecin)
             return false
         }else{
       console.log(res.data);
-      history.push('/loginMedcine')
+      navigate ('/loginMedcine')
         }
      
     })

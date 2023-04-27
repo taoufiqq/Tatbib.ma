@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Link,useHistory } from "react-router-dom";
+import {Link,usenavigate  } from "react-router-dom";
 import axios from 'axios';
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
@@ -9,7 +9,7 @@ import Imglogin from '../images/login3.svg'
 export default function LoginMedcine() {
 
 
-    const history = useHistory();
+    const navigate  = usenavigate ();
 
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();
@@ -42,7 +42,7 @@ export default function LoginMedcine() {
              localStorage.setItem("LoginMedcine", login);
              localStorage.setItem("role", role);
              localStorage.setItem("id_medcine",res.data.id);
-             history.push('/dashboardMedcine');
+             navigate ('/dashboardMedcine');
              toastr.success(' authenticated SuccessFully')
        }
 

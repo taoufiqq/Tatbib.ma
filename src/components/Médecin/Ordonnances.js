@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect,useState } from "react";
-import {useHistory,Link } from "react-router-dom";
+import {usenavigate ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import doctor from '../images/doctor.png'
@@ -11,7 +11,7 @@ const Ordonnances = () => {
 
     const login =localStorage.getItem('LoginMedcine');
     const id =localStorage.getItem('id_medcine')
-  const history = useHistory();
+  const navigate  = usenavigate ();
 
 
   const [listOrdonnance, setListOrdonnance] = useState();
@@ -33,7 +33,7 @@ const Ordonnances = () => {
 
   const logOut =()=>{
     localStorage.clear()
-       history.push('/loginMedcine');
+       navigate ('/loginMedcine');
        toastr.success(' LogOut SuccessFully')
     }
 

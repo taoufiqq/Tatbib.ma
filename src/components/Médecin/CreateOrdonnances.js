@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from "react";
-import { Link,useHistory } from 'react-router-dom';
+import { Link,usenavigate  } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
 import toastr from 'toastr';
@@ -7,7 +7,7 @@ import "toastr/build/toastr.css";
 
 export default function CreateOrdonnances() {
 
-    const history = useHistory();
+    const navigate  = usenavigate ();
 
     const [fullNameDoctor, setFullNameDoctor] = useState("");
     const [speciality, setSpeciality] = useState("");
@@ -60,7 +60,7 @@ axios.post(`https://tatbib-api.onrender.com/medcine/addOrdonnance`,Ordonnance)
             return false
         }else{
       console.log(res.data);
-      history.push('/listAppointments')
+      navigate ('/listAppointments')
       toastr.success('Ordonnance added SuccessFully')
         }
      

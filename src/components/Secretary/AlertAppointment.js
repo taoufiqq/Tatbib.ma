@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {useHistory} from "react-router-dom";
+import {usenavigate } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import alert from '../images/alert.svg'
 export default  function AlertAppointment () {
   
-  const history = useHistory();
+  const navigate  = usenavigate ();
 
 //   const [status, setStatus] = useState("");
 //   const [updatedStatus, setUpdatedStatus] = useState("");
@@ -47,7 +47,7 @@ useEffect(()=>{
       if(res.error){
         return false
       }else{
-        history.push('/dashboardSecretary');
+        navigate('dashboardSecretary');
         toastr.success('Alert has been sent successfully')
       }
      

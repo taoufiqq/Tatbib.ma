@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Link,useHistory } from "react-router-dom";
+import {Link,usenavigate  } from "react-router-dom";
 import axios from 'axios';
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
@@ -10,7 +10,7 @@ import LoginMedcine from '../Médecin/LoginMedcine';
 export default function LoginSecretary() {
 
 
-    const history = useHistory();
+    const navigate  = usenavigate ();
 
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();
@@ -43,7 +43,7 @@ export default function LoginSecretary() {
              localStorage.setItem("LoginSecretary", login);
              localStorage.setItem("roleSecretary", roleSecretary);
              localStorage.setItem("login_medcine", loginMedcine);
-             history.push('/dashboardSecretary');
+             navigate ('/dashboardSecretary');
              toastr.success(' authenticated SuccessFully')
        }
 
