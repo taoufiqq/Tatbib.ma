@@ -48,13 +48,13 @@ export default  function DashboardSecretary () {
   }
   const getIdAppointment = (id)=>{
     localStorage.setItem('idAppointment',id);
-    navigate ('/confirmAppointment');
+    navigate('confirmAppointment');
   
   }
 
   const alertAppointment = (id)=>{
     localStorage.setItem('idAppointment',id);
-    navigate ('/alertAppointment');
+    navigate('alertAppointment');
   
   }
 

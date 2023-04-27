@@ -42,7 +42,7 @@ export default  function AccountPatient () {
 
   const getIdPatient = (id)=>{
     localStorage.setItem('id_patient',id);
-    navigate ('/updateMyAccount');
+    navigate('updateMyAccount');
   
   }
 
@@ -68,7 +68,7 @@ export default  function AccountPatient () {
 //-----------------------log out-----------------
   const logOut =()=>{
     localStorage.clear()
-       navigate ('/loginPatient');
+       navigate('loginPatient');
        toastr.success(' LogOut SuccessFully')
     }
 

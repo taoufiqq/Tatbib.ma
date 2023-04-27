@@ -33,7 +33,7 @@ const Ordonnances = () => {
 
   const logOut =()=>{
     localStorage.clear()
-       navigate ('/loginMedcine');
+       navigate('loginMedcine');
        toastr.success(' LogOut SuccessFully')
     }
 

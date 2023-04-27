@@ -36,7 +36,7 @@ export default  function ManagementAvailablityMedcine () {
     if(res.error){
       return false
     }else{
-      navigate ('/dashboardMedcine');
+      navigate('dashboardMedcine');
       toastr.success('Operation accomplished successfully')
     }
    

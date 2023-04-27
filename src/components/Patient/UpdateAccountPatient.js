@@ -52,7 +52,7 @@ export default  function UpdateAccountPatient() {
       return false
     }else{
       console.log(res.data);
-      navigate ('/myAccount')
+      navigate('myAccount')
       toastr.success('Your Account Updated successfully')
     }
 		 

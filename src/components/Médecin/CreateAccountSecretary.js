@@ -34,7 +34,7 @@ axios.post(`https://tatbib-api.onrender.com/medcine/createAccountSecretary`,Secr
             return false
         }else{
       console.log(res.data);
-      navigate ('/secretaryCompte')
+      navigate('secretaryCompte')
       toastr.success('Secretary added SuccessFully')
         }
      

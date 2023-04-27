@@ -20,7 +20,7 @@ export default function RendezVous() {
   const idPatient =localStorage.getItem('id_patient')
 
   if (!token) {
-    navigate ('/signUpPatient')
+    navigate('signUpPatient')
     toastr.warning('You must have an Account, Create it now')
   }
 
@@ -50,10 +50,10 @@ axios.post(`https://tatbib-api.onrender.com/appointment/addAppointment`,Appointm
   console.log(res.data.error);
   if(res.data.error === true){
          toastr.error('this date has aleready reserved,Please choose another date')
-         navigate ('/resultSearchMedcine')
+         navigate('resultSearchMedcine')
   }else{
       localStorage.setItem('id_appointment',res.data._id);
-      navigate ('/dashboardPatient')
+      navigate('dashboardPatient')
       toastr.success(' Appointment Reserved Successfully')
       console.log(res.data);
   }
@@ -87,7 +87,7 @@ return (
    
 
       <input type="datetime-local" id="meeting-time"
-       name="meeting-time" value="2021-10-18T08:30"
+       name="meeting-time"
        min={Date.now()}
        value={dateTime}
        onChange={e => setDateTime(e.target.value)}

@@ -39,7 +39,7 @@ export default function SearchMedcine() {
                 return false
             } else{
             localStorage.setItem('medcine', JSON.stringify(res.data));
-            navigate ('/resultSearchMedcine')
+            navigate('resultSearchMedcine')
         }
         })
     }
@@ -115,7 +115,7 @@ export default function SearchMedcine() {
                         
                     </div>
                     <div className="col-12 col-md-6 col-lg-6 ">
-                        <img alt="" id="health" className="health-img" src={Search} className="rounded" />
+                        <img alt="" id="health" className="health-img rounded" src={Search}/>
                     </div>
                 </div>
             </div>

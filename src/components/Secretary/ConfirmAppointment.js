@@ -44,7 +44,7 @@ export default  function ConfirmAppointment () {
       return false
     }else{
       console.log(res.data);
-      navigate ('/dashboardSecretary');
+      navigate('dashboardSecretary');
       toastr.success('Operation accomplished successfully')
     }
    

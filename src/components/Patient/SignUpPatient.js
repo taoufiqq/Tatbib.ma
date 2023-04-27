@@ -35,7 +35,7 @@ axios.post(`https://tatbib-api.onrender.com/patient/authentication`,Patient)
             return false
         }else{
       console.log(res.data);
-      navigate ('/loginPatient')
+      navigate('loginPatient')
         }
      
     })

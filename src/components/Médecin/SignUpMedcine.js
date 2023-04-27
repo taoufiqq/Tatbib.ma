@@ -31,7 +31,7 @@ axios.post(`https://tatbib-api.onrender.com/medcine/authentication`,Medecin)
             return false
         }else{
       console.log(res.data);
-      navigate ('/loginMedcine')
+      navigate('loginMedcine')
         }
      
     })

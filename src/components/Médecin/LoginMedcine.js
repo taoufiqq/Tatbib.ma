@@ -42,7 +42,7 @@ export default function LoginMedcine() {
              localStorage.setItem("LoginMedcine", login);
              localStorage.setItem("role", role);
              localStorage.setItem("id_medcine",res.data.id);
-             navigate ('/dashboardMedcine');
+             navigate('dashboardMedcine');
              toastr.success(' authenticated SuccessFully')
        }
 

@@ -43,7 +43,7 @@ export default function LoginSecretary() {
              localStorage.setItem("LoginSecretary", login);
              localStorage.setItem("roleSecretary", roleSecretary);
              localStorage.setItem("login_medcine", loginMedcine);
-             navigate ('/dashboardSecretary');
+             navigate('dashboardSecretary');
              toastr.success(' authenticated SuccessFully')
        }
 

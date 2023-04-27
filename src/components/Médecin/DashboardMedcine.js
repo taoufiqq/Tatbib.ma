@@ -48,7 +48,7 @@ export default  function DashboardMedcine () {
 
   const getIdMedecin = (id)=>{
     localStorage.setItem('id_medcine',id);
-    navigate ('/managementAvailablityMedcine');
+    navigate('managementAvailablityMedcine');
   
   }
 
@@ -56,7 +56,7 @@ export default  function DashboardMedcine () {
 //-----------------------log out-----------------
   const logOut =()=>{
     localStorage.clear()
-       navigate ('/loginMedcine');
+       navigate('loginMedcine');
        toastr.success(' LogOut SuccessFully')
     }
 

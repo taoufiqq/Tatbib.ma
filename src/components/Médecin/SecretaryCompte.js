@@ -30,7 +30,7 @@ export default  function SecretaryCompte () {
 
     const getIdSecretary = (id)=>{
       localStorage.setItem('idSecretary',id);
-      navigate ('/managementCompteSecretary');
+      navigate('managementCompteSecretary');
     
     }
 
@@ -57,7 +57,7 @@ export default  function SecretaryCompte () {
 //-----------------------log out-----------------
   const logOut =()=>{
     localStorage.clear()
-       navigate ('/loginMedcine');
+       navigate('loginMedcine');
        toastr.success(' LogOut SuccessFully')
     }
 

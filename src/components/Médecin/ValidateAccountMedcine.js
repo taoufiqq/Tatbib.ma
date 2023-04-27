@@ -16,7 +16,7 @@ const ValidateAccountMedcine = () => {
         axios.put(`https://tatbib-api.onrender.com/medcine/activateCompte/${token}`)
 		.then(res => {
 
-          navigate ('/loginMedcine');
+          navigate('loginMedcine');
           toastr.success('Your Account Activated successfully!')
 
         }).catch(function (err) {

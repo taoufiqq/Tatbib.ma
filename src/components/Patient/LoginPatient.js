@@ -39,7 +39,7 @@ export default function LoginPatient() {
              localStorage.setItem("LoginPatient", login);
              localStorage.setItem("rolePatient", role);
              localStorage.setItem("id_patient",res.data.id);
-             navigate ('/dashboardPatient');
+             navigate('dashboardPatient');
              toastr.success(' authenticated SuccessFully')
        }
 

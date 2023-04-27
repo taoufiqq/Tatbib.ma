@@ -53,7 +53,7 @@ const DashboardPatient = () => {
   const logOut =()=>{
 
     localStorage.clear();
-       navigate ('/loginPatient');
+       navigate('loginPatient');
        toastr.success(' LogOut SuccessFully')
     }
 

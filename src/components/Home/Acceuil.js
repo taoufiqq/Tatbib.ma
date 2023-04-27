@@ -49,7 +49,7 @@ export default function Acceuil() {
                 return false
             } else{
             localStorage.setItem('medcine', JSON.stringify(res.data));
-            navigate ('/resultSearchMedcine')
+            navigate('resultSearchMedcine')
         }
         })
     }

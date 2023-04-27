@@ -60,7 +60,7 @@ axios.post(`https://tatbib-api.onrender.com/medcine/addOrdonnance`,Ordonnance)
             return false
         }else{
       console.log(res.data);
-      navigate ('/listAppointments')
+      navigate('listAppointments')
       toastr.success('Ordonnance added SuccessFully')
         }
      

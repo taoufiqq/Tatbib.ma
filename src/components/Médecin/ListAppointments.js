@@ -33,16 +33,16 @@ const ListAppointments = () => {
 
   const getIdAppointment = (id)=>{
     localStorage.setItem('idAppointment',id);
-    navigate ('/createOrdonnance');
+    navigate('createOrdonnance');
   }
   const getIdPatient = (id)=>{
     localStorage.setItem('id_patient',id);
-    navigate ('/createOrdonnance');
+    navigate('createOrdonnance');
   
   }
   const logOut =()=>{
     localStorage.clear()
-       navigate ('/loginMedcine');
+       navigate('loginMedcine');
        toastr.success(' LogOut SuccessFully')
     }
 

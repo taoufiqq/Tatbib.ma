@@ -41,7 +41,7 @@ export default  function ManagementCompteSecretary () {
       return false
     }else{
       console.log(res.data);
-      navigate ('/secretaryCompte');
+      navigate('secretaryCompte');
       toastr.success('Operation accomplished successfully')
     }
    
