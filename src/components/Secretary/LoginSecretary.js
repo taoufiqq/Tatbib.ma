@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Link,usenavigate  } from "react-router-dom";
+import {Link,useNavigate   } from "react-router-dom";
 import axios from 'axios';
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
@@ -10,7 +10,7 @@ import LoginMedcine from '../Médecin/LoginMedcine';
 export default function LoginSecretary() {
 
 
-    const navigate  = usenavigate ();
+    const navigate  = useNavigate  ();
 
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();

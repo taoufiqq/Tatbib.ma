@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect,useState } from "react";
-import { useParams, usenavigate ,Link } from "react-router-dom";
+import { useParams, useNavigate  ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import { format } from 'date-fns'
@@ -8,7 +8,7 @@ import logo from '../images/ss.jpg'
 
 
 export default  function DashboardSecretary () {
-  const navigate  = usenavigate ();
+  const navigate  = useNavigate  ();
 
 
   const login =localStorage.getItem('LoginSecretary')

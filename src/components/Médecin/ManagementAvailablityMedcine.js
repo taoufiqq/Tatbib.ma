@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {usenavigate } from "react-router-dom";
+import {useNavigate  } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
@@ -8,7 +8,7 @@ import './espaceMedecin.css'
 
 export default  function ManagementAvailablityMedcine () {
   
-  const navigate  = usenavigate ();
+  const navigate  = useNavigate  ();
 
   const [availablity, setAvailablity] = useState("");
   const [updatedAvailablity, setUpdatedAvailablity] = useState("");

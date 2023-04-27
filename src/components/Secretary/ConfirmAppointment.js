@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {usenavigate } from "react-router-dom";
+import {useNavigate  } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
 export default  function ConfirmAppointment () {
   
-  const navigate  = usenavigate ();
+  const navigate  = useNavigate  ();
 
   const [status, setStatus] = useState("");
   const [updatedStatus, setUpdatedStatus] = useState("");

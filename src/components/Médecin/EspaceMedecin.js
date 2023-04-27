@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link,usenavigate  } from 'react-router-dom';
+import { Link,useNavigate   } from 'react-router-dom';
 import logo from '../images/logo.png'
 import Medicine from '../images/doctor.png'
 import './espaceMedecin.css'

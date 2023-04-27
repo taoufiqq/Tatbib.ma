@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect,useState } from "react";
-import {usenavigate ,Link } from "react-router-dom";
+import {useNavigate  ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 import user from '../images/user.jpg'
@@ -14,7 +14,7 @@ const ListOrdonnances = () => {
 
   const login =localStorage.getItem('LoginPatient')
     const id =localStorage.getItem('id_patient')
-  const navigate  = usenavigate ();
+  const navigate  = useNavigate  ();
 
 
   const [listOrdonnance, setListOrdonnance] = useState();

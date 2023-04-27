@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import { usenavigate ,useParams } from 'react-router-dom';
+import { useNavigate  ,useParams } from 'react-router-dom';
 import logo from '../images/logo.png'
 import axios from 'axios';
 import toastr from 'toastr';
@@ -15,7 +15,7 @@ export default function RendezVous() {
  
  
 
-  const navigate  = usenavigate ();
+  const navigate  = useNavigate  ();
   const token =localStorage.getItem("tokenPatient");
   const idPatient =localStorage.getItem('id_patient')
 

@@ -1,11 +1,11 @@
 import React,{useEffect,useState} from 'react'
-import { Link,usenavigate  } from 'react-router-dom';
+import { Link,useNavigate   } from 'react-router-dom';
 import logo from '../images/logo.png'
 import Search from '../images/Search.svg'
 import axios from 'axios';
 
 export default function SearchMedcine() {
-    const navigate  = usenavigate ();
+    const navigate  = useNavigate  ();
     // const token =localStorage.getItem("tokenPatient");
     // const [city, setCity] = useState("");
     const [speciality, setSpeciality] = useState("");

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import { Link,usenavigate  } from 'react-router-dom';
+import { Link,useNavigate   } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
 import login from '../images/login.svg'
 export default function SignUpMedcine() {
 
 
-    const navigate  = usenavigate ();
+    const navigate  = useNavigate  ();
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {usenavigate ,Link } from "react-router-dom";
+import {useNavigate  ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
@@ -9,7 +9,7 @@ import './espaceMedecin.css'
 
 export default  function SecretaryCompte () {
   
-  const navigate  = usenavigate ();
+  const navigate  = useNavigate  ();
   // const [secretary, setSecretary] = useState();
   const login =localStorage.getItem('LoginMedcine')
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { usenavigate ,Link } from "react-router-dom";
+import { useNavigate  ,Link } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
@@ -8,7 +8,7 @@ import logo from '../images/user.jpg'
 
 export default  function AccountPatient () {
   
-  const navigate  = usenavigate ();
+  const navigate  = useNavigate  ();
 //   const [medcine, setMedcine] = useState();
  const loginPatient =localStorage.getItem('LoginPatient')
  const id =localStorage.getItem('id_patient')

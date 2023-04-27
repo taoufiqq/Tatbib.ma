@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import { Link,usenavigate  } from 'react-router-dom';
+import { Link,useNavigate   } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
 import './login.css'
 export default function SignUpPatient() {
 
 
-    const navigate  = usenavigate ();
+    const navigate  = useNavigate  ();
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");

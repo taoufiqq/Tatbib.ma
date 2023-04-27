@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from "react";
-import { Link,usenavigate  } from 'react-router-dom';
+import { Link,useNavigate   } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
 import toastr from 'toastr';
@@ -7,7 +7,7 @@ import "toastr/build/toastr.css";
 
 export default function CreateOrdonnances() {
 
-    const navigate  = usenavigate ();
+    const navigate  = useNavigate  ();
 
     const [fullNameDoctor, setFullNameDoctor] = useState("");
     const [speciality, setSpeciality] = useState("");

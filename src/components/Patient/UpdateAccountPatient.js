@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {usenavigate } from "react-router-dom";
+import {useNavigate  } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
 
 export default  function UpdateAccountPatient() {
   
-  const navigate  = usenavigate ();
+  const navigate  = useNavigate  ();
   const id =localStorage.getItem('id_patient')
 
   const [firstName, setFirstName] = useState();

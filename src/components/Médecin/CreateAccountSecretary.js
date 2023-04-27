@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link,usenavigate  } from 'react-router-dom';
+import { Link,useNavigate   } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../images/logo.png'
 import toastr from 'toastr';
@@ -8,7 +8,7 @@ import "toastr/build/toastr.css";
 export default function CreateAccountSecretary() {
 
     // var Medecin = JSON.parse(localStorage.getItem('medcine'));
-    const navigate  = usenavigate ();
+    const navigate  = useNavigate  ();
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");

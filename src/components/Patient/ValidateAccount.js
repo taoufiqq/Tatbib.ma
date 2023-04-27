@@ -1,12 +1,12 @@
 import axios from "axios";
 import React,  { useEffect } from "react";
-import { useParams, usenavigate  } from "react-router-dom";
+import { useParams, useNavigate   } from "react-router-dom";
 import toastr from 'toastr';
 import "toastr/build/toastr.css";
 
 const ValidateAccount = () => {
 
-    const navigate  = usenavigate ();
+    const navigate  = useNavigate  ();
 
     const {token} = useParams();
     console.log(token);
