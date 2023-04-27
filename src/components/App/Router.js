@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 
@@ -44,9 +44,13 @@ import AlertAppointment from '../Secretary/AlertAppointment';
 
 function Routing () { 
     return (
+
+
         <BrowserRouter>
         <Routes>
 
+                <Fragment>
+                        
      {/* Routes Acceuil  */}
 
             <Route path='/' exact element={<Acceuil/>} />
@@ -87,8 +91,12 @@ function Routing () {
 
 
 
+                </Fragment>
+
         </Routes>
         </BrowserRouter>
+
+
     );
  }
 
