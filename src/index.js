@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Routes from './elements/App/Router'
+import Routes from './components/App/Router'
 import './fontawesome';
 
 ReactDOM.render(
