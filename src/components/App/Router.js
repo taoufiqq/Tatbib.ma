@@ -1,17 +1,17 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 
 import PrivateRoute from '../Auth/PrivateRouteMedecin';
 import PrivateRouteSecretary from '../Auth/PrivateRouteSecretary'
 import PrivateRoutePatient from '../Auth/PrivateRoutePatient';
 
-// ---------import Components Acceuil----------
+// ---------import elements Acceuil----------
 import Acceuil from '../Home/Acceuil'
 import ResultSearchMedcine from '../Home/ResultSearchMedcine'
 import RendezVous from '../Home/RendezVous'
 
-// ---------import Components Patient----------
+// ---------import elements Patient----------
 import EspacePatient from '../Patient/EspacePatient'
 import LoginPatient from '../Patient/LoginPatient'
 import SignUpPatient from '../Patient/SignUpPatient';
@@ -21,7 +21,7 @@ import SearchMedcine from '../Patient/SearchMedcine';
 import AccountPatient from '../Patient/AccountPatient';
 import UpdateAccountPatient from '../Patient/UpdateAccountPatient';
 import ListOrdonnances from '../Patient/ListOrdonnances';
-// ---------import Components Medecin----------
+// ---------import elements Medecin----------
 import EspaceMedecin from '../Médecin/EspaceMedecin'
 import SignUpMedcine from '../Médecin/SignUpMedcine';
 import CreateAccountSecretary from '../Médecin/CreateAccountSecretary';
@@ -34,7 +34,7 @@ import ManagementAvailablityMedcine from '../Médecin/ManagementAvailablityMedci
 import ListAppointments from '../Médecin/ListAppointments';
 import CreateOrdonnances from '../Médecin/CreateOrdonnances';
 import Ordonnances from '../Médecin/Ordonnances'
-// ---------import Components Secretary----------
+// ---------import elements Secretary----------
 import LoginSecretary from '../Secretary/LoginSecretary';
 import DashboardSecretary from '../Secretary/DashboardSecretary';
 import ConfirmAppointment from '../Secretary/ConfirmAppointment'
@@ -42,54 +42,54 @@ import AlertAppointment from '../Secretary/AlertAppointment';
 
 
 
-function Routes () { 
+function Routing () { 
     return (
         <BrowserRouter>
-        <Switch>
+        <Routes>
 
      {/* Routes Acceuil  */}
 
-            <Route path="/" exact component={Acceuil} />
-            <Route path="/resultSearchMedcine" exact component={ResultSearchMedcine} />
-            <Route path="/rendezVous/:idMedcine/:login" exact component={RendezVous} />
+            <Route path="/" exact element={<Acceuil/>} />
+            <Route path="/resultSearchMedcine" exact element={<ResultSearchMedcine/>} />
+            <Route path="/rendezVous/:idMedcine/:login" exact element={<RendezVous/>} />
 
     {/* Routes Patient  */}
-            <Route path="/espacePatient" exact component={EspacePatient} />
-            <Route path="/loginPatient" exact component={LoginPatient} />
-            <Route path="/signUpPatient" exact component={SignUpPatient} />
-            <Route path="/patient/activateCompte/:token" exact component={ValidateAccount} /> 
-            <PrivateRoutePatient path="/dashboardPatient" exact component={DashboardPatient} /> 
-            <PrivateRoutePatient path="/searchMedcine" exact component={SearchMedcine} /> 
-            <PrivateRoutePatient path="/myAccount" exact component={AccountPatient} /> 
-            <PrivateRoutePatient path="/updateMyAccount" exact component={UpdateAccountPatient} />
-            <PrivateRoutePatient path="/listOrdonnancesPatient" exact component={ListOrdonnances} />  
+            <Route path="/espacePatient" exact element={<EspacePatient/>} />
+            <Route path="/loginPatient" exact element={<LoginPatient/>} />
+            <Route path="/signUpPatient" exact element={<SignUpPatient/>} />
+            <Route path="/patient/activateCompte/:token" exact element={<ValidateAccount/>} /> 
+            <PrivateRoutePatient path="/dashboardPatient" exact element={<DashboardPatient/>} /> 
+            <PrivateRoutePatient path="/searchMedcine" exact element={<SearchMedcine/>} /> 
+            <PrivateRoutePatient path="/myAccount" exact element={<AccountPatient/>} /> 
+            <PrivateRoutePatient path="/updateMyAccount" exact element={<UpdateAccountPatient/>} />
+            <PrivateRoutePatient path="/listOrdonnancesPatient" exact element={<ListOrdonnances/>} />  
 
     {/* Routes Medecin  */}      
-            <Route path="/espaceMédecin" exact component={EspaceMedecin} />
-            <Route path="/loginMedcine" exact component={LoginMedcine} />
-            <Route path="/signUpMedcine" exact component={SignUpMedcine} />
-            <PrivateRoute path="/createAccountSecretary" exact component={CreateAccountSecretary} />
-            <Route path="/medcine/activateCompte/:token" exact component={ValidateAccountMedcine} /> 
-            <PrivateRoute path="/dashboardMedcine" exact component={DashboardMedcine} />
-            <PrivateRoute path="/secretaryCompte" exact component={SecretaryCompte} />
-            <PrivateRoute path="/managementCompteSecretary" exact component={ManagementCompteSecretary} />
-            <PrivateRoute path="/managementAvailablityMedcine" exact component={ManagementAvailablityMedcine} />
-            <PrivateRoute path="/listAppointments" exact component={ListAppointments} />
-            <PrivateRoute path="/createOrdonnance" exact component={CreateOrdonnances} />
-            <PrivateRoute path="/listOrdonnances" exact component={Ordonnances} />
+            <Route path="/espaceMédecin" exact element={<EspaceMedecin/>} />
+            <Route path="/loginMedcine" exact element={<LoginMedcine/>} />
+            <Route path="/signUpMedcine" exact element={<SignUpMedcine/>} />
+            <PrivateRoute path="/createAccountSecretary" exact element={<CreateAccountSecretary/>} />
+            <Route path="/medcine/activateCompte/:token" exact element={<ValidateAccountMedcine/>} /> 
+            <PrivateRoute path="/dashboardMedcine" exact element={<DashboardMedcine/>} />
+            <PrivateRoute path="/secretaryCompte" exact element={<SecretaryCompte/>} />
+            <PrivateRoute path="/managementCompteSecretary" exact element={<ManagementCompteSecretary/>} />
+            <PrivateRoute path="/managementAvailablityMedcine" exact element={<ManagementAvailablityMedcine/>} />
+            <PrivateRoute path="/listAppointments" exact element={<ListAppointments/>} />
+            <PrivateRoute path="/createOrdonnance" exact element={<CreateOrdonnances/>} />
+            <PrivateRoute path="/listOrdonnances" exact element={<Ordonnances/>} />
     {/* Routes Secretary  */}      
-            <Route path="/loginSecretary" exact component={LoginSecretary} />
-            <PrivateRouteSecretary path="/dashboardSecretary" exact component={DashboardSecretary} />
-            <PrivateRouteSecretary path="/confirmAppointment" exact component={ConfirmAppointment} />
-            <PrivateRouteSecretary path="/alertAppointment" exact component={AlertAppointment} />
+            <Route path="/loginSecretary" exact element={<LoginSecretary/>} />
+            <PrivateRouteSecretary path="/dashboardSecretary" exact element={<DashboardSecretary/>} />
+            <PrivateRouteSecretary path="/confirmAppointment" exact element={<ConfirmAppointment/>} />
+            <PrivateRouteSecretary path="/alertAppointment" exact element={<AlertAppointment/>} />
             
 
 
 
 
-        </Switch>
+        </Routes>
         </BrowserRouter>
     );
  }
 
- export default Routes;
+ export default Routing;

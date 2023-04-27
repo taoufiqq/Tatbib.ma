@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { element } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { isAuthenticated } from "./helpsMedecin";
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
+const PrivateRoute = ({ element: element, ...rest }) => (
     <Route
         {...rest}
         render={props =>
             isAuthenticated() ? (
-                <Component {...props} />
+                <element {...props} />
             ) : (
                 <Redirect
                     to={{
